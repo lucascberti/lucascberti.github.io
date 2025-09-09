@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lucas Calabró Berti</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 :root {
   --verde-escuro: #2C3E2F;
@@ -36,7 +38,6 @@ h2 { font-family:'Lora', serif; color:var(--verde-medio); margin-bottom:1rem; bo
 ul { list-style:none; }
 ul li { margin-bottom:1rem; padding-left:1.5rem; position:relative; font-weight:500; }
 ul li::before { content:'✓'; position:absolute; left:0; color:var(--verde-claro); font-weight:bold; }
-
 #podcasts ul li a { display:block; padding:0.8rem 1rem; background-color:var(--verde-medio); color:var(--accent); border-radius:8px; text-decoration:none; transition:all 0.3s; }
 #podcasts ul li a:hover { background-color:var(--verde-claro); color:var(--verde-escuro); }
 
@@ -45,12 +46,14 @@ a:hover { text-decoration:underline; }
 
 footer { background-color:var(--verde-escuro); color:var(--accent); text-align:center; padding:1rem; margin-top:2rem; border-radius:8px 8px 0 0; }
 
+#profile-pic { width:150px; height:150px; border-radius:50%; object-fit:cover; margin-bottom:1rem; border:3px solid var(--verde-claro); }
+
 @media(max-width:600px){
   header h1 { font-size:2rem; }
   header p { font-size:1rem; }
   nav a { display:block; margin:8px 0; }
   section { padding:1rem; }
-  .about-container { flex-direction:column; align-items:center; text-align:center; }
+  #profile-pic { width:120px; height:120px; }
 }
 </style>
 </head>
@@ -70,14 +73,12 @@ footer { background-color:var(--verde-escuro); color:var(--accent); text-align:c
 </header>
 
 <section id="about" class="fade">
+  <img id="profile-pic" src="https://raw.githubusercontent.com/lucascberti/lucasberti.github.io/main/foto-lucas.jpg" alt="Lucas Calabró Berti">
   <h2 id="about-title">Sobre mim</h2>
-  <div class="about-container" style="display:flex; align-items:center; gap:1.5rem;">
-    <img src="https://raw.githubusercontent.com/lucascberti/lucasberti.github.io/main/foto-lucas.jpg" alt="Lucas Berti" style="width:180px; height:180px; border-radius:50%; object-fit:cover; border:4px solid var(--verde-medio);">
-    <p id="about-text">
-      Oi! Eu sou Lucas Calabró Berti, mestrando em Ciência Política no Instituto de Estudos Sociais e Políticos da UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.
-      Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul. Durante a graduação, pesquisei na Universidad de la República, no Uruguai, fui bolsista de Iniciação Científica e monitor, e trabalhei como assessor de redes sociais no Legislativo federal.
-    </p>
-  </div>
+  <p id="about-text">
+    Sou mestrando em Ciência Política no Instituto de Estudos Sociais e Políticos da UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.<br><br>
+    Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul. Durante a graduação, pesquisei na Universidad de la República, no Uruguai, fui bolsista de Iniciação Científica e monitor, e trabalhei como assessor de redes sociais no Legislativo federal.
+  </p>
 </section>
 
 <section id="career" class="fade">
@@ -123,9 +124,10 @@ const texts = {
   en: {
     subtitle: 'Political Scientist • Researcher',
     nav: { about:'About', career:'Career', projects:'Projects', podcasts:'Podcasts', contact:'Contact' },
-    about: { title:'About Me', text:"Hi! I’m Lucas Calabró Berti, a master’s student in Political Science at the Institute of Social and Political Studies (IESP) at UERJ and a Political Science graduate from UNIRIO. I research and write about South American politics, institutions, and public policies, focusing on presidentialism, executive-legislative relations, and government coalitions—mainly in Brazil, Uruguay, and Peru.<br><br>I’m currently part of the South American Political Observatory (OPSA/IESP), the Congress Studies Group (NECON/IESP), and the International and Global South Relations Group (GRISUL/UNIRIO). I also edit the monthly journal Conjuntura Latitude Sul. During my undergraduate studies, I conducted research at Universidad de la República in Uruguay, was a research and teaching assistant, and worked as a social media advisor in the Brazilian federal legislature." },
+    about: { title:'About Me', text:`Hi! I’m Lucas Calabró Berti, a master’s student in Political Science at the Institute of Social and Political Studies (IESP) at UERJ and a Political Science graduate from UNIRIO. I research and write about South American politics, institutions, and public policies, focusing on presidentialism, executive-legislative relations, and government coalitions—mainly in Brazil, Uruguay, and Peru.<br><br>
+I’m currently part of the South American Political Observatory (OPSA/IESP), the Congress Studies Group (NECON/IESP), and the International and Global South Relations Group (GRISUL/UNIRIO). I also edit the monthly journal Conjuntura Latitude Sul. During my undergraduate studies, I conducted research at Universidad de la República in Uruguay, was a research and teaching assistant, and worked as a social media advisor in the Brazilian federal legislature.` },
     career: { title:'Professional Career', list:[
-      '<b>Researcher at OPSA</b> – Monthly analyses on Peruvian politics',
+      '<b>Researcher at OPSA</b> – Produces monthly analyses on Peruvian politics',
       '<b>Researcher at NECON</b> – Research on the functioning of the National Congress',
       '<b>Researcher at GRISUL</b> – Studies on the Global South and Latin America'
     ]},
@@ -139,7 +141,7 @@ const texts = {
   pt: {
     subtitle: 'Cientista Político • Pesquisador',
     nav: { about:'Sobre mim', career:'Atuação', projects:'Projetos', podcasts:'Podcasts', contact:'Contato' },
-    about: { title:'Sobre mim', text:'Oi! Eu sou Lucas Calabró Berti, mestrando em Ciência Política no Instituto de Estudos Sociais e Políticos da UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.<br><br>Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul. Durante a graduação, pesquisei na Universidad de la República, no Uruguai, fui bolsista de Iniciação Científica e monitor, e trabalhei como assessor de redes sociais no Legislativo federal.' },
+    about: { title:'Sobre mim', text:'Sou mestrando em Ciência Política no IESP-UERJ e graduado em Ciência Política pela UNIRIO. Pesquiso no OPSA, NECON e GRISUL. Experiência em pesquisa qualitativa e quantitativa sobre estabilidade presidencial, relações Executivo-Legislativo, política comparada e instituições políticas.' },
     career: { title:'Atuação Profissional', list:[
       '<b>Pesquisador no OPSA</b> – Produção de análises mensais sobre política peruana',
       '<b>Pesquisador do NECON</b> – Pesquisas sobre o funcionamento do Congresso Nacional',
@@ -178,8 +180,21 @@ function switchLanguage() {
     document.querySelector('.language-switch').innerText = (lang === 'pt') ? 'EN' : 'PT';
 
     sections.forEach(sec => sec.classList.remove('fade-out'));
-  }, 500);
+  }, 300);
 }
+
+// Scroll suave para seções, corrigido para offset do header
+document.querySelectorAll('nav a').forEach(anchor => {
+  anchor.addEventListener('click', function(e){
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    const offset = 90; // altura do header
+    window.scrollTo({
+      top: target.offsetTop - offset,
+      behavior: 'smooth'
+    });
+  });
+});
 </script>
 
 </body>
