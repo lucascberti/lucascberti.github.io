@@ -29,7 +29,7 @@ nav a:hover { color:var(--verde-claro); }
 .language-switch { position:absolute; top:1rem; right:1rem; background-color:var(--verde-medio); color:var(--accent); border:none; padding:0.5rem 1rem; border-radius:6px; cursor:pointer; font-weight:bold; transition:0.3s; }
 .language-switch:hover { background-color:var(--verde-claro); color:var(--verde-escuro); }
 
-/* Fade suave para seções */
+/* Fade suave */
 .fade { opacity: 1; transition: opacity 0.5s ease; }
 .fade-out { opacity: 0; }
 
@@ -38,10 +38,13 @@ h2 { font-family:'Lora', serif; color:var(--verde-medio); margin-bottom:1rem; bo
 ul { list-style:none; }
 ul li { margin-bottom:1rem; padding-left:1.5rem; position:relative; font-weight:500; }
 ul li::before { content:'✓'; position:absolute; left:0; color:var(--verde-claro); font-weight:bold; }
+
 #podcasts ul li a { display:block; padding:0.8rem 1rem; background-color:var(--verde-medio); color:var(--accent); border-radius:8px; text-decoration:none; transition:all 0.3s; }
 #podcasts ul li a:hover { background-color:var(--verde-claro); color:var(--verde-escuro); }
+
 a { color:var(--verde-medio); text-decoration:none; }
 a:hover { text-decoration:underline; }
+
 footer { background-color:var(--verde-escuro); color:var(--accent); text-align:center; padding:1rem; margin-top:2rem; border-radius:8px 8px 0 0; }
 
 @media(max-width:600px){
@@ -67,14 +70,20 @@ footer { background-color:var(--verde-escuro); color:var(--accent); text-align:c
   </nav>
 </header>
 
+<!-- Sobre -->
 <section id="about" class="fade">
   <h2 id="about-title">Sobre mim</h2>
-  <p id="about-text">Oi! Eu sou Lucas Calabró Berti, mestrando em Ciência Política no Instituto de Estudos Sociais e Políticos da UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.
+  <div style="display:flex; flex-wrap:wrap; align-items:center; gap:1.5rem;">
+    <img src="perfil.jpg" alt="Lucas Berti" style="width:180px; height:180px; border-radius:50%; object-fit:cover; border:4px solid var(--verde-medio);">
+    <p id="about-text">
+      Oi! Eu sou Lucas Calabró Berti, mestrando em Ciência Política no IESP-UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.
 
-Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul. Durante a graduação, pesquisei na Universidad de la República, no Uruguai, fui bolsista de Iniciação Científica e monitor, e trabalhei como assessor de redes sociais no Legislativo federal.
-</p>
+      Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul. Durante a graduação, pesquisei na Universidad de la República, no Uruguai, fui bolsista de Iniciação Científica e monitor, e trabalhei como assessor de redes sociais no Legislativo federal.
+    </p>
+  </div>
 </section>
 
+<!-- Atuação -->
 <section id="career" class="fade">
   <h2 id="career-title">Atuação Profissional</h2>
   <ul id="career-list">
@@ -84,6 +93,7 @@ Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do 
   </ul>
 </section>
 
+<!-- Projetos -->
 <section id="projects" class="fade">
   <h2 id="projects-title">Projetos</h2>
   <ul id="projects-list">
@@ -91,6 +101,7 @@ Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do 
   </ul>
 </section>
 
+<!-- Podcasts -->
 <section id="podcasts" class="fade">
   <h2 id="podcasts-title">Podcasts</h2>
   <ul id="podcasts-list">
@@ -99,10 +110,10 @@ Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do 
   </ul>
 </section>
 
+<!-- Contato -->
 <section id="contact" class="fade">
   <h2 id="contact-title">Contato</h2>
-  <p>📧 <a href="mailto:lucasberti@iesp.uerj.br">lucasberti@iesp.uerj.br</a></p>
-  
+  <p>📧 <a href="mailto:lucasberti@iesp.uerj.br">lucasberti@iesp.uerj.**br**</a></p>
   <p>🔗 <a href="https://www.linkedin.com/in/lucascberti11" target="_blank">LinkedIn</a> | 
       <a href="https://github.com/lucascberti" target="_blank">GitHub</a> | 
       <a href="http://lattes.cnpq.br/3201012395712916" target="_blank">Lattes</a></p>
@@ -119,8 +130,7 @@ const texts = {
   en: {
     subtitle: 'Political Scientist • Researcher',
     nav: { about:'About', career:'Career', projects:'Projects', podcasts:'Podcasts', contact:'Contact' },
-    about: { title:'About Me', text:"Hi! I’m Lucas Calabró Berti, a master’s student in Political Science at the Institute of Social and Political Studies (IESP) at UERJ and a Political Science graduate from UNIRIO. I research and write about South American politics, institutions, and public policies, focusing on presidentialism, executive-legislative relations, and government coalitions—mainly in Brazil, Uruguay, and Peru.
-I’m currently part of the South American Political Observatory (OPSA/IESP), the Congress Studies Group (NECON/IESP), and the International and Global South Relations Group (GRISUL/UNIRIO). I also edit the monthly journal Conjuntura Latitude Sul. During my undergraduate studies, I conducted research at Universidad de la República in Uruguay, was a research and teaching assistant, and worked as a social media advisor in the Brazilian federal legislature." },
+    about: { title:'About Me', text:"Hi! I’m Lucas Calabró Berti, a master’s student in Political Science at the Institute of Social and Political Studies (IESP) at UERJ and a Political Science graduate from UNIRIO. I research and write about South American politics, institutions, and public policies, focusing on presidentialism, executive-legislative relations, and government coalitions—mainly in Brazil, Uruguay, and Peru. I’m currently part of the South American Political Observatory (OPSA/IESP), the Congress Studies Group (NECON/IESP), and the International and Global South Relations Group (GRISUL/UNIRIO). I also edit the monthly journal Conjuntura Latitude Sul. During my undergraduate studies, I conducted research at Universidad de la República in Uruguay, was a research and teaching assistant, and worked as a social media advisor in the Brazilian federal legislature." },
     career: { title:'Professional Career', list:[
       '<b>Researcher at OPSA</b> – Produces monthly analyses on Peruvian politics',
       '<b>Researcher at NECON</b> – Research on the functioning of the National Congress',
@@ -139,46 +149,4 @@ I’m currently part of the South American Political Observatory (OPSA/IESP), th
     about: { title:'Sobre mim', text:'Sou mestrando em Ciência Política no IESP-UERJ e graduado em Ciência Política pela UNIRIO. Pesquiso no OPSA, NECON e GRISUL. Experiência em pesquisa qualitativa e quantitativa sobre estabilidade presidencial, relações Executivo-Legislativo, política comparada e instituições políticas.' },
     career: { title:'Atuação Profissional', list:[
       '<b>Pesquisador no OPSA</b> – Produção de análises mensais sobre política peruana',
-      '<b>Pesquisador do NECON</b> – Pesquisas sobre o funcionamento do Congresso Nacional',
-      '<b>Pesquisador do GRISUL</b> – Estudos sobre o Sul Global e América Latina'
-    ]},
-    projects: { title:'Projetos', list:['<b>Conjuntura Latitude Sul</b> – Editor de análises mensais sobre política sul-americana']},
-    podcasts: { title:'Podcasts', list:[
-      '<a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Mesmo em crise, Peru pode superar Brasil e México? – Mundioka</a>',
-      '<a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 México: Justiça nas urnas – Mundioka</a>'
-    ]},
-    contact: { title:'Contato' }
-  }
-};
-
-function switchLanguage() {
-  const sections = document.querySelectorAll('.fade');
-  sections.forEach(sec => sec.classList.add('fade-out'));
-  setTimeout(() => {
-    lang = (lang === 'pt') ? 'en' : 'pt';
-    
-    document.getElementById('subtitle').innerText = texts[lang].subtitle;
-    document.getElementById('nav-about').innerText = texts[lang].nav.about;
-    document.getElementById('nav-career').innerText = texts[lang].nav.career;
-    document.getElementById('nav-projects').innerText = texts[lang].nav.projects;
-    document.getElementById('nav-podcasts').innerText = texts[lang].nav.podcasts;
-    document.getElementById('nav-contact').innerText = texts[lang].nav.contact;
-    document.getElementById('about-title').innerText = texts[lang].about.title;
-    document.getElementById('about-text').innerText = texts[lang].about.text;
-    document.getElementById('career-title').innerText = texts[lang].career.title;
-    document.getElementById('career-list').innerHTML = texts[lang].career.list.map(li => `<li>${li}</li>`).join('');
-    document.getElementById('projects-title').innerText = texts[lang].projects.title;
-    document.getElementById('projects-list').innerHTML = texts[lang].projects.list.map(li => `<li>${li}</li>`).join('');
-    document.getElementById('podcasts-title').innerText = texts[lang].podcasts.title;
-    document.getElementById('podcasts-list').innerHTML = texts[lang].podcasts.list.map(li => `<li>${li}</li>`).join('');
-    document.getElementById('contact-title').innerText = texts[lang].contact.title;
-    document.querySelector('.language-switch').innerText = (lang === 'pt') ? 'EN' : 'PT';
-
-    sections.forEach(sec => sec.classList.remove('fade-out'));
-  }, 500);
-}
-</script>
-
-</body>
-</html>
-
+      '<b>Pesquisador do NECON</b> – Pesquisas sobre o funcionamento do Congresso
