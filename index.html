@@ -26,15 +26,26 @@ body {
   scroll-behavior: smooth;
 }
 
-header { 
-  background-color:var(--verde-escuro); 
-  color:var(--accent); 
-  text-align:center; 
-  padding:2rem 1rem; 
-  position:sticky; top:0; z-index:1000; 
+header {
+  background-color: var(--verde-escuro);
+  color: var(--accent);
+  text-align: center;
+  padding: 1.5rem 1rem; /* Reduzi o padding vertical */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-header h1 { font-family:'Lora', serif; font-size:3rem; margin-bottom:0.5rem; }
-header p { font-size:1.2rem; margin-bottom:1rem; }
+
+header h1 {
+  font-family: 'Lora', serif;
+  font-size: 2.2rem; /* Reduzi o tamanho do título */
+  margin-bottom: 0.3rem; /* Reduzi o espaçamento */
+}
+
+header p {
+  font-size: 1rem; /* Reduzi o subtítulo */
+  margin-bottom: 0.8rem;
+}
 
 nav a { color:var(--accent); text-decoration:none; margin:0 15px; font-weight:bold; transition:color 0.3s; }
 nav a:hover { color:var(--verde-claro); }
