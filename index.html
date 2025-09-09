@@ -3,66 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lucas Calabró Berti</title>
+  <title>Lucas Berti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Paleta Verde Militar */
+    :root {
+      --verde-escuro: #2C3E2F;
+      --verde-medio: #4B5D3A;
+      --verde-claro: #A3B18A;
+      --offwhite: #F5F5F0;
+      --accent: #D9E4DD;
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
-      color: #333;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--offwhite);
+      color: var(--verde-escuro);
       line-height: 1.6;
     }
+
     header {
-      background: #007acc;
-      color: white;
+      background-color: var(--verde-escuro);
+      color: var(--accent);
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
     }
+
     header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
     }
-    nav {
-      margin-top: 1rem;
+
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
     }
+
     nav a {
-      color: white;
-      margin: 0 10px;
+      color: var(--accent);
       text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
+      transition: color 0.3s;
     }
+
+    nav a:hover {
+      color: var(--verde-claro);
+    }
+
     section {
-      max-width: 800px;
-      margin: 2rem auto;
+      max-width: 900px;
+      margin: 3rem auto;
       padding: 1rem;
     }
+
     h2 {
-      color: #007acc;
-      border-bottom: 2px solid #007acc;
+      color: var(--verde-medio);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--verde-claro);
+      display: inline-block;
       padding-bottom: 5px;
     }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--verde-claro);
+    }
+
+    a {
+      color: var(--verde-medio);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     footer {
+      background-color: var(--verde-escuro);
+      color: var(--accent);
       text-align: center;
       padding: 1rem;
-      background: #eee;
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
-    a {
-      color: #007acc;
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Lucas Berti</h1>
-    <p>Ciência Política & Pesquisa </p>
-    <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </header>
+
 
   <section id="sobre">
     <h2>Sobre mim</h2>
@@ -82,6 +141,7 @@
     <p>📧 <a href="mailto:lucasberti@iesp.uerj.br">lucasberti@iesp.uerj.br</a></p>
     <p>🔗 <a href="https://www.linkedin.com/in/lucascberti11" target="_blank">LinkedIn</a> | 
         <a href="https://github.com/lucascberti" target="_blank">GitHub</a></p>
+       <a href=" http://lattes.cnpq.br/3201012395712916" target="_blank"">Lattes</a></p>
   </section>
 
   <footer>
