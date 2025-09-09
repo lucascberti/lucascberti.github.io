@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lucas Calabró Berti</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     /* Paleta Verde Militar */
     :root {
@@ -26,23 +29,29 @@
       background-color: var(--offwhite);
       color: var(--verde-escuro);
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
+    /* Navbar */
     header {
       background-color: var(--verde-escuro);
       color: var(--accent);
       text-align: center;
-      padding: 3rem 1rem;
+      padding: 2rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     header h1 {
+      font-family: 'Lora', serif;
       font-size: 3rem;
       margin-bottom: 0.5rem;
     }
 
     header p {
       font-size: 1.2rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     nav a {
@@ -57,13 +66,18 @@
       color: var(--verde-claro);
     }
 
+    /* Sections como cards */
     section {
       max-width: 900px;
-      margin: 3rem auto;
-      padding: 1rem;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: var(--accent);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     h2 {
+      font-family: 'Lora', serif;
       color: var(--verde-medio);
       margin-bottom: 1rem;
       border-bottom: 2px solid var(--verde-claro);
@@ -77,8 +91,9 @@
 
     ul li {
       margin-bottom: 1rem;
-      padding-left: 1rem;
+      padding-left: 1.5rem;
       position: relative;
+      font-weight: 500;
     }
 
     ul li::before {
@@ -86,8 +101,26 @@
       position: absolute;
       left: 0;
       color: var(--verde-claro);
+      font-weight: bold;
     }
 
+    /* Links de podcasts */
+    #podcasts ul li a {
+      display: block;
+      padding: 0.8rem 1rem;
+      background-color: var(--verde-medio);
+      color: var(--accent);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    #podcasts ul li a:hover {
+      background-color: var(--verde-claro);
+      color: var(--verde-escuro);
+    }
+
+    /* Links gerais */
     a {
       color: var(--verde-medio);
       text-decoration: none;
@@ -102,7 +135,8 @@
       color: var(--accent);
       text-align: center;
       padding: 1rem;
-      margin-top: 3rem;
+      margin-top: 2rem;
+      border-radius: 8px 8px 0 0;
     }
 
     /* Responsividade */
@@ -115,14 +149,16 @@
       }
       nav a {
         display: block;
-        margin: 10px 0;
+        margin: 8px 0;
+      }
+      section {
+        padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Cabeçalho -->
   <header>
     <h1>Lucas Calabró Berti</h1>
     <p>Cientista Político • Pesquisador</p>
@@ -135,41 +171,43 @@
     </nav>
   </header>
 
-  <!-- Sobre -->
   <section id="sobre">
     <h2>Sobre mim</h2>
-    <p>Sou mestrando em Ciência Política no Instituto de Estudos Sociais e Políticos da UERJ (IESP-UERJ) e Cientista Político graduado pela UNIRIO. Pesquiso no Observatório Político Sul-americano (OPSA/IESP), no Núcleo de Estudos sobre o Congresso (NECON/IESP) e no Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). 
-       Tenho experiência com pesquisa qualitativa e quantitativa em estabilidade presidencial, relações Executivo-Legislativo, política comparada e instituições políticas.</p>
+    <p>Sou mestrando em Ciência Política no Instituto de Estudos Sociais e Políticos da UERJ (IESP-UERJ) e Cientista Político graduado pela UNIRIO. Pesquiso no Observatório Político Sul-americano (OPSA/IESP), no Núcleo de Estudos sobre o Congresso (NECON/IESP) e no Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Tenho experiência com pesquisa qualitativa e quantitativa em estabilidade presidencial, relações Executivo-Legislativo, política comparada e instituições políticas.</p>
   </section>
 
-  <!-- Atuação -->
   <section id="atuacao">
     <h2>Atuação Profissional</h2>
     <ul>
       <li><b>Pesquisador no OPSA</b> – Produção de análises mensais sobre política peruana</li>
       <li><b>Pesquisador do NECON</b> – Pesquisas sobre o funcionamento do Congresso Nacional</li>
-      <li><b>Pesquisador do GRISUL</b> – Estudos e pesquisas sobre o Sul Global, especialmente América Latina.</li>
+      <li><b>Pesquisador do GRISUL</b> – Estudos e pesquisas sobre o Sul Global, especialmente América Latina</li>
     </ul>
   </section>
-  
-  <!-- Podcasts -->
+
+  <section id="projetos">
+    <h2>Projetos</h2>
+    <ul>
+      <li><b>Conjuntura Latitude Sul</b> – Editor de análises mensais sobre política sul-americana</li>
+    </ul>
+  </section>
+
   <section id="podcasts">
     <h2>Podcasts</h2>
     <ul>
       <li>
-        <a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l?si=d9466c8954114f24&nd=1&dlsi=84f5927fc33841d5" target="_blank">
+        <a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">
           #581 Mesmo em crise, Peru pode superar Brasil e México? – Mundioka
         </a>
       </li>
       <li>
-        <a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY?si=f7ab18c368ad4fd5&nd=1&dlsi=7b5a34c1fdeb42b5" target="_blank">
+        <a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">
           #644 México: Justiça nas urnas – Mundioka
         </a>
       </li>
     </ul>
   </section>
-  
-  <!-- Contato -->
+
   <section id="contato">
     <h2>Contato</h2>
     <p>📧 <a href="mailto:lucasberti@iesp.uerj.br">lucasberti@iesp.uerj.br</a></p>
@@ -178,9 +216,8 @@
         <a href="http://lattes.cnpq.br/3201012395712916" target="_blank">Lattes</a></p>
   </section>
 
-  <!-- Rodapé -->
   <footer>
-    <p>© 2025 - Lucas Berti</p>
+    © 2025 - Lucas Berti
   </footer>
 
 </body>
