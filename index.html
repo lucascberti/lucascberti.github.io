@@ -30,17 +30,7 @@ header {
   background-color: var(--verde-escuro);
   color: var(--accent);
   text-align: center;
-  padding: 1.5rem 1rem; /* Reduzi o padding vertical */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-header {
-  background-color: var(--verde-escuro);
-  color: var(--accent);
-  text-align: center;
-  padding: 1rem 1rem; /* ainda menor */
+  padding: 1rem 1rem;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -48,12 +38,12 @@ header {
 
 header h1 {
   font-family: 'Lora', serif;
-  font-size: 1.8rem; /* título menor */
+  font-size: 1.8rem;
   margin-bottom: 0.2rem;
 }
 
 header p {
-  font-size: 0.9rem; /* subtítulo menor */
+  font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
 
@@ -81,8 +71,8 @@ nav a:hover { color:var(--verde-claro); }
 
 .profile-pic-container img {
   width: 250px;
-  border-radius: 0; /* Foto quadrada */
-  3px solid var(--verde-medio);
+  border-radius: 0;
+  border: 3px solid var(--verde-medio);
 }
 
 .content-container {
@@ -126,9 +116,10 @@ footer { background-color:var(--verde-escuro); color:var(--accent); text-align:c
   <button class="language-switch" onclick="switchLanguage()">EN</button>
   <nav>
     <a href="#about" id="nav-about">Sobre mim</a>
-    <a href="#career" id="nav-career">Atuação</a>
+    <a href="#career" id="nav-career">Formação</a>
     <a href="#projects" id="nav-projects">Projetos</a>
     <a href="#podcasts" id="nav-podcasts">Podcasts</a>
+    <a href="#languages" id="nav-languages">Idiomas</a>
     <a href="#contact" id="nav-contact">Contato</a>
   </nav>
 </header>
@@ -149,18 +140,17 @@ footer { background-color:var(--verde-escuro); color:var(--accent); text-align:c
     </section>
 
     <section id="career">
-      <h2 id="career-title">Atuação acadêmica</h2>
+      <h2 id="career-title">Formação Acadêmica</h2>
       <ul id="career-list">
-        <li><b>Pesquisador no OPSA</b> – Produção de análises mensais sobre política peruana</li>
-        <li><b>Pesquisador do NECON</b> – Pesquisas sobre o funcionamento do Congresso Nacional</li>
-        <li><b>Pesquisador do GRISUL</b> – Estudos sobre o Sul Global e América Latina</li>
+        <li><b>Mestrado em Ciência Política</b> – IESP-UERJ<br>Orientador: Fabiano Santos</li>
+        <li><b>Bacharel em Ciência Política</b> – UNIRIO<br>Orientador: André Coelho (<a href="http://lattes.cnpq.br/3201012395712916" target="_blank">TCC</a>)</li>
       </ul>
     </section>
 
     <section id="projects">
       <h2 id="projects-title">Projetos</h2>
       <ul id="projects-list">
-        <li><b>Conjuntura Latitude Sul</b> – Editor de análises mensais sobre política sul-americana</li>
+        <li><b>Conjuntura Latitude Sul</b> – Editor de análises mensais sobre política sul-americana (<a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">link</a>)</li>
       </ul>
     </section>
 
@@ -169,6 +159,17 @@ footer { background-color:var(--verde-escuro); color:var(--accent); text-align:c
       <ul id="podcasts-list">
         <li><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Mesmo em crise, Peru pode superar Brasil e México? – Mundioka</a></li>
         <li><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 México: Justiça nas urnas – Mundioka</a></li>
+      </ul>
+    </section>
+
+    <section id="languages">
+      <h2 id="languages-title">Idiomas</h2>
+      <ul id="languages-list">
+        <li>Português – Nativo</li>
+        <li>Inglês – Fluente</li>
+        <li>Francês – Avançado</li>
+        <li>Espanhol – Avançado</li>
+        <li>Italiano – Intermediário</li>
       </ul>
     </section>
 
@@ -191,57 +192,83 @@ footer { background-color:var(--verde-escuro); color:var(--accent); text-align:c
 let lang = 'pt';
 
 const texts = {
-  en: {
+  en:{
     subtitle:'Political Scientist • Researcher',
-    nav:{about:'About', career:'Career', projects:'Projects', podcasts:'Podcasts', contact:'Contact'},
-    about:{title:'About Me', text:"Hi! I’m Lucas Calabró Berti, a master’s student in Political Science at IESP-UERJ and Political Science graduate from UNIRIO. I research South American politics, institutions, and public policies, focusing on presidentialism, executive-legislative relations, and government coalitions—mainly in Brazil, Uruguay, and Peru. I’m part of OPSA, NECON, and GRISUL. I also edit the monthly journal Conjuntura Latitude Sul."},
-    career:{title:'Professional Career', list:[
-      '<b>Researcher at OPSA</b> – Monthly analyses on Peruvian politics',
-      '<b>Researcher at NECON</b> – Researches on the functioning of the National Congress',
-      '<b>Researcher at GRISUL</b> – Studies on the Global South and Latin America'
+    nav:{about:'About', career:'Education', projects:'Projects', podcasts:'Podcasts', languages:'Languages', contact:'Contact'},
+    about:{title:'About Me', text:"Hi! I’m Lucas Calabró Berti, a master's student in Political Science at IESP-UERJ and a Political Science graduate from UNIRIO. I research South American politics, institutions, and public policies, focusing on presidentialism, executive-legislative relations, and government coalitions—mainly in Brazil, Uruguay, and Peru. I’m part of OPSA, NECON, and GRISUL. I also edit the monthly journal Conjuntura Latitude Sul."},
+    career:{title:'Academic Background', list:[
+      '<b>Master in Political Science</b> – IESP-UERJ<br>Advisor: Fabiano Santos',
+      '<b>Bachelor in Political Science</b> – UNIRIO<br>Advisor: André Coelho (<a href="http://lattes.cnpq.br/3201012395712916" target="_blank">TCC</a>)'
     ]},
-    projects:{title:'Projects', list:['<b>Conjuntura Latitude Sul</b> – Editor of monthly analyses on South American politics']},
+    projects:{title:'Projects', list:[
+      '<b>Conjuntura Latitude Sul</b> – Editor of monthly analyses on South American politics (<a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">link</a>)'
+    ]},
     podcasts:{title:'Podcasts', list:[
       '<a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Even in crisis, can Peru outperform Brazil and Mexico? – Mundioka</a>',
       '<a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 Mexico: Justice at the polls – Mundioka</a>'
     ]},
+    languages:{title:'Languages', list:[
+      'Portuguese – Native',
+      'English – Fluent',
+      'French – Advanced',
+      'Spanish – Advanced',
+      'Italian – Intermediate'
+    ]},
     contact:{title:'Contact'}
   },
-  pt: {
+  pt:{
     subtitle:'Cientista Político • Pesquisador',
-    nav:{about:'Sobre mim', career:'Atuação', projects:'Projetos', podcasts:'Podcasts', contact:'Contato'},
+    nav:{about:'Sobre mim', career:'Formação', projects:'Projetos', podcasts:'Podcasts', languages:'Idiomas', contact:'Contato'},
     about:{title:'Sobre mim', text:'Sou mestrando em Ciência Política no IESP-UERJ e graduado em Ciência Política pela UNIRIO. Pesquiso no OPSA, NECON e GRISUL. Experiência em pesquisa qualitativa e quantitativa sobre estabilidade presidencial, relações Executivo-Legislativo, política comparada e instituições políticas.'},
-    career:{title:'Atuação', list:[
-      '<b>Pesquisador no OPSA</b> – Produção de análises mensais sobre política peruana',
-      '<b>Pesquisador do NECON</b> – Pesquisas sobre o funcionamento do Congresso Nacional',
-      '<b>Pesquisador do GRISUL</b> – Estudos sobre o Sul Global e América Latina'
+    career:{title:'Formação Acadêmica', list:[
+      '<b>Mestrado em Ciência Política</b> – IESP-UERJ<br>Orientador: Fabiano Santos',
+      '<b>Bacharel em Ciência Política</b> – UNIRIO<br>Orientador: André Coelho (<a href="http://lattes.cnpq.br/3201012395712916" target="_blank">TCC</a>)'
     ]},
-    projects:{title:'Projetos', list:['<b>Conjuntura Latitude Sul</b> – Editor de análises mensais sobre política sul-americana']},
+    projects:{title:'Projetos', list:[
+      '<b>Conjuntura Latitude Sul</b> – Editor de análises mensais sobre política sul-americana (<a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">link</a>)'
+    ]},
     podcasts:{title:'Podcasts', list:[
       '<a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Mesmo em crise, Peru pode superar Brasil e México? – Mundioka</a>',
       '<a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 México: Justiça nas urnas – Mundioka</a>'
+    ]},
+    languages:{title:'Idiomas', list:[
+      'Português – Nativo',
+      'Inglês – Fluente',
+      'Francês – Avançado',
+      'Espanhol – Avançado',
+      'Italiano – Intermediário'
     ]},
     contact:{title:'Contato'}
   }
 };
 
 function switchLanguage(){
-  lang = (lang==='pt') ? 'en':'pt';
+  lang = (lang==='pt')?'en':'pt';
   document.getElementById('subtitle').innerText = texts[lang].subtitle;
   document.getElementById('nav-about').innerText = texts[lang].nav.about;
   document.getElementById('nav-career').innerText = texts[lang].nav.career;
   document.getElementById('nav-projects').innerText = texts[lang].nav.projects;
   document.getElementById('nav-podcasts').innerText = texts[lang].nav.podcasts;
+  document.getElementById('nav-languages').innerText = texts[lang].nav.languages;
   document.getElementById('nav-contact').innerText = texts[lang].nav.contact;
+
   document.getElementById('about-title').innerText = texts[lang].about.title;
   document.getElementById('about-text').innerText = texts[lang].about.text;
+
   document.getElementById('career-title').innerText = texts[lang].career.title;
   document.getElementById('career-list').innerHTML = texts[lang].career.list.map(li=>`<li>${li}</li>`).join('');
+
   document.getElementById('projects-title').innerText = texts[lang].projects.title;
   document.getElementById('projects-list').innerHTML = texts[lang].projects.list.map(li=>`<li>${li}</li>`).join('');
+
   document.getElementById('podcasts-title').innerText = texts[lang].podcasts.title;
   document.getElementById('podcasts-list').innerHTML = texts[lang].podcasts.list.map(li=>`<li>${li}</li>`).join('');
+
+  document.getElementById('languages-title').innerText = texts[lang].languages.title;
+  document.getElementById('languages-list').innerHTML = texts[lang].languages.list.map(li=>`<li>${li}</li>`).join('');
+
   document.getElementById('contact-title').innerText = texts[lang].contact.title;
+
   document.querySelector('.language-switch').innerText = (lang==='pt')?'EN':'PT';
 }
 </script>
