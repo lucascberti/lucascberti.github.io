@@ -36,15 +36,25 @@ header {
   z-index: 1000;
 }
 
+header {
+  background-color: var(--verde-escuro);
+  color: var(--accent);
+  text-align: center;
+  padding: 1rem 1rem; /* ainda menor */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 header h1 {
   font-family: 'Lora', serif;
-  font-size: 2.2rem; /* Reduzi o tamanho do título */
-  margin-bottom: 0.3rem; /* Reduzi o espaçamento */
+  font-size: 1.8rem; /* título menor */
+  margin-bottom: 0.2rem;
 }
 
 header p {
-  font-size: 1rem; /* Reduzi o subtítulo */
-  margin-bottom: 0.8rem;
+  font-size: 0.9rem; /* subtítulo menor */
+  margin-bottom: 0.5rem;
 }
 
 nav a { color:var(--accent); text-decoration:none; margin:0 15px; font-weight:bold; transition:color 0.3s; }
