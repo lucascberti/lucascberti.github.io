@@ -134,8 +134,8 @@ footer { background-color:var(--verde-escuro); color:var(--accent); text-align:c
     <section id="about">
       <h2 id="about-title">Sobre mim</h2>
       <p id="about-text">
-      Oi! Eu sou Lucas Calabró Berti, mestrando em Ciência Política no IESP-UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.
-      Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.
+        Oi! Eu sou Lucas Calabró Berti, mestrando em Ciência Política no IESP-UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.
+        Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.
       </p>
     </section>
 
@@ -219,8 +219,7 @@ const texts = {
   pt:{
     subtitle:'Cientista Político • Pesquisador',
     nav:{about:'Sobre mim', career:'Formação', projects:'Projetos', podcasts:'Podcasts', languages:'Idiomas', contact:'Contato'},
-    about:{title:'Sobre mim', text:' Oi! Eu sou Lucas Calabró Berti, mestrando em Ciência Política no IESP-UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.
-      Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.'},
+    about:{title:'Sobre mim', text:'Oi! Eu sou Lucas Calabró Berti, mestrando em Ciência Política no IESP-UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru. Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.'},
     career:{title:'Formação Acadêmica', list:[
       '<b>Mestrado em Ciência Política</b> – IESP-UERJ<br>Orientador: Prof. Dr. Fabiano Santos',
       '<b>Bacharel em Ciência Política</b> – UNIRIO<br>Orientador: Prof. Dr. André Coelho'
@@ -254,7 +253,7 @@ function switchLanguage(){
   document.getElementById('nav-contact').innerText = texts[lang].nav.contact;
 
   document.getElementById('about-title').innerText = texts[lang].about.title;
-  document.getElementById('about-text').innerText = texts[lang].about.text;
+  document.getElementById('about-text').innerHTML = texts[lang].about.text;
 
   document.getElementById('career-title').innerText = texts[lang].career.title;
   document.getElementById('career-list').innerHTML = texts[lang].career.list.map(li=>`<li>${li}</li>`).join('');
