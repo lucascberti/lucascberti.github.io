@@ -26,15 +26,13 @@
       background-color: var(--verde-escuro);
       color: var(--accent);
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 1rem 1rem;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-
-    header h1 { font-size: 2rem; margin-bottom: 0.3rem; }
-    header p { font-size: 1rem; margin-bottom: 1rem; }
-
+    header h1 { font-size: 1.8rem; margin-bottom: 0.3rem; }
+    header p { font-size: 0.95rem; margin-bottom: 0.7rem; }
     nav a {
       color: var(--accent);
       text-decoration: none;
@@ -43,7 +41,6 @@
       transition: color 0.3s;
     }
     nav a:hover { color: var(--verde-claro); }
-
     #lang-toggle {
       background: var(--verde-medio);
       border: none;
@@ -56,34 +53,38 @@
     }
     #lang-toggle:hover { background: var(--verde-claro); }
 
+    /* Layout principal */
     .container {
       display: flex;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 2rem auto;
-      padding: 1rem;
+      padding: 0 1rem;
       gap: 2rem;
-      flex-wrap: wrap;
     }
 
+    /* Foto fixa */
     .profile-pic {
       flex-shrink: 0;
-      width: 160px;
-      height: 160px;
+      width: 180px;
+      height: 180px;
       object-fit: cover;
       border-radius: 50%;
       border: 4px solid var(--verde-claro);
+      position: sticky;
+      top: 120px; /* logo abaixo do header */
+      align-self: start;
     }
 
+    /* Conteúdo ao lado */
     .content {
       flex: 1;
-      min-width: 250px;
     }
 
     section {
-      scroll-margin-top: 100px; /* evita cabeçalho sobrepor */
+      margin-bottom: 2rem;
+      scroll-margin-top: 90px;
       opacity: 1;
       transition: opacity 0.4s ease-in-out;
-      margin-bottom: 2rem;
     }
 
     h2 {
@@ -118,10 +119,9 @@
       margin-top: 3rem;
     }
 
-    @media (max-width: 600px) {
-      nav a { display: block; margin: 8px 0; }
+    @media (max-width: 900px) {
       .container { flex-direction: column; align-items: center; }
-      section { scroll-margin-top: 80px; }
+      .profile-pic { position: static; margin-bottom: 1rem; }
     }
   </style>
 </head>
@@ -144,9 +144,9 @@
   </nav>
 </header>
 
-<!-- Seção Sobre com Foto à esquerda -->
 <div class="container">
   <img src="foto-lucas.jpg" alt="Lucas Calabró Berti" class="profile-pic">
+
   <div class="content">
     <section id="sobre">
       <h2 id="about-title">Sobre mim</h2>
@@ -155,76 +155,76 @@
         Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.
       </p>
     </section>
+
+    <section id="formacao">
+      <h2 id="education-title">Formação Acadêmica</h2>
+      <ul id="education-list">
+        <li><b>Mestrando em Ciência Política - IESP-UERJ</b> – Orientador: Prof. Dr. Fabiano Santos (<a href="http://lattes.cnpq.br/3534868879163140" target="_blank">CV</a>)</li>
+        <li><b>Bacharel em Ciência Política - UNIRIO (2024)</b> – Orientador: Prof. Dr. André Coelho (<a href="http://lattes.cnpq.br/7370207316680307" target="_blank">CV</a>)</li>
+      </ul>
+    </section>
+
+    <section id="experiencia-academica">
+      <h2 id="academic-experience-title">Atuação Acadêmica</h2>
+      <ul id="academic-experience-list">
+        <li><b>Pesquisador no OPSA</b> – Produção de análises sobre política peruana (2025 - atual)</li>
+        <li><b>Pesquisador no NECON</b> – Pesquisas sobre o Congresso Nacional (2025 - atual)</li>
+        <li><b>Pesquisador no GRISUL</b> – Estudos sobre o Sul Global, especialmente América Latina (2025 - atual)</li>
+        <li><b>Entrevistas para TCC </b> – Depto. de Ciência Política da Universidad de La República, Uruguai (2024)</li>
+      </ul>
+    </section>
+
+    <section id="experiencia-profissional">
+      <h2 id="professional-experience-title">Atuação Profissional</h2>
+      <ul id="professional-experience-list">
+        <li><b>Assessor de redes sociais, Dep. Fed. Fernanda Melchionna</b> - (2020 e 2022)</li>
+        <li><b>Professor particular de inglês</b> - (2020–2025)</li>
+      </ul>
+    </section>
+
+    <section id="projetos">
+      <h2 id="projects-title">Projetos</h2>
+      <ul id="projects-list">
+        <li><a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank"><b>Conjuntura Latitude Sul</b></a> – Editor de redação do boletim mensal com análises da política peruana</li>
+      </ul>
+    </section>
+
+    <section id="publicacoes">
+      <h2 id="publications-title">Publicações</h2>
+      <ul id="publications-list">
+        <li>
+          <b>Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional</b><br>
+          Uma análise das possíveis causas da solidez dos mandatários no Uruguai considerando seu arranjo institucional — 
+          <a href="http://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">Leia o TCC completo</a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="participacoes">
+      <h2 id="appearances-title">Participações e comentários na mídia</h2>
+      <ul id="appearances-list">
+        <li><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Mesmo em crise, Peru pode superar Brasil e México? – Mundioka</a></li>
+        <li><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 México: Justiça nas urnas – Mundioka</a></li>
+      </ul>
+    </section>
+
+    <section id="premios">
+      <h2 id="awards-title">Prêmios</h2>
+      <ul id="awards-list">
+        <li><b>Melhor Trabalho de Graduação</b>, Jornada Discente do Programa de Pós-graduação em Ciência Política da UNIRIO - 2024</li>
+      </ul>
+    </section>
+
+    <section id="contato">
+      <h2 id="contact-title">Contato</h2>
+      <p>📧 <a href="mailto:lucasberti@iesp.uerj.br">lucasberti@iesp.uerj.br</a></p>
+      <p>🔗 <a href="https://www.linkedin.com/in/lucascberti11" target="_blank">LinkedIn</a> | 
+          <a href="https://github.com/lucascberti" target="_blank">GitHub</a> | 
+          <a href="http://lattes.cnpq.br/3201012395712916" target="_blank">Lattes</a></p>
+      <p id="languages">🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)</p>
+    </section>
   </div>
 </div>
-
-<section id="formacao">
-  <h2 id="education-title">Formação Acadêmica</h2>
-  <ul id="education-list">
-    <li><b>Mestrando em Ciência Política - IESP-UERJ</b> – Orientador: Prof. Dr. Fabiano Santos (<a href="http://lattes.cnpq.br/3534868879163140" target="_blank">CV</a>)</li>
-    <li><b>Bacharel em Ciência Política - UNIRIO (2024)</b> – Orientador: Prof. Dr. André Coelho (<a href="http://lattes.cnpq.br/7370207316680307" target="_blank">CV</a>)</li>
-  </ul>
-</section>
-
-<section id="experiencia-academica">
-  <h2 id="academic-experience-title">Atuação Acadêmica</h2>
-  <ul id="academic-experience-list">
-    <li><b>Pesquisador no OPSA</b> – Produção de análises sobre política peruana (2025 - atual)</li>
-    <li><b>Pesquisador no NECON</b> – Pesquisas sobre o Congresso Nacional (2025 - atual)</li>
-    <li><b>Pesquisador no GRISUL</b> – Estudos sobre o Sul Global, especialmente América Latina (2025 - atual)</li>
-    <li><b>Entrevistas para TCC </b> – Depto. de Ciência Política da Universidad de La República, Uruguai (2024)</li>
-  </ul>
-</section>
-
-<section id="experiencia-profissional">
-  <h2 id="professional-experience-title">Atuação Profissional</h2>
-  <ul id="professional-experience-list">
-    <li><b>Assessor de redes sociais, Dep. Fed. Fernanda Melchionna</b> - (2020 e 2022)</li>
-    <li><b>Professor particular de inglês</b> - (2020–2025)</li>
-  </ul>
-</section>
-
-<section id="projetos">
-  <h2 id="projects-title">Projetos</h2>
-  <ul id="projects-list">
-    <li><a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank"><b>Conjuntura Latitude Sul</b></a> – Editor de redação do boletim mensal com análises da política peruana</li>
-  </ul>
-</section>
-
-<section id="publicacoes">
-  <h2 id="publications-title">Publicações</h2>
-  <ul id="publications-list">
-    <li>
-      <b>Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional</b><br>
-      Uma análise das possíveis causas da solidez dos mandatários no Uruguai considerando seu arranjo institucional — 
-      <a href="http://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">Leia o TCC completo</a>
-    </li>
-  </ul>
-</section>
-
-<section id="participacoes">
-  <h2 id="appearances-title">Participações e comentários na mídia</h2>
-  <ul id="appearances-list">
-    <li><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Mesmo em crise, Peru pode superar Brasil e México? – Mundioka</a></li>
-    <li><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 México: Justiça nas urnas – Mundioka</a></li>
-  </ul>
-</section>
-
-<section id="premios">
-  <h2 id="awards-title">Prêmios</h2>
-  <ul id="awards-list">
-    <li><b>Melhor Trabalho de Graduação</b>, Jornada Discente do Programa de Pós-graduação em Ciência Política da UNIRIO - 2024</li>
-  </ul>
-</section>
-
-<section id="contato">
-  <h2 id="contact-title">Contato</h2>
-  <p>📧 <a href="mailto:lucasberti@iesp.uerj.br">lucasberti@iesp.uerj.br</a></p>
-  <p>🔗 <a href="https://www.linkedin.com/in/lucascberti11" target="_blank">LinkedIn</a> | 
-      <a href="https://github.com/lucascberti" target="_blank">GitHub</a> | 
-      <a href="http://lattes.cnpq.br/3201012395712916" target="_blank">Lattes</a></p>
-  <p id="languages">🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)</p>
-</section>
 
 <footer>
   <p>© 2025 - Lucas Berti</p>
@@ -235,109 +235,45 @@ const content = {
   pt: {
     title:'Lucas Calabró Berti',
     subtitle:'Cientista Político • Pesquisador',
-    nav:{
-      about:'Sobre mim', education:'Formação', academicExperience:'Atuação Acadêmica',
-      professionalExperience:'Atuação Profissional', projects:'Projetos', publications:'Publicações',
-      appearances:'Participações', awards:'Prêmios', contact:'Contato'
-    },
+    nav:{about:'Sobre mim', education:'Formação', academicExperience:'Atuação Acadêmica', professionalExperience:'Atuação Profissional', projects:'Projetos', publications:'Publicações', appearances:'Participações', awards:'Prêmios', contact:'Contato'},
     about:'Olá, bem-vindo(a)! Eu sou Lucas Calabró Berti, mestrando em Ciência Política no IESP-UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru. Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.',
     educationTitle:'Formação Acadêmica',
-    academicExperienceTitle:'Atuação Acadêmica',
-    professionalExperienceTitle:'Atuação Profissional',
+    experienceAcademicTitle:'Atuação Acadêmica',
+    experienceProfessionalTitle:'Atuação Profissional',
     projectsTitle:'Projetos',
     publicationsTitle:'Publicações',
-    appearancesTitle:'Participações e comentários na mídia',
+    appearancesTitle:'Participações',
     awardsTitle:'Prêmios',
     contactTitle:'Contato',
-    languages:'🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)',
-    educationList:[
-      '✓ <b>Mestrando em Ciência Política - IESP-UERJ</b> – Orientador: Prof. Dr. Fabiano Santos (<a href="http://lattes.cnpq.br/3534868879163140" target="_blank">CV</a>)',
-      '✓ <b>Bacharel em Ciência Política - UNIRIO (2024)</b> – Orientador: Prof. Dr. André Coelho (<a href="http://lattes.cnpq.br/7370207316680307" target="_blank">CV</a>)'
-    ],
-    academicExperienceList:[
-      '✓ <b>Pesquisador no OPSA</b> – Produção de análises sobre política peruana (2025 - atual)',
-      '✓ <b>Pesquisador no NECON</b> – Pesquisas sobre o Congresso Nacional (2025 - atual)',
-      '✓ <b>Pesquisador no GRISUL</b> – Estudos sobre o Sul Global, especialmente América Latina (2025 - atual)',
-      '✓ <b>Entrevistas para TCC</b> – Depto. de Ciência Política da Universidad de La República, Uruguai (2024)'
-    ],
-    professionalExperienceList:[
-      '✓ <b>Assessor de redes sociais, Dep. Fed. Fernanda Melchionna</b> - (2020 e 2022)',
-      '✓ <b>Professor particular de inglês</b> - (2020–2025)'
-    ],
-    projectsList:[
-      '✓ <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank"><b>Conjuntura Latitude Sul</b></a> – Editor de redação do boletim mensal com análises da política peruana'
-    ],
-    publicationsList:[
-      '✓ <b>Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional</b><br>Uma análise das possíveis causas da solidez dos mandatários no Uruguai considerando seu arranjo institucional — <a href="http://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">Leia o TCC completo</a>'
-    ],
-    appearancesList:[
-      '✓ <a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Mesmo em crise, Peru pode superar Brasil e México? – Mundioka</a>',
-      '✓ <a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 México: Justiça nas urnas – Mundioka</a>'
-    ],
-    awardsList:[
-      '✓ <b>Melhor Trabalho de Graduação</b>, Jornada Discente do Programa de Pós-graduação em Ciência Política da UNIRIO - 2024'
-    ]
+    languages:'🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)'
   },
   en: {
     title:'Lucas Calabró Berti',
     subtitle:'Political Scientist • Researcher',
-    nav:{
-      about:'About', education:'Education', academicExperience:'Academic Experience',
-      professionalExperience:'Professional Experience', projects:'Projects', publications:'Publications',
-      appearances:'Appearances', awards:'Awards', contact:'Contact'
-    },
+    nav:{about:'About', education:'Education', academicExperience:'Academic Experience', professionalExperience:'Professional Experience', projects:'Projects', publications:'Publications', appearances:'Appearances', awards:'Awards', contact:'Contact'},
     about:'Hello, welcome! My name is Lucas Calabró Berti and I am pursuing my Master’s degree in Political Science at IESP-UERJ. I hold a BA in Political Science from UNIRIO. My research focuses on South American politics, institutions, and public policies, with a particular emphasis on presidentialism, executive-legislative relations, and governing coalitions – especially in Brazil, Uruguay, and Peru. I am currently part of the South American Political Observatory (OPSA/IESP), the Center for Studies on the Congress (NECON/IESP), and the Global South Relations Group (GRISUL/UNIRIO). I am also editor of the monthly publication Conjuntura Latitude Sul.',
     educationTitle:'Education',
-    academicExperienceTitle:'Academic Experience',
-    professionalExperienceTitle:'Professional Experience',
+    experienceAcademicTitle:'Academic Experience',
+    experienceProfessionalTitle:'Professional Experience',
     projectsTitle:'Projects',
     publicationsTitle:'Publications',
-    appearancesTitle:'Appearances & Media Contributions',
+    appearancesTitle:'Appearances',
     awardsTitle:'Awards',
     contactTitle:'Contact',
-    languages:'🌐 Languages: English (fluent), French & Spanish (advanced), Italian (intermediate)',
-    educationList:[
-      '✓ <b>Master’s in Political Science - IESP-UERJ</b> – Advisor: Prof. Dr. Fabiano Santos (<a href="http://lattes.cnpq.br/3534868879163140" target="_blank">CV</a>)',
-      '✓ <b>Bachelor in Political Science - UNIRIO (2024)</b> – Advisor: Prof. Dr. André Coelho (<a href="http://lattes.cnpq.br/7370207316680307" target="_blank">CV</a>)'
-    ],
-    academicExperienceList:[
-      '✓ <b>Researcher at OPSA</b> – Producing analyses on Peruvian politics (2025 - present)',
-      '✓ <b>Researcher at NECON</b> – Studies on the National Congress (2025 - present)',
-      '✓ <b>Researcher at GRISUL</b> – Studies on the Global South, especially Latin America (2025 - present)',
-      '✓ <b>Interviews for BA Thesis</b> – Department of Political Science, Universidad de La República, Uruguay (2024)'
-    ],
-    professionalExperienceList:[
-      '✓ <b>Social media advisor, Dep. Fed. Fernanda Melchionna</b> - (2020 & 2022)',
-      '✓ <b>Private English teacher</b> - (2020–2025)'
-    ],
-    projectsList:[
-      '✓ <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank"><b>Conjuntura Latitude Sul</b></a> – Editor of the monthly bulletin with analyses on Peruvian politics'
-    ],
-    publicationsList:[
-      '✓ <b>Latin Contrasts: Uruguayan Presidential Stability Amid Regional Instability</b><br>An analysis of the possible causes of Uruguayan presidents’ stability considering their institutional arrangement — <a href="http://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">Read the full BA Thesis</a>'
-    ],
-    appearancesList:[
-      '✓ <a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Even in crisis, can Peru surpass Brazil and Mexico? – Mundioka</a>',
-      '✓ <a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 Mexico: Justice at the ballot box – Mundioka</a>'
-    ],
-    awardsList:[
-      '✓ <b>Best Undergraduate Work</b>, Student Conference of the Political Science Graduate Program at UNIRIO - 2024'
-    ]
+    languages:'🌐 Languages: English (fluent), French & Spanish (advanced), Italian (intermediate)'
   }
 };
 
 let currentLang = 'pt';
-const sections = document.querySelectorAll("section, header, footer, .profile-pic");
+const sections = document.querySelectorAll("section, header, footer, .content");
 
-document.getElementById('lang-toggle').addEventListener('click',()=> {
+document.getElementById('lang-toggle').addEventListener('click',()=>{
   sections.forEach(s => s.style.opacity = 0);
-  setTimeout(() => {
-    currentLang = currentLang === 'pt' ? 'en' : 'pt';
+  setTimeout(()=>{
+    currentLang = currentLang==='pt'?'en':'pt';
     const langData = content[currentLang];
     document.getElementById('title').innerText = langData.title;
     document.getElementById('subtitle').innerText = langData.subtitle;
-
-    // Nav
     document.getElementById('nav-about').innerText = langData.nav.about;
     document.getElementById('nav-education').innerText = langData.nav.education;
     document.getElementById('nav-academic-experience').innerText = langData.nav.academicExperience;
@@ -348,12 +284,11 @@ document.getElementById('lang-toggle').addEventListener('click',()=> {
     document.getElementById('nav-awards').innerText = langData.nav.awards;
     document.getElementById('nav-contact').innerText = langData.nav.contact;
 
-    // Section titles
     document.getElementById('about-title').innerText = langData.nav.about;
-    document.getElementById('about-text').innerHTML = langData.about;
+    document.getElementById('about-text').innerText = langData.about;
     document.getElementById('education-title').innerText = langData.educationTitle;
-    document.getElementById('academic-experience-title').innerText = langData.academicExperienceTitle;
-    document.getElementById('professional-experience-title').innerText = langData.professionalExperienceTitle;
+    document.getElementById('academic-experience-title').innerText = langData.experienceAcademicTitle;
+    document.getElementById('professional-experience-title').innerText = langData.experienceProfessionalTitle;
     document.getElementById('projects-title').innerText = langData.projectsTitle;
     document.getElementById('publications-title').innerText = langData.publicationsTitle;
     document.getElementById('appearances-title').innerText = langData.appearancesTitle;
@@ -361,18 +296,10 @@ document.getElementById('lang-toggle').addEventListener('click',()=> {
     document.getElementById('contact-title').innerText = langData.contactTitle;
     document.getElementById('languages').innerText = langData.languages;
 
-    // List contents
-    document.getElementById('education-list').innerHTML = langData.educationList.join('');
-    document.getElementById('academic-experience-list').innerHTML = langData.academicExperienceList.join('');
-    document.getElementById('professional-experience-list').innerHTML = langData.professionalExperienceList.join('');
-    document.getElementById('projects-list').innerHTML = langData.projectsList.join('');
-    document.getElementById('publications-list').innerHTML = langData.publicationsList.join('');
-    document.getElementById('appearances-list').innerHTML = langData.appearancesList.join('');
-    document.getElementById('awards-list').innerHTML = langData.awardsList.join('');
+    document.getElementById('lang-toggle').innerText = currentLang==='pt'?'EN':'PT';
 
-    document.getElementById('lang-toggle').innerText = currentLang === 'pt' ? 'EN' : 'PT';
     sections.forEach(s => s.style.opacity = 1);
-  }, 400);
+  },400);
 });
 </script>
 
