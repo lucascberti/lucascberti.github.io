@@ -56,10 +56,24 @@
     }
     #lang-toggle:hover { background: var(--verde-claro); }
 
+    /* Foto */
+    .profile-pic {
+      display: block;
+      margin: 1.5rem auto;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--verde-claro);
+    }
+
     section {
       max-width: 900px;
       margin: 2rem auto;
       padding: 1rem;
+      scroll-margin-top: 100px; /* evita cabeçalho sobrepor */
+      opacity: 1;
+      transition: opacity 0.4s ease-in-out;
     }
 
     h2 {
@@ -96,6 +110,7 @@
 
     @media (max-width: 600px) {
       nav a { display: block; margin: 8px 0; }
+      section { scroll-margin-top: 80px; }
     }
   </style>
 </head>
@@ -117,6 +132,9 @@
     <button id="lang-toggle">EN</button>
   </nav>
 </header>
+
+<!-- Foto -->
+<img src="foto-lucas.jpg" alt="Lucas Calabró Berti" class="profile-pic">
 
 <section id="sobre">
   <h2 id="about-title">Sobre mim</h2>
@@ -171,7 +189,7 @@
 </section>
 
 <section id="participacoes">
-  <h2 id="appearances-title">Participações</h2>
+  <h2 id="appearances-title">Participações e comentários na mídia</h2>
   <ul id="appearances-list">
     <li><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Mesmo em crise, Peru pode superar Brasil e México? – Mundioka</a></li>
     <li><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 México: Justiça nas urnas – Mundioka</a></li>
@@ -191,7 +209,7 @@
   <p>🔗 <a href="https://www.linkedin.com/in/lucascberti11" target="_blank">LinkedIn</a> | 
       <a href="https://github.com/lucascberti" target="_blank">GitHub</a> | 
       <a href="http://lattes.cnpq.br/3201012395712916" target="_blank">Lattes</a></p>
-<p id="languages">🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)</p>
+  <p id="languages">🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)</p>
 </section>
 
 <footer>
@@ -213,94 +231,63 @@ const content = {
     appearancesTitle:'Participações',
     awardsTitle:'Prêmios',
     contactTitle:'Contato',
-    languages:'Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)',
-    publicationsList:[
-      '✓ <b>Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional</b><br>Uma análise das possíveis causas da solidez dos mandatários no Uruguai considerando seu arranjo institucional — <a href="http://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">Leia o TCC completo</a>'
-    ]
+    languages:'🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)'
   },
-en: {
-  title:'Lucas Calabró Berti',
-  subtitle:'Political Scientist • Researcher',
-  nav:{
-    about:'About',
-    education:'Education',
-    academicExperience:'Academic Experience',
-    professionalExperience:'Professional Experience',
-    projects:'Projects',
-    publications:'Publications',
-    appearances:'Appearances',
-    awards:'Awards',
-    contact:'Contact'
-  },
-  about:'Hello, welcome! My name is Lucas Calabró Berti and I am pursuing my Master’s degree in Political Science at IESP-UERJ. I hold a BA in Political Science from UNIRIO. My research focuses on South American politics, institutions, and public policies, with a particular emphasis on presidentialism, executive-legislative relations, and governing coalitions – especially in Brazil, Uruguay, and Peru. I am currently part of the South American Political Observatory (OPSA/IESP), the Center for Studies on the Congress (NECON/IESP), and the Global South Relations Group (GRISUL/UNIRIO). I am also editor of the monthly publication Conjuntura Latitude Sul.',
-  educationTitle:'Education',
-  experienceAcademicTitle:'Academic Experience',
-  experienceProfessionalTitle:'Professional Experience',
-  projectsTitle:'Projects',
-  publicationsTitle:'Publications',
-  appearancesTitle:'Appearances',
-  awardsTitle:'Awards',
-  contactTitle:'Contact',
-  languages:'🌐 Languages: English (fluent), French & Spanish (advanced), Italian (intermediate)',
-  educationList:[
-    '✓ <b>Master’s in Political Science - IESP-UERJ</b> – Advisor: Prof. Dr. Fabiano Santos (<a href="http://lattes.cnpq.br/3534868879163140" target="_blank">CV</a>)',
-    '✓ <b>Bachelor in Political Science - UNIRIO (2024)</b> – Advisor: Prof. Dr. André Coelho (<a href="http://lattes.cnpq.br/7370207316680307" target="_blank">CV</a>)'
-  ],
-  academicExperienceList:[
-    '✓ <b>Researcher at OPSA</b> – Analyses on Peruvian politics',
-    '✓ <b>Researcher at NECON</b> – Studies on the Brazilian Congress',
-    '✓ <b>Researcher at GRISUL</b> – Research on the Global South, especially Latin America',
-    '✓ <b>Interviews for Undergraduate Thesis</b> – Department of Political Science, Universidad de la República, Uruguay'
-  ],
-  professionalExperienceList:[
-    '✓ <b>Social Media Advisor, Federal Deputy Fernanda Melchionna</b> – (2020 & 2022)',
-    '✓ <b>Private English Teacher</b> – (2020–2025)'
-  ],
-  projectsList:[
-    '✓ <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank"><b>Conjuntura Latitude Sul</b></a> – Editorial coordinator of the monthly bulletin with analyses on Peruvian politics'
-  ],
-  publicationsList:[
-    '✓ <b>Latin Contrasts: presidential stability in Uruguay amid regional instability</b><br>An analysis of the possible causes of the solidity of Uruguayan presidents considering their institutional arrangement — <a href="http://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">Read full thesis</a>'
-  ],
-  appearancesList:[
-    '✓ <a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Even in crisis, could Peru surpass Brazil and Mexico? – Mundioka</a>',
-    '✓ <a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 Mexico: Justice at the polls – Mundioka</a>'
-  ],
-  awardsList:[
-    '✓ <b>Best Undergraduate Thesis</b>, Student Conference of the Graduate Program in Political Science at UNIRIO – 2024'
-  ]
-}
+  en: {
+    title:'Lucas Calabró Berti',
+    subtitle:'Political Scientist • Researcher',
+    nav:{about:'About', education:'Education', academicExperience:'Academic Experience', professionalExperience:'Professional Experience', projects:'Projects', publications:'Publications', appearances:'Appearances', awards:'Awards', contact:'Contact'},
+    about:'Hello, welcome! My name is Lucas Calabró Berti and I am pursuing my Master’s degree in Political Science at IESP-UERJ. I hold a BA in Political Science from UNIRIO. My research focuses on South American politics, institutions, and public policies, with a particular emphasis on presidentialism, executive-legislative relations, and governing coalitions – especially in Brazil, Uruguay, and Peru. I am currently part of the South American Political Observatory (OPSA/IESP), the Center for Studies on the Congress (NECON/IESP), and the Global South Relations Group (GRISUL/UNIRIO). I am also editor of the monthly publication Conjuntura Latitude Sul.',
+    educationTitle:'Education',
+    experienceAcademicTitle:'Academic Experience',
+    experienceProfessionalTitle:'Professional Experience',
+    projectsTitle:'Projects',
+    publicationsTitle:'Publications',
+    appearancesTitle:'Appearances',
+    awardsTitle:'Awards',
+    contactTitle:'Contact',
+    languages:'🌐 Languages: English (fluent), French & Spanish (advanced), Italian (intermediate)'
+  }
 };
 
 let currentLang = 'pt';
-document.getElementById('lang-toggle').addEventListener('click',()=>{
-  currentLang = currentLang==='pt'?'en':'pt';
-  const langData = content[currentLang];
-  document.getElementById('title').innerText = langData.title;
-  document.getElementById('subtitle').innerText = langData.subtitle;
-  document.getElementById('nav-about').innerText = langData.nav.about;
-  document.getElementById('nav-education').innerText = langData.nav.education;
-  document.getElementById('nav-academic-experience').innerText = langData.nav.academicExperience;
-  document.getElementById('nav-professional-experience').innerText = langData.nav.professionalExperience;
-  document.getElementById('nav-projects').innerText = langData.nav.projects;
-  document.getElementById('nav-publications').innerText = langData.nav.publications;
-  document.getElementById('nav-appearances').innerText = langData.nav.appearances;
-  document.getElementById('nav-awards').innerText = langData.nav.awards;
-  document.getElementById('nav-contact').innerText = langData.nav.contact;
+const sections = document.querySelectorAll("section, header, footer, .profile-pic");
 
-  document.getElementById('about-title').innerText = langData.nav.about;
-  document.getElementById('about-text').innerText = langData.about;
-  document.getElementById('education-title').innerText = langData.educationTitle;
-  document.getElementById('academic-experience-title').innerText = langData.experienceAcademicTitle;
-  document.getElementById('professional-experience-title').innerText = langData.experienceProfessionalTitle;
-  document.getElementById('projects-title').innerText = langData.projectsTitle;
-  document.getElementById('publications-title').innerText = langData.publicationsTitle;
-  document.getElementById('appearances-title').innerText = langData.appearancesTitle;
-  document.getElementById('awards-title').innerText = langData.awardsTitle;
-  document.getElementById('contact-title').innerText = langData.contactTitle;
-  document.getElementById('languages').innerText = langData.languages;
-  document.getElementById('publications-list').innerHTML = langData.publicationsList.join('');
-  document.getElementById('lang-toggle').innerText = currentLang==='pt'?'EN':'PT';
+document.getElementById('lang-toggle').addEventListener('click',()=>{
+  // fade-out
+  sections.forEach(s => s.style.opacity = 0);
+  setTimeout(()=>{
+    currentLang = currentLang==='pt'?'en':'pt';
+    const langData = content[currentLang];
+    document.getElementById('title').innerText = langData.title;
+    document.getElementById('subtitle').innerText = langData.subtitle;
+    document.getElementById('nav-about').innerText = langData.nav.about;
+    document.getElementById('nav-education').innerText = langData.nav.education;
+    document.getElementById('nav-academic-experience').innerText = langData.nav.academicExperience;
+    document.getElementById('nav-professional-experience').innerText = langData.nav.professionalExperience;
+    document.getElementById('nav-projects').innerText = langData.nav.projects;
+    document.getElementById('nav-publications').innerText = langData.nav.publications;
+    document.getElementById('nav-appearances').innerText = langData.nav.appearances;
+    document.getElementById('nav-awards').innerText = langData.nav.awards;
+    document.getElementById('nav-contact').innerText = langData.nav.contact;
+
+    document.getElementById('about-title').innerText = langData.nav.about;
+    document.getElementById('about-text').innerText = langData.about;
+    document.getElementById('education-title').innerText = langData.educationTitle;
+    document.getElementById('academic-experience-title').innerText = langData.experienceAcademicTitle;
+    document.getElementById('professional-experience-title').innerText = langData.experienceProfessionalTitle;
+    document.getElementById('projects-title').innerText = langData.projectsTitle;
+    document.getElementById('publications-title').innerText = langData.publicationsTitle;
+    document.getElementById('appearances-title').innerText = langData.appearancesTitle;
+    document.getElementById('awards-title').innerText = langData.awardsTitle;
+    document.getElementById('contact-title').innerText = langData.contactTitle;
+    document.getElementById('languages').innerText = langData.languages;
+
+    document.getElementById('lang-toggle').innerText = currentLang==='pt'?'EN':'PT';
+
+    // fade-in
+    sections.forEach(s => s.style.opacity = 1);
+  },400);
 });
 </script>
 
