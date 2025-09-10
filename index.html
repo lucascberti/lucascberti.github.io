@@ -1,276 +1,248 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lucas Calabró Berti</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucas Calabró Berti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde-escuro: #2C3E2F;
+      --verde-medio: #4B5D3A;
+      --verde-claro: #A3B18A;
+      --offwhite: #F5F5F0;
+      --accent: #D9E4DD;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-<style>
-:root {
-  --verde-escuro: #2C3E2F;
-  --verde-medio: #4B5D3A;
-  --verde-claro: #A3B18A;
-  --offwhite: #F5F5F0;
-  --accent: #D9E4DD;
-}
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--offwhite);
+      color: var(--verde-escuro);
+      line-height: 1.6;
+    }
 
-* { margin:0; padding:0; box-sizing:border-box; }
+    header {
+      background-color: var(--verde-escuro);
+      color: var(--accent);
+      text-align: center;
+      padding: 1.5rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-body { 
-  font-family:'Roboto', sans-serif; 
-  background-color:var(--offwhite); 
-  color:var(--verde-escuro); 
-  line-height:1.6; 
-  scroll-behavior: smooth;
-}
+    header h1 { font-size: 2rem; margin-bottom: 0.3rem; }
+    header p { font-size: 1rem; margin-bottom: 1rem; }
 
-header {
-  background-color: var(--verde-escuro);
-  color: var(--accent);
-  text-align: center;
-  padding: 1rem 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--verde-claro); }
 
-header h1 {
-  font-family: 'Lora', serif;
-  font-size: 1.8rem;
-  margin-bottom: 0.2rem;
-}
+    #lang-toggle {
+      background: var(--verde-medio);
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      margin-left: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+    #lang-toggle:hover { background: var(--verde-claro); }
 
-header p {
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
 
-nav a { color:var(--accent); text-decoration:none; margin:0 15px; font-weight:bold; transition:color 0.3s; }
-nav a:hover { color:var(--verde-claro); }
+    h2 {
+      color: var(--verde-medio);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--verde-claro);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
 
-.language-switch { position:absolute; top:1rem; right:1rem; background-color:var(--verde-medio); color:var(--accent); border:none; padding:0.5rem 1rem; border-radius:6px; cursor:pointer; font-weight:bold; transition:0.3s; }
-.language-switch:hover { background-color:var(--verde-claro); color:var(--verde-escuro); }
+    ul { list-style: none; }
+    ul li {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--verde-claro);
+    }
 
-/* Layout principal */
-.main-container {
-  display:flex;
-  max-width:1200px;
-  margin:2rem auto;
-  gap:2rem;
-  padding:0 1rem;
-}
+    a { color: var(--verde-medio); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-.profile-pic-container {
-  flex:0 0 250px;
-  position:sticky;
-  top:2rem;
-  align-self:flex-start;
-}
+    footer {
+      background-color: var(--verde-escuro);
+      color: var(--accent);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
 
-.profile-pic-container img {
-  width: 250px;
-  border-radius: 50%;
-  border: 3px solid var(--verde-medio);
-}
-
-.content-container {
-  flex:1;
-}
-
-section {
-  margin-bottom:3rem;
-  background-color:var(--accent);
-  padding:2rem;
-  border-radius:12px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-h2 { font-family:'Lora', serif; color:var(--verde-medio); margin-bottom:1rem; border-bottom:2px solid var(--verde-claro); display:inline-block; padding-bottom:5px; }
-
-ul { list-style:none; padding-left:0; }
-ul li { margin-bottom:1rem; padding-left:1.5rem; position:relative; font-weight:500; }
-ul li::before { content:'✓'; position:absolute; left:0; color:var(--verde-claro); font-weight:bold; }
-
-#podcasts ul li a { display:block; padding:0.8rem 1rem; background-color:var(--verde-medio); color:var(--accent); border-radius:8px; text-decoration:none; transition:all 0.3s; }
-#podcasts ul li a:hover { background-color:var(--verde-claro); color:var(--verde-escuro); }
-
-a { color:var(--verde-medio); text-decoration:none; }
-a:hover { text-decoration:underline; }
-
-footer { background-color:var(--verde-escuro); color:var(--accent); text-align:center; padding:1rem; margin-top:2rem; border-radius:8px 8px 0 0; }
-
-@media(max-width:900px){
-  .main-container { flex-direction:column; }
-  .profile-pic-container { position:relative; top:auto; margin:auto; }
-  .profile-pic-container img { width:180px; }
-}
-</style>
+    @media (max-width: 600px) {
+      nav a { display: block; margin: 8px 0; }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <h1>Lucas Calabró Berti</h1>
+  <h1 id="title">Lucas Calabró Berti</h1>
   <p id="subtitle">Cientista Político • Pesquisador</p>
-  <button class="language-switch" onclick="switchLanguage()">EN</button>
   <nav>
-    <a href="#about" id="nav-about">Sobre mim</a>
-    <a href="#career" id="nav-career">Formação</a>
-    <a href="#projects" id="nav-projects">Projetos</a>
-    <a href="#podcasts" id="nav-podcasts">Podcasts</a>
-    <a href="#languages" id="nav-languages">Idiomas</a>
-    <a href="#contact" id="nav-contact">Contato</a>
+    <a href="#sobre" id="nav-about">Sobre mim</a>
+    <a href="#formacao" id="nav-education">Formação</a>
+    <a href="#atuacao" id="nav-work">Atuação</a>
+    <a href="#projetos" id="nav-projects">Projetos</a>
+    <a href="#publicacoes" id="nav-publications">Publicações</a>
+    <a href="#participacoes" id="nav-appearances">Participações</a>
+    <a href="#contato" id="nav-contact">Contato</a>
+    <button id="lang-toggle">EN</button>
   </nav>
 </header>
 
-<div class="main-container">
-  <div class="profile-pic-container">
-    <img src="https://raw.githubusercontent.com/lucascberti/lucasberti.github.io/main/foto-lucas.jpg" alt="Lucas Calabró Berti">
-  </div>
+<section id="sobre">
+  <h2 id="about-title">Sobre mim</h2>
+  <p id="about-text">
+    Olá, bem-vindo(a)! Me chamo Lucas Calabró Berti, sou mestrando em Ciência Política no IESP-UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.
+    Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.
+  </p>
+</section>
 
-  <div class="content-container">
+<section id="formacao">
+  <h2 id="education-title">Formação Acadêmica</h2>
+  <ul id="education-list">
+    <li><b>Mestrado em andamento em Ciência Política (IESP-UERJ)</b> – Orientador: Fabiano Santos (<a href="http://lattes.cnpq.br/3534868879163140" target="_blank">CV</a>)</li>
+    <li><b>Bacharel em Ciência Política (UNIRIO)</b> – Orientador: André Coelho (<a href="http://lattes.cnpq.br/7370207316680307" target="_blank">CV</a>)</li>
+  </ul>
+</section>
 
-    <section id="about">
-      <h2 id="about-title">Sobre mim</h2>
-      <p id="about-text">
-        Oi! Eu sou Lucas Calabró Berti, mestrando em Ciência Política no IESP-UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.
-        Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.
-      </p>
-    </section>
+<section id="atuacao">
+  <h2 id="work-title">Atuação Acadêmica</h2>
+  <ul id="work-list">
+    <li><b>Pesquisador no OPSA</b> – Produção de análises mensais sobre política peruana</li>
+    <li><b>Pesquisador no NECON</b> – Pesquisas sobre o Congresso Nacional</li>
+    <li><b>Pesquisador no GRISUL</b> – Estudos sobre o Sul Global, especialmente América Latina</li>
+  </ul>
+</section>
 
-    <section id="career">
-      <h2 id="career-title">Formação Acadêmica</h2>
-      <ul id="career-list">
-        <li><b>Mestrado em Ciência Política (em andamento)</b> – IESP-UERJ<br>Orientador: Prof. Dr. Fabiano Santos</li>
-        <li><b>Bacharel em Ciência Política (2024)</b> – UNIRIO<br>Orientador: Prof. Dr. André Coelho</li>
-      </ul>
-    </section>
+<section id="projetos">
+  <h2 id="projects-title">Projetos</h2>
+  <ul id="projects-list">
+    <li><a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">Conjuntura Latitude Sul</a> – Periódico mensal com análises da política sul-americana</li>
+  </ul>
+</section>
 
-    <section id="projects">
-      <h2 id="projects-title">Projetos</h2>
-      <ul id="projects-list">
-        <li><b>Conjuntura Latitude Sul</b> – Editor de análises mensais sobre política peruana (<a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">link</a>)</li>
-      </ul>
-    </section>
+<section id="publicacoes">
+  <h2 id="publications-title">Publicações</h2>
+  <ul id="publications-list">
+    <li>
+      <b>Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional</b><br>
+      Uma análise das possíveis causas da solidez dos mandatários no Uruguai considerando seu arranjo institucional —
+      <a href="http://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">Leia o TCC completo</a>
+    </li>
+  </ul>
+</section>
 
-    <section id="podcasts">
-      <h2 id="podcasts-title">Podcasts</h2>
-      <ul id="podcasts-list">
-        <li><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Mesmo em crise, Peru pode superar Brasil e México? – Mundioka</a></li>
-        <li><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 México: Justiça nas urnas – Mundioka</a></li>
-      </ul>
-    </section>
+<section id="participacoes">
+  <h2 id="appearances-title">Participações</h2>
+  <ul id="appearances-list">
+    <li><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Mesmo em crise, Peru pode superar Brasil e México? – Mundioka</a></li>
+    <li><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 México: Justiça nas urnas – Mundioka</a></li>
+  </ul>
+</section>
 
-    <section id="languages">
-      <h2 id="languages-title">Idiomas</h2>
-      <ul id="languages-list">
-        <li>Português – Nativo</li>
-        <li>Inglês – Fluente</li>
-        <li>Francês – Avançado</li>
-        <li>Espanhol – Avançado</li>
-        <li>Italiano – Intermediário</li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2 id="contact-title">Contato</h2>
-      <p>📧 <a href="mailto:lucasberti@iesp.uerj.br">lucasberti@iesp.uerj.br</a></p>
-      <p>🔗 <a href="https://www.linkedin.com/in/lucascberti11" target="_blank">LinkedIn</a> | 
+<section id="contato">
+  <h2 id="contact-title">Contato</h2>
+  <p>📧 <a href="mailto:lucasberti@iesp.uerj.br">lucasberti@iesp.uerj.br</a></p>
+  <p>🔗 <a href="https://www.linkedin.com/in/lucascberti11" target="_blank">LinkedIn</a> | 
       <a href="https://github.com/lucascberti" target="_blank">GitHub</a> | 
       <a href="http://lattes.cnpq.br/3201012395712916" target="_blank">Lattes</a></p>
-    </section>
-
-  </div>
-</div>
+  <p id="languages">Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)</p>
+</section>
 
 <footer>
-  © 2025 - Lucas Berti
+  <p>© 2025 - Lucas Berti</p>
 </footer>
 
 <script>
-let lang = 'pt';
-
-const texts = {
-  en:{
-    subtitle:'Political Scientist • Researcher',
-    nav:{about:'About', career:'Education', projects:'Projects', podcasts:'Podcasts', languages:'Languages', contact:'Contact'},
-    about:{title:'About Me', text:"Hi! I’m Lucas Calabró Berti and I'm pursuing my master's degree in Political Science at IESP-UERJ. I hold a BA in Political Science from UNIRIO. I research South American politics, institutions, and public policies, focusing on presidentialism, executive-legislative relations, and government coalitions — mainly in Brazil, Uruguay, and Peru. I’m a researcher at OPSA, NECON, and GRISUL. I also write for the monthly journal Conjuntura Latitude Sul."},
-    career:{title:'Academic Background', list:[
-      '<b>Master in Political Science</b> – IESP-UERJ<br>Advisor: Fabiano Santos, PhD',
-      '<b>Bachelor in Political Science</b> – UNIRIO<br>Advisor: André Coelho, PhD (<a href="http://lattes.cnpq.br/3201012395712916" target="_blank">TCC</a>)'
-    ]},
-    projects:{title:'Projects', list:[
-      '<b>Conjuntura Latitude Sul</b> – Editor of monthly analyses on Peruvian politics (<a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">link</a>)'
-    ]},
-    podcasts:{title:'Podcasts', list:[
-      '<a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Even in crisis, can Peru outperform Brazil and Mexico? – Mundioka</a>',
-      '<a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 Mexico: Justice at the polls – Mundioka</a>'
-    ]},
-    languages:{title:'Languages', list:[
-      'Portuguese – Native',
-      'English – Fluent',
-      'French – Advanced',
-      'Spanish – Advanced',
-      'Italian – Intermediate'
-    ]},
-    contact:{title:'Contact'}
-  },
-  pt:{
+const content = {
+  pt: {
+    title:'Lucas Calabró Berti',
     subtitle:'Cientista Político • Pesquisador',
-    nav:{about:'Sobre mim', career:'Formação', projects:'Projetos', podcasts:'Podcasts', languages:'Idiomas', contact:'Contato'},
-    about:{title:'Sobre mim', text:'Oi! Eu sou Lucas Calabró Berti, mestrando em Ciência Política no IESP-UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru. Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.'},
-    career:{title:'Formação Acadêmica', list:[
-      '<b>Mestrado em Ciência Política</b> – IESP-UERJ<br>Orientador: Prof. Dr. Fabiano Santos',
-      '<b>Bacharel em Ciência Política</b> – UNIRIO<br>Orientador: Prof. Dr. André Coelho'
-    ]},
-    projects:{title:'Projetos', list:[
-      '<b>Conjuntura Latitude Sul</b> – Editor de análises mensais sobre política peruana (<a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">link</a>)'
-    ]},
-    podcasts:{title:'Podcasts', list:[
-      '<a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Mesmo em crise, Peru pode superar Brasil e México? – Mundioka</a>',
-      '<a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 México: Justiça nas urnas – Mundioka</a>'
-    ]},
-    languages:{title:'Idiomas', list:[
-      'Português – Nativo',
-      'Inglês – Fluente',
-      'Francês – Avançado',
-      'Espanhol – Avançado',
-      'Italiano – Intermediário'
-    ]},
-    contact:{title:'Contato'}
+    nav:{about:'Sobre mim', education:'Formação', work:'Atuação', projects:'Projetos', publications:'Publicações', appearances:'Participações', contact:'Contato'},
+    about:'Olá, bem-vindo(a)! Eu sou Lucas Calabró Berti, mestrando em Ciência Política no IESP-UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política sul-americana, instituições e políticas públicas, com foco em presidencialismo, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru. Atualmente faço parte do Observatório Político Sul-Americano (OPSA/IESP), do Núcleo de Estudos sobre o Congresso (NECON/IESP) e do Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.',
+    educationTitle:'Formação Acadêmica',
+    workTitle:'Atuação Profissional',
+    projectsTitle:'Projetos',
+    publicationsTitle:'Publicações',
+    appearancesTitle:'Participações',
+    contactTitle:'Contato',
+    languages:'Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)',
+    publicationsList:[
+      '<b>Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional</b><br>Uma análise das possíveis causas da solidez dos mandatários no Uruguai considerando seu arranjo institucional — <a href="http://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">Leia o TCC completo</a>'
+    ]
+  },
+  en: {
+    title:'Lucas Calabró Berti',
+    subtitle:'Political Scientist • Researcher',
+    nav:{about:'About', education:'Education', work:'Work', projects:'Projects', publications:'Publications', appearances:'Appearances', contact:'Contact'},
+    about:'Hello, welcome! My name is Lucas Calabró Berti and I am pursuing my Master’s degree in Political Science at IESP-UERJ. I hold a BA in Political Science from UNIRIO. My research focuses on South American politics, institutions, and public policies, with a particular emphasis on presidentialism, executive-legislative relations, and governing coalitions – especially in Brazil, Uruguay, and Peru. I am currently part of the South American Political Observatory (OPSA/IESP), the Center for Studies on the Congress (NECON/IESP), and the Global South Relations Group (GRISUL/UNIRIO). I am also editor of the monthly publication Conjuntura Latitude Sul.',
+    educationTitle:'Education',
+    workTitle:'Professional Experience',
+    projectsTitle:'Projects',
+    publicationsTitle:'Publications',
+    appearancesTitle:'Appearances',
+    contactTitle:'Contact',
+    languages:'Languages: English (fluent), French & Spanish (advanced), Italian (intermediate)',
+    publicationsList:[
+      '<b>Latin Contrasts: presidential stability in Uruguay amid regional instability</b><br>An analysis of the possible causes of the solidity of Uruguayan presidents considering their institutional arrangement — <a href="http://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">Read full thesis</a>'
+    ]
   }
 };
 
-function switchLanguage(){
-  lang = (lang==='pt')?'en':'pt';
-  document.getElementById('subtitle').innerText = texts[lang].subtitle;
-  document.getElementById('nav-about').innerText = texts[lang].nav.about;
-  document.getElementById('nav-career').innerText = texts[lang].nav.career;
-  document.getElementById('nav-projects').innerText = texts[lang].nav.projects;
-  document.getElementById('nav-podcasts').innerText = texts[lang].nav.podcasts;
-  document.getElementById('nav-languages').innerText = texts[lang].nav.languages;
-  document.getElementById('nav-contact').innerText = texts[lang].nav.contact;
+let currentLang = 'pt';
+document.getElementById('lang-toggle').addEventListener('click',()=>{
+  currentLang = currentLang==='pt'?'en':'pt';
+  const langData = content[currentLang];
+  document.getElementById('title').innerText = langData.title;
+  document.getElementById('subtitle').innerText = langData.subtitle;
+  document.getElementById('nav-about').innerText = langData.nav.about;
+  document.getElementById('nav-education').innerText = langData.nav.education;
+  document.getElementById('nav-work').innerText = langData.nav.work;
+  document.getElementById('nav-projects').innerText = langData.nav.projects;
+  document.getElementById('nav-publications').innerText = langData.nav.publications;
+  document.getElementById('nav-appearances').innerText = langData.nav.appearances;
+  document.getElementById('nav-contact').innerText = langData.nav.contact;
+  document.getElementById('about-title').innerText = langData.nav.about;
+  document.getElementById('about-text').innerText = langData.about;
+  document.getElementById('education-title').innerText = langData.educationTitle;
+  document.getElementById('work-title').innerText = langData.workTitle;
+  document.getElementById('projects-title').innerText = langData.projectsTitle;
+  document.getElementById('publications-title').innerText = langData.publicationsTitle;
+  document.getElementById('appearances-title').innerText = langData.appearancesTitle;
+  document.getElementById('contact-title').innerText = langData.contactTitle;
+  document.getElementById('languages').innerText = langData.languages;
 
-  document.getElementById('about-title').innerText = texts[lang].about.title;
-  document.getElementById('about-text').innerHTML = texts[lang].about.text;
-
-  document.getElementById('career-title').innerText = texts[lang].career.title;
-  document.getElementById('career-list').innerHTML = texts[lang].career.list.map(li=>`<li>${li}</li>`).join('');
-
-  document.getElementById('projects-title').innerText = texts[lang].projects.title;
-  document.getElementById('projects-list').innerHTML = texts[lang].projects.list.map(li=>`<li>${li}</li>`).join('');
-
-  document.getElementById('podcasts-title').innerText = texts[lang].podcasts.title;
-  document.getElementById('podcasts-list').innerHTML = texts[lang].podcasts.list.map(li=>`<li>${li}</li>`).join('');
-
-  document.getElementById('languages-title').innerText = texts[lang].languages.title;
-  document.getElementById('languages-list').innerHTML = texts[lang].languages.list.map(li=>`<li>${li}</li>`).join('');
-
-  document.getElementById('contact-title').innerText = texts[lang].contact.title;
-
-  document.querySelector('.language-switch').innerText = (lang==='pt')?'EN':'PT';
-}
+  document.getElementById('publications-list').innerHTML = langData.publicationsList.join('');
+  document.getElementById('lang-toggle').innerText = currentLang==='pt'?'EN':'PT';
+});
 </script>
 
 </body>
