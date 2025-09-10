@@ -250,30 +250,63 @@ const content = {
   en: {
     title:'Lucas Calabró Berti',
     subtitle:'Political Scientist • Researcher',
-    nav:{about:'About', education:'Education', academicExperience:'Academic Experience', professionalExperience:'Professional Experience', projects:'Projects', publications:'Publications', appearances:'Appearances', awards:'Awards', contact:'Contact'},
+    nav:{
+      about:'About', education:'Education', academicExperience:'Academic Experience',
+      professionalExperience:'Professional Experience', projects:'Projects', publications:'Publications',
+      appearances:'Appearances', awards:'Awards', contact:'Contact'
+    },
     about:'Hello, welcome! My name is Lucas Calabró Berti and I am pursuing my Master’s degree in Political Science at IESP-UERJ. I hold a BA in Political Science from UNIRIO. My research focuses on South American politics, institutions, and public policies, with a particular emphasis on presidentialism, executive-legislative relations, and governing coalitions – especially in Brazil, Uruguay, and Peru. I am currently part of the South American Political Observatory (OPSA/IESP), the Center for Studies on the Congress (NECON/IESP), and the Global South Relations Group (GRISUL/UNIRIO). I am also editor of the monthly publication Conjuntura Latitude Sul.',
     educationTitle:'Education',
-    experienceAcademicTitle:'Academic Experience',
-    experienceProfessionalTitle:'Professional Experience',
+    academicExperienceTitle:'Academic Experience',
+    professionalExperienceTitle:'Professional Experience',
     projectsTitle:'Projects',
     publicationsTitle:'Publications',
-    appearancesTitle:'Appearances',
+    appearancesTitle:'Appearances & Media Contributions',
     awardsTitle:'Awards',
     contactTitle:'Contact',
-    languages:'🌐 Languages: English (fluent), French & Spanish (advanced), Italian (intermediate)'
+    languages:'🌐 Languages: English (fluent), French & Spanish (advanced), Italian (intermediate)',
+    educationList:[
+      '✓ <b>Master’s student in Political Science - IESP-UERJ</b> – Advisor: Prof. Dr. Fabiano Santos (<a href="http://lattes.cnpq.br/3534868879163140" target="_blank">CV</a>)',
+      '✓ <b>Bachelor in Political Science - UNIRIO (2024)</b> – Advisor: Prof. Dr. André Coelho (<a href="http://lattes.cnpq.br/7370207316680307" target="_blank">CV</a>)'
+    ],
+    academicExperienceList:[
+      '✓ <b>Researcher at OPSA</b> – Producing analyses on Peruvian politics (2025 - present)',
+      '✓ <b>Researcher at NECON</b> – Studies on the National Congress (2025 - present)',
+      '✓ <b>Researcher at GRISUL</b> – Studies on the Global South, especially Latin America (2025 - present)',
+      '✓ <b>Interviews for BA Thesis</b> – Department of Political Science, Universidad de La República, Uruguay (2024)'
+    ],
+    professionalExperienceList:[
+      '✓ <b>Social media advisor, Dep. Fed. Fernanda Melchionna</b> - (2020 & 2022)',
+      '✓ <b>Private English teacher</b> - (2020–2025)'
+    ],
+    projectsList:[
+      '✓ <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank"><b>Conjuntura Latitude Sul</b></a> – Editor of the monthly bulletin with analyses on Peruvian politics'
+    ],
+    publicationsList:[
+      '✓ <b>Latin Contrasts: Uruguayan Presidential Stability Amid Regional Instability</b><br>An analysis of the possible causes of Uruguayan presidents’ stability considering their institutional arrangement — <a href="http://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">Read the full BA Thesis</a>'
+    ],
+    appearancesList:[
+      '✓ <a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">#581 Even in crisis, can Peru surpass Brazil and Mexico? – Mundioka</a>',
+      '✓ <a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">#644 Mexico: Justice at the ballot box – Mundioka</a>'
+    ],
+    awardsList:[
+      '✓ <b>Best Undergraduate Work</b>, Student Conference of the Political Science Graduate Program at UNIRIO - 2024'
+    ]
   }
 };
 
 let currentLang = 'pt';
-const sections = document.querySelectorAll("section, header, footer, .content");
+const sections = document.querySelectorAll("section, header, footer, .profile-pic");
 
-document.getElementById('lang-toggle').addEventListener('click',()=>{
+document.getElementById('lang-toggle').addEventListener('click',()=> {
   sections.forEach(s => s.style.opacity = 0);
-  setTimeout(()=>{
-    currentLang = currentLang==='pt'?'en':'pt';
+  setTimeout(() => {
+    currentLang = currentLang === 'pt' ? 'en' : 'pt';
     const langData = content[currentLang];
     document.getElementById('title').innerText = langData.title;
     document.getElementById('subtitle').innerText = langData.subtitle;
+
+    // Nav
     document.getElementById('nav-about').innerText = langData.nav.about;
     document.getElementById('nav-education').innerText = langData.nav.education;
     document.getElementById('nav-academic-experience').innerText = langData.nav.academicExperience;
@@ -284,11 +317,12 @@ document.getElementById('lang-toggle').addEventListener('click',()=>{
     document.getElementById('nav-awards').innerText = langData.nav.awards;
     document.getElementById('nav-contact').innerText = langData.nav.contact;
 
+    // Section titles
     document.getElementById('about-title').innerText = langData.nav.about;
-    document.getElementById('about-text').innerText = langData.about;
+    document.getElementById('about-text').innerHTML = langData.about;
     document.getElementById('education-title').innerText = langData.educationTitle;
-    document.getElementById('academic-experience-title').innerText = langData.experienceAcademicTitle;
-    document.getElementById('professional-experience-title').innerText = langData.experienceProfessionalTitle;
+    document.getElementById('academic-experience-title').innerText = langData.academicExperienceTitle;
+    document.getElementById('professional-experience-title').innerText = langData.professionalExperienceTitle;
     document.getElementById('projects-title').innerText = langData.projectsTitle;
     document.getElementById('publications-title').innerText = langData.publicationsTitle;
     document.getElementById('appearances-title').innerText = langData.appearancesTitle;
@@ -296,10 +330,18 @@ document.getElementById('lang-toggle').addEventListener('click',()=>{
     document.getElementById('contact-title').innerText = langData.contactTitle;
     document.getElementById('languages').innerText = langData.languages;
 
-    document.getElementById('lang-toggle').innerText = currentLang==='pt'?'EN':'PT';
+    // List contents
+    document.getElementById('education-list').innerHTML = langData.educationList.join('');
+    document.getElementById('academic-experience-list').innerHTML = langData.academicExperienceList.join('');
+    document.getElementById('professional-experience-list').innerHTML = langData.professionalExperienceList.join('');
+    document.getElementById('projects-list').innerHTML = langData.projectsList.join('');
+    document.getElementById('publications-list').innerHTML = langData.publicationsList.join('');
+    document.getElementById('appearances-list').innerHTML = langData.appearancesList.join('');
+    document.getElementById('awards-list').innerHTML = langData.awardsList.join('');
 
+    document.getElementById('lang-toggle').innerText = currentLang === 'pt' ? 'EN' : 'PT';
     sections.forEach(s => s.style.opacity = 1);
-  },400);
+  }, 400);
 });
 </script>
 
