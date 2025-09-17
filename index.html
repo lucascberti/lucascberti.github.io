@@ -358,13 +358,13 @@ document.getElementById('lang-toggle').addEventListener('click',()=> {
     document.getElementById('languages').innerText = langData.languages;
 
     // Lists
-    document.getElementById('education-list').innerHTML = langData.educationList.join('');
-    document.getElementById('academic-experience-list').innerHTML = langData.academicExperienceList.join('');
-    document.getElementById('professional-experience-list').innerHTML = langData.professionalExperienceList.join('');
-    document.getElementById('projects-list').innerHTML = langData.projectsList.join('');
-    document.getElementById('publications-list').innerHTML = langData.publicationsList.join('');
-    document.getElementById('appearances-list').innerHTML = langData.appearancesList.join('');
-    document.getElementById('awards-list').innerHTML = langData.awardsList.join('');
+    document.getElementById('education-list').innerHTML = langData.educationList;
+    document.getElementById('academic-experience-list').innerHTML = langData.academicExperienceList;
+    document.getElementById('professional-experience-list').innerHTML = langData.professionalExperienceList;
+    document.getElementById('projects-list').innerHTML = langData.projectsList;
+    document.getElementById('publications-list').innerHTML = langData.publicationsList;
+    document.getElementById('appearances-list').innerHTML = langData.appearancesList;
+    document.getElementById('awards-list').innerHTML = langData.awardsList;
 
     document.getElementById('lang-toggle').innerText = currentLang === 'pt' ? 'EN' : 'PT';
     sections.forEach(s => s.style.opacity = 1);
