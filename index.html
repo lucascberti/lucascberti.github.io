@@ -5,138 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lucas Calabró Berti</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
   <style>
-    /* ===== VARIÁVEIS ===== */
-    :root {
-      --verde-profundo: #1A2F1D;
-      --verde-floresta: #2C4A3E;
-      --verde-musgo: #5F7352;
-      --verde-sálvia: #8BA888;
-      --areia: #E8E6D9;
-      --offwhite: #F5F5F0;
-      --sombra: rgba(0,0,0,0.1);
-      
-      --bg-primary: var(--areia);
-      --bg-card: white;
-      --text-primary: var(--verde-profundo);
-      --text-secondary: var(--verde-floresta);
-      --accent: var(--verde-musgo);
-      --accent-light: var(--verde-sálvia);
-      --shadow-sm: 0 4px 6px var(--sombra);
-      --shadow-md: 0 10px 15px -3px var(--sombra);
-      --shadow-lg: 0 20px 25px -5px var(--sombra);
-    }
-
-    /* ===== RESET ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* ===== ANIMAÇÕES ===== */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ===== ESTILOS BASE ===== */
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-    }
-
-    /* ===== HEADER ===== */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(44, 62, 47, 0.95);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      color: var(--offwhite);
-      text-align: center;
-      padding: 1rem;
-      box-shadow: var(--shadow-md);
-    }
-
-    header h1 {
-      font-size: 2rem;
-      margin-bottom: 0.3rem;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1rem;
-      margin-bottom: 0.7rem;
-      opacity: 0.9;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.5rem 1rem;
-      margin-top: 0.5rem;
-    }
-
-    nav a {
-      color: var(--offwhite);
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.4rem 0.8rem;
-      border-radius: 25px;
-      transition: all 0.25s ease;
-      font-size: 0.95rem;
-      background: rgba(255,255,255,0.1);
-    }
-
-    nav a:hover {
-      background: var(--verde-musgo);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    nav a:first-child {
-      background: var(--verde-musgo);
-      font-weight: 700;
-    }
-
-    nav a:first-child:hover {
-      background: var(--verde-floresta);
-    }
-
-    /* ===== BOTÃO IDIOMA ===== */
-    #lang-toggle {
-      background: var(--verde-sálvia);
-      border: none;
-      color: var(--verde-profundo);
-      padding: 5px 15px;
-      margin-left: 12px;
-      cursor: pointer;
-      border-radius: 25px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-sm);
-    }
-
-    #lang-toggle:hover {
-      background: white;
-      transform: scale(1.05);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* ===== CONTAINER PRINCIPAL ===== */
-    .container {
+    /* Estilos específicos da home */
+    .home-container {
       display: flex;
       max-width: 1200px;
       margin: 3rem auto;
@@ -144,7 +16,6 @@
       gap: 3rem;
     }
 
-    /* ===== FOTO DE PERFIL ===== */
     .profile-pic {
       flex-shrink: 0;
       width: 250px;
@@ -163,31 +34,10 @@
       transform: scale(1.02);
     }
 
-    /* ===== CONTEÚDO DA HOME ===== */
-    .content {
+    .home-content {
       flex: 1;
     }
 
-    section {
-      margin-bottom: 2rem;
-      animation: fadeInUp 0.6s ease-out forwards;
-    }
-
-    h2 {
-      color: var(--verde-floresta);
-      margin-bottom: 1.5rem;
-      border-bottom: 3px solid var(--verde-sálvia);
-      display: inline-block;
-      padding-bottom: 0.5rem;
-      font-size: 1.8rem;
-    }
-
-    #about-text {
-      text-align: justify;
-      font-size: 1.1rem;
-    }
-
-    /* ===== CARDS DE CONTATO ===== */
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -211,7 +61,6 @@
       transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
       background: var(--verde-sálvia);
-      color: var(--verde-profundo);
     }
 
     .contact-card .emoji {
@@ -220,48 +69,8 @@
       display: block;
     }
 
-    /* ===== BOTÃO VOLTAR AO TOPO ===== */
-    #back-to-top {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: var(--verde-musgo);
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: none;
-      cursor: pointer;
-      font-size: 1.8rem;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-lg);
-      z-index: 99;
-    }
-
-    #back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    #back-to-top:hover {
-      transform: scale(1.1);
-      background: var(--verde-floresta);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--verde-profundo);
-      color: var(--offwhite);
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 4rem;
-    }
-
-    /* ===== MEDIA QUERIES ===== */
     @media (max-width: 900px) {
-      .container {
+      .home-container {
         flex-direction: column;
         align-items: center;
         padding: 0 1.5rem;
@@ -272,32 +81,6 @@
         width: 200px;
         height: 200px;
       }
-
-      nav {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.5rem;
-      }
-
-      nav a {
-        font-size: 0.85rem;
-        text-align: center;
-      }
-
-      #lang-toggle {
-        grid-column: span 3;
-        margin: 0;
-      }
-    }
-
-    @media (max-width: 600px) {
-      nav {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-      }
     }
   </style>
 </head>
@@ -306,31 +89,31 @@
     <h1 id="title">Lucas Calabró Berti</h1>
     <p id="subtitle">Cientista Político • Pesquisador</p>
     <nav>
-      <a href="index.html" id="nav-home">Sobre mim</a>
-      <a href="formacao.html" target="_blank" id="nav-education">Formação</a>
-      <a href="atuacao-academica.html" target="_blank" id="nav-academic">Atuação Acadêmica</a>
-      <a href="publicacoes.html" target="_blank" id="nav-publications">Publicações</a>
-      <a href="projetos.html" target="_blank" id="nav-projects">Projetos</a>
-      <a href="contato.html" target="_blank" id="nav-contact">Contato</a>
+      <a href="index.html" id="nav-home" class="active">Sobre mim</a>
+      <a href="formacao.html" id="nav-education">Formação</a>
+      <a href="atuacao-academica.html" id="nav-academic">Atuação Acadêmica</a>
+      <a href="publicacoes.html" id="nav-publications">Publicações</a>
+      <a href="projetos.html" id="nav-projects">Projetos</a>
+      <a href="contato.html" id="nav-contact">Contato</a>
       <button id="lang-toggle">EN</button>
     </nav>
   </header>
 
-  <div class="container">
-    <img src="foto-lucas.jpg" alt="Lucas Calabró Berti" class="profile-pic" onerror="this.src='https://via.placeholder.com/250x250?text=Lucas+Berti'"/>
+  <div class="home-container">
+    <img src="imagem/foto-lucas.jpg" alt="Lucas Calabró Berti" class="profile-pic" onerror="this.src='https://via.placeholder.com/250x250?text=Lucas+Berti'"/>
 
-    <div class="content">
+    <div class="home-content">
       <section id="sobre">
         <h2 id="about-title">Sobre mim</h2>
-        <p id="about-text">
+        <p id="about-text1">
           Olá, bem-vindo(a)! Me chamo Lucas Calabró Berti, sou mestrando em Ciência Política no IESP/UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política brasileira e sul-americana, instituições e comportamento político, com foco em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.
         </p>
-        <p style="margin-top: 1rem;">
+        <p style="margin-top: 1rem;" id="about-text2">
           Atualmente pesquiso no Observatório Político Sul-Americano (OPSA/IESP), no Núcleo de Estudos sobre o Congresso (NECON/IESP) e no Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.
         </p>
       </section>
 
-      <section id="contato-rapido">
+      <section id="contato-rapido" style="margin-top: 2rem;">
         <h2 id="contact-title">Contato</h2>
         <div class="contact-grid">
           <a href="mailto:lucasberti@iesp.uerj.br" class="contact-card">
@@ -366,7 +149,7 @@
   <button id="back-to-top" title="Voltar ao topo">↑</button>
 
   <script>
-    // ===== CONTEÚDO BILÍNGUE =====
+    // Conteúdo bilíngue
     const content = {
       pt: {
         title: 'Lucas Calabró Berti',
@@ -380,8 +163,8 @@
           contact: 'Contato'
         },
         aboutTitle: 'Sobre mim',
-        about1: `Olá, bem-vindo(a)! Me chamo Lucas Calabró Berti, sou mestrando em Ciência Política no IESP/UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política brasileira e sul-americana, instituições e comportamento político, com foco em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.`,
-        about2: `Atualmente pesquiso no Observatório Político Sul-Americano (OPSA/IESP), no Núcleo de Estudos sobre o Congresso (NECON/IESP) e no Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.`,
+        about1: 'Olá, bem-vindo(a)! Me chamo Lucas Calabró Berti, sou mestrando em Ciência Política no IESP/UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política brasileira e sul-americana, instituições e comportamento político, com foco em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.',
+        about2: 'Atualmente pesquiso no Observatório Político Sul-Americano (OPSA/IESP), no Núcleo de Estudos sobre o Congresso (NECON/IESP) e no Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.',
         contact: 'Contato',
         languages: '🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)'
       },
@@ -397,28 +180,24 @@
           contact: 'Contact'
         },
         aboutTitle: 'About',
-        about1: `Hello, welcome! My name is Lucas Calabró Berti. I'm a Master's student in Political Science at IESP-UERJ and hold a BA in Political Science from UNIRIO. My research focuses on South American politics, institutions, and political behavior, especially presidentialism, legislative studies, executive-legislative relations, and governing coalitions in Brazil, Uruguay, and Peru.`,
-        about2: `I currently research at OPSA, NECON, and GRISUL, and I edit the monthly journal Conjuntura Latitude Sul.`,
+        about1: 'Hello, welcome! My name is Lucas Calabró Berti. I\'m a Master\'s student in Political Science at IESP-UERJ and hold a BA in Political Science from UNIRIO. My research focuses on South American politics, institutions, and political behavior, especially presidentialism, legislative studies, executive-legislative relations, and governing coalitions in Brazil, Uruguay, and Peru.',
+        about2: 'I currently research at OPSA, NECON, and GRISUL, and I edit the monthly journal Conjuntura Latitude Sul.',
         contact: 'Contact',
         languages: '🌐 Languages: English (fluent), French & Spanish (advanced), Italian (intermediate)'
       }
     };
 
-    // ===== VARIÁVEIS =====
     let currentLang = 'pt';
     const langToggle = document.getElementById('lang-toggle');
     const backToTop = document.getElementById('back-to-top');
 
-    // ===== APLICAR IDIOMA =====
     function applyLanguage(langKey) {
       const langData = content[langKey];
       if (!langData) return;
 
-      // Header
       document.getElementById('title').innerText = langData.title;
       document.getElementById('subtitle').innerText = langData.subtitle;
 
-      // Navegação
       document.getElementById('nav-home').innerText = langData.nav.home;
       document.getElementById('nav-education').innerText = langData.nav.education;
       document.getElementById('nav-academic').innerText = langData.nav.academic;
@@ -426,41 +205,25 @@
       document.getElementById('nav-projects').innerText = langData.nav.projects;
       document.getElementById('nav-contact').innerText = langData.nav.contact;
 
-      // Seções
       document.getElementById('about-title').innerText = langData.aboutTitle;
-      
-      // Manter os dois parágrafos
-      const aboutSection = document.getElementById('sobre');
-      aboutSection.innerHTML = `
-        <h2 id="about-title">${langData.aboutTitle}</h2>
-        <p id="about-text">${langData.about1}</p>
-        <p style="margin-top: 1rem;">${langData.about2}</p>
-      `;
-
+      document.getElementById('about-text1').innerHTML = langData.about1;
+      document.getElementById('about-text2').innerHTML = langData.about2;
       document.getElementById('contact-title').innerText = langData.contact;
       document.getElementById('languages').innerHTML = langData.languages;
 
-      // Botão
       langToggle.innerText = langKey === 'pt' ? 'EN' : 'PT';
     }
 
-    // ===== BOTÃO VOLTAR AO TOPO =====
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) {
-        backToTop.classList.add('visible');
-      } else {
-        backToTop.classList.remove('visible');
-      }
+      backToTop.classList.toggle('visible', window.scrollY > 500);
     });
 
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ===== TOGGLE IDIOMA =====
     langToggle.addEventListener('click', () => {
       document.body.style.opacity = '0.5';
-      
       setTimeout(() => {
         currentLang = currentLang === 'pt' ? 'en' : 'pt';
         applyLanguage(currentLang);
@@ -468,7 +231,6 @@
       }, 300);
     });
 
-    // ===== INICIALIZAÇÃO =====
     applyLanguage(currentLang);
   </script>
 </body>
