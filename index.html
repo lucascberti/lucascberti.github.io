@@ -13,18 +13,15 @@
       --verde-musgo: #5F7352;
       --verde-sálvia: #8BA888;
       --areia: #E8E6D9;
-      --casca: #D4C9B9;
       --offwhite: #F5F5F0;
       --sombra: rgba(0,0,0,0.1);
       
-      /* Tokens semânticos */
       --bg-primary: var(--areia);
       --bg-card: white;
       --text-primary: var(--verde-profundo);
       --text-secondary: var(--verde-floresta);
       --accent: var(--verde-musgo);
       --accent-light: var(--verde-sálvia);
-      --border: var(--verde-sálvia);
       --shadow-sm: 0 4px 6px var(--sombra);
       --shadow-md: 0 10px 15px -3px var(--sombra);
       --shadow-lg: 0 20px 25px -5px var(--sombra);
@@ -37,7 +34,7 @@
       box-sizing: border-box;
     }
 
-    /* ===== ANIMAÇÕES GLOBAIS ===== */
+    /* ===== ANIMAÇÕES ===== */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -49,40 +46,12 @@
       }
     }
 
-    @keyframes loading {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-
     /* ===== ESTILOS BASE ===== */
     body {
       font-family: 'Roboto', sans-serif;
       background: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    body.loading {
-      position: relative;
-      pointer-events: none;
-    }
-
-    body.loading::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--verde-musgo), transparent);
-      animation: loading 1.5s infinite;
-      z-index: 1000;
     }
 
     /* ===== HEADER ===== */
@@ -103,7 +72,6 @@
       font-size: 2rem;
       margin-bottom: 0.3rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
     }
 
     header p {
@@ -124,35 +92,45 @@
       color: var(--offwhite);
       text-decoration: none;
       font-weight: 500;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
+      padding: 0.4rem 0.8rem;
+      border-radius: 25px;
       transition: all 0.25s ease;
       font-size: 0.95rem;
+      background: rgba(255,255,255,0.1);
     }
 
     nav a:hover {
-      color: var(--verde-sálvia);
-      background: rgba(255,255,255,0.1);
+      background: var(--verde-musgo);
       transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    nav a:first-child {
+      background: var(--verde-musgo);
+      font-weight: 700;
+    }
+
+    nav a:first-child:hover {
+      background: var(--verde-floresta);
     }
 
     /* ===== BOTÃO IDIOMA ===== */
     #lang-toggle {
-      background: var(--verde-musgo);
+      background: var(--verde-sálvia);
       border: none;
-      color: white;
+      color: var(--verde-profundo);
       padding: 5px 15px;
       margin-left: 12px;
       cursor: pointer;
-      border-radius: 20px;
+      border-radius: 25px;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 700;
       transition: all 0.3s ease;
       box-shadow: var(--shadow-sm);
     }
 
     #lang-toggle:hover {
-      background: var(--verde-sálvia);
+      background: white;
       transform: scale(1.05);
       box-shadow: var(--shadow-md);
     }
@@ -169,8 +147,8 @@
     /* ===== FOTO DE PERFIL ===== */
     .profile-pic {
       flex-shrink: 0;
-      width: 220px;
-      height: 220px;
+      width: 250px;
+      height: 250px;
       object-fit: cover;
       border-radius: 50%;
       border: 4px solid var(--verde-sálvia);
@@ -178,40 +156,23 @@
       top: 100px;
       align-self: start;
       box-shadow: var(--shadow-lg);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .profile-pic:hover {
       transform: scale(1.02);
-      box-shadow: 0 25px 30px -5px var(--sombra);
     }
 
-    /* ===== CONTEÚDO ===== */
+    /* ===== CONTEÚDO DA HOME ===== */
     .content {
       flex: 1;
     }
 
-    /* ===== SEÇÕES ===== */
     section {
-      margin-bottom: 3rem;
-      scroll-margin-top: 100px;
+      margin-bottom: 2rem;
       animation: fadeInUp 0.6s ease-out forwards;
-      opacity: 0;
     }
 
-    /* Delays progressivos */
-    section:nth-child(1) { animation-delay: 0.1s; }
-    section:nth-child(2) { animation-delay: 0.15s; }
-    section:nth-child(3) { animation-delay: 0.2s; }
-    section:nth-child(4) { animation-delay: 0.25s; }
-    section:nth-child(5) { animation-delay: 0.3s; }
-    section:nth-child(6) { animation-delay: 0.35s; }
-    section:nth-child(7) { animation-delay: 0.4s; }
-    section:nth-child(8) { animation-delay: 0.45s; }
-    section:nth-child(9) { animation-delay: 0.5s; }
-    section:nth-child(10) { animation-delay: 0.55s; }
-
-    /* ===== TÍTULOS ===== */
     h2 {
       color: var(--verde-floresta);
       margin-bottom: 1.5rem;
@@ -219,213 +180,44 @@
       display: inline-block;
       padding-bottom: 0.5rem;
       font-size: 1.8rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      transition: border-color 0.3s ease;
     }
 
-    h2:hover {
-      border-bottom-color: var(--verde-musgo);
-    }
-
-    /* ===== CARDS ===== */
-    .cards-container {
-      display: grid;
-      gap: 1.2rem;
-    }
-
-    .experience-card {
-      background: var(--bg-card);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--verde-musgo);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .experience-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, transparent, rgba(139, 168, 136, 0.1));
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .experience-card:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .experience-card:hover::before {
-      opacity: 1;
-    }
-
-    .experience-card b {
-      color: var(--verde-floresta);
+    #about-text {
+      text-align: justify;
       font-size: 1.1rem;
     }
 
-    .experience-card a {
-      color: var(--verde-musgo);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
+    /* ===== CARDS DE CONTATO ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
-    .experience-card a:hover {
-      color: var(--verde-profundo);
-      text-decoration: underline;
-    }
-
-    /* ===== BADGES ===== */
-    .badge-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .badge {
-      display: inline-block;
-      background: var(--verde-sálvia);
-      color: var(--verde-profundo);
-      padding: 0.35rem 1rem;
-      border-radius: 30px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: all 0.2s ease;
-      cursor: default;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .badge:hover {
-      background: var(--verde-musgo);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* ===== TIMELINE ===== */
-    .timeline {
-      position: relative;
-      padding-left: 2rem;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--verde-sálvia), var(--verde-musgo));
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-bottom: 2rem;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -2.4rem;
-      top: 0.5rem;
-      width: 1rem;
-      height: 1rem;
-      border-radius: 50%;
-      background: var(--verde-musgo);
-      border: 3px solid var(--offwhite);
+    .contact-card {
+      background: var(--bg-card);
+      padding: 1.2rem;
+      border-radius: 12px;
+      text-align: center;
       box-shadow: var(--shadow-sm);
       transition: all 0.3s ease;
-    }
-
-    .timeline-item:hover::before {
-      background: var(--verde-sálvia);
-      transform: scale(1.2);
-    }
-
-    /* ===== LISTAS ===== */
-    ul {
-      list-style: none;
-    }
-
-    ul li {
-      margin-bottom: 1rem;
-      padding-left: 1.5rem;
-      position: relative;
-      transition: transform 0.2s ease;
-    }
-
-    ul li:hover {
-      transform: translateX(5px);
-    }
-
-    ul li::before {
-      content: '▹';
-      position: absolute;
-      left: 0;
-      color: var(--verde-musgo);
-      font-size: 1.2rem;
-      line-height: 1;
-    }
-
-    /* ===== LINKS ===== */
-    a {
-      color: var(--verde-musgo);
       text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s ease;
-      position: relative;
+      color: var(--text-primary);
+      display: block;
     }
 
-    a:not(.experience-card a):hover {
-      color: var(--verde-profundo);
-      text-decoration: underline;
-    }
-
-    /* ===== CONTATO ===== */
-    #contato p {
-      margin-bottom: 0.8rem;
-      font-size: 1.1rem;
-    }
-
-    #contato a {
-      display: inline-block;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-    }
-
-    #contato a:hover {
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
       background: var(--verde-sálvia);
       color: var(--verde-profundo);
-      text-decoration: none;
     }
 
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--verde-profundo);
-      color: var(--offwhite);
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 4rem;
-      position: relative;
-    }
-
-    footer::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: 0;
-      right: 0;
-      height: 10px;
-      background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1));
+    .contact-card .emoji {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
     }
 
     /* ===== BOTÃO VOLTAR AO TOPO ===== */
@@ -443,12 +235,9 @@
       font-size: 1.8rem;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s ease;
       box-shadow: var(--shadow-lg);
       z-index: 99;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     #back-to-top.visible {
@@ -457,20 +246,17 @@
     }
 
     #back-to-top:hover {
-      transform: scale(1.1) translateY(-5px);
+      transform: scale(1.1);
       background: var(--verde-floresta);
-      box-shadow: 0 15px 20px -5px rgba(0,0,0,0.3);
     }
 
-    /* ===== SKELETON LOADING ===== */
-    .skeleton {
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.2),
-        transparent
-      );
-      animation: loading 1.5s infinite;
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--verde-profundo);
+      color: var(--offwhite);
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 4rem;
     }
 
     /* ===== MEDIA QUERIES ===== */
@@ -479,13 +265,12 @@
         flex-direction: column;
         align-items: center;
         padding: 0 1.5rem;
-        gap: 2rem;
       }
 
       .profile-pic {
         position: static;
-        width: 180px;
-        height: 180px;
+        width: 200px;
+        height: 200px;
       }
 
       nav {
@@ -496,20 +281,12 @@
 
       nav a {
         font-size: 0.85rem;
-        padding: 0.5rem;
-        background: rgba(255,255,255,0.1);
-        border-radius: 20px;
         text-align: center;
-      }
-
-      h2 {
-        font-size: 1.6rem;
       }
 
       #lang-toggle {
         grid-column: span 3;
-        margin: 0.5rem 0 0 0;
-        width: 100%;
+        margin: 0;
       }
     }
 
@@ -517,62 +294,10 @@
       nav {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .container {
-        padding: 0 1rem;
-      }
-
-      .experience-card {
-        padding: 1.2rem;
-      }
-
+      
       h2 {
-        font-size: 1.4rem;
-      }
-
-      #back-to-top {
-        bottom: 1rem;
-        right: 1rem;
-        width: 40px;
-        height: 40px;
         font-size: 1.5rem;
       }
-    }
-
-    /* ===== UTILITÁRIOS ===== */
-    .text-center {
-      text-align: center;
-    }
-
-    .mt-2 {
-      margin-top: 0.5rem;
-    }
-
-    .mb-2 {
-      margin-bottom: 0.5rem;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    /* ===== PERSONALIZAÇÃO DO SCROLL ===== */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--areia);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--verde-musgo);
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--verde-floresta);
     }
   </style>
 </head>
@@ -581,82 +306,55 @@
     <h1 id="title">Lucas Calabró Berti</h1>
     <p id="subtitle">Cientista Político • Pesquisador</p>
     <nav>
-      <a href="#sobre" id="nav-about">Sobre mim</a>
-      <a href="#formacao" id="nav-education">Formação</a>
-      <a href="#experiencia-academica" id="nav-academic-experience">Atuação Acadêmica</a>
-      <a href="#bolsas" id="nav-scholarships">Bolsas</a>
-      <a href="#experiencia-profissional" id="nav-professional-experience">Atuação Profissional</a>
-      <a href="#projetos" id="nav-projects">Projetos</a>
-      <a href="#publicacoes" id="nav-publications">Publicações</a>
-      <a href="#participacoes" id="nav-appearances">Participações</a>
-      <a href="#premios" id="nav-awards">Prêmios</a>
-      <a href="#contato" id="nav-contact">Contato</a>
+      <a href="index.html" id="nav-home">Sobre mim</a>
+      <a href="formacao.html" target="_blank" id="nav-education">Formação</a>
+      <a href="atuacao-academica.html" target="_blank" id="nav-academic">Atuação Acadêmica</a>
+      <a href="publicacoes.html" target="_blank" id="nav-publications">Publicações</a>
+      <a href="projetos.html" target="_blank" id="nav-projects">Projetos</a>
+      <a href="contato.html" target="_blank" id="nav-contact">Contato</a>
       <button id="lang-toggle">EN</button>
     </nav>
   </header>
 
   <div class="container">
-    <img src="foto-lucas.jpg" alt="Lucas Calabró Berti" class="profile-pic" onerror="this.src='https://via.placeholder.com/220x220?text=Lucas+Berti'"/>
+    <img src="foto-lucas.jpg" alt="Lucas Calabró Berti" class="profile-pic" onerror="this.src='https://via.placeholder.com/250x250?text=Lucas+Berti'"/>
 
     <div class="content">
       <section id="sobre">
         <h2 id="about-title">Sobre mim</h2>
-        <p id="about-text" style="text-align: justify; text-justify: inter-word;">
-          Olá, bem-vindo(a)! Me chamo Lucas Calabró Berti, sou mestrando em Ciência Política no IESP/UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política brasileira e sul-americana, instituições e comportamento político, com foco em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru. Atualmente pesquiso no Observatório Político Sul-Americano (OPSA/IESP), no Núcleo de Estudos sobre o Congresso (NECON/IESP) e no Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.
+        <p id="about-text">
+          Olá, bem-vindo(a)! Me chamo Lucas Calabró Berti, sou mestrando em Ciência Política no IESP/UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política brasileira e sul-americana, instituições e comportamento político, com foco em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.
+        </p>
+        <p style="margin-top: 1rem;">
+          Atualmente pesquiso no Observatório Político Sul-Americano (OPSA/IESP), no Núcleo de Estudos sobre o Congresso (NECON/IESP) e no Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.
         </p>
       </section>
 
-      <section id="formacao">
-        <h2 id="education-title">Formação Acadêmica</h2>
-        <div class="cards-container" id="education-list">
-          <!-- preenchido por JS -->
-        </div>
-      </section>
-
-      <section id="experiencia-academica">
-        <h2 id="academic-experience-title">Atuação Acadêmica</h2>
-        <div class="cards-container" id="academic-experience-list"></div>
-      </section>
-
-      <section id="bolsas">
-        <h2 id="bolsas-title">Bolsas</h2>
-        <div class="badge-container" id="bolsas-list"></div>
-      </section>
-
-      <section id="experiencia-profissional">
-        <h2 id="professional-experience-title">Atuação Profissional</h2>
-        <div class="cards-container" id="professional-experience-list"></div>
-      </section>
-
-      <section id="projetos">
-        <h2 id="projects-title">Projetos</h2>
-        <div class="cards-container" id="projects-list"></div>
-      </section>
-
-      <section id="publicacoes">
-        <h2 id="publications-title">Publicações</h2>
-        <div class="timeline" id="publications-list"></div>
-      </section>
-
-      <section id="participacoes">
-        <h2 id="appearances-title">Participações e comentários na mídia</h2>
-        <ul id="appearances-list"></ul>
-      </section>
-
-      <section id="premios">
-        <h2 id="awards-title">Prêmios</h2>
-        <div class="badge-container" id="awards-list"></div>
-      </section>
-
-      <section id="contato">
+      <section id="contato-rapido">
         <h2 id="contact-title">Contato</h2>
-        <p>📧 <a id="email-link" href="mailto:lucasberti@iesp.uerj.br">lucasberti@iesp.uerj.br</a></p>
-        <p>🔗 
-          <a id="linkedin-link" href="https://www.linkedin.com/in/lucascberti11" target="_blank">LinkedIn</a> |
-          <a id="github-link" href="https://github.com/lucascberti" target="_blank">GitHub</a> |
-          <a id="lattes-link" href="http://lattes.cnpq.br/3201012395712916" target="_blank">Lattes</a>
-        </p>
-        <p id="languages">🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)</p>
+        <div class="contact-grid">
+          <a href="mailto:lucasberti@iesp.uerj.br" class="contact-card">
+            <span class="emoji">📧</span>
+            <strong>Email</strong>
+            <small>lucasberti@iesp.uerj.br</small>
+          </a>
+          <a href="https://www.linkedin.com/in/lucascberti11" target="_blank" class="contact-card">
+            <span class="emoji">🔗</span>
+            <strong>LinkedIn</strong>
+            <small>@lucascberti11</small>
+          </a>
+          <a href="https://github.com/lucascberti" target="_blank" class="contact-card">
+            <span class="emoji">🐙</span>
+            <strong>GitHub</strong>
+            <small>@lucascberti</small>
+          </a>
+          <a href="http://lattes.cnpq.br/3201012395712916" target="_blank" class="contact-card">
+            <span class="emoji">📄</span>
+            <strong>Lattes</strong>
+            <small>Currículo</small>
+          </a>
+        </div>
+        <p style="margin-top: 1.5rem;" id="languages">🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)</p>
       </section>
     </div>
   </div>
@@ -674,103 +372,44 @@
         title: 'Lucas Calabró Berti',
         subtitle: 'Cientista Político • Pesquisador',
         nav: {
-          about:'Sobre mim', education:'Formação', academicExperience:'Atuação Acadêmica',
-          scholarships:'Bolsas', professionalExperience:'Atuação Profissional', projects:'Projetos',
-          publications:'Publicações', appearances:'Participações', awards:'Prêmios', contact:'Contato'
+          home: 'Sobre mim',
+          education: 'Formação',
+          academic: 'Atuação Acadêmica',
+          publications: 'Publicações',
+          projects: 'Projetos',
+          contact: 'Contato'
         },
-        aboutTitle:'Sobre mim',
-        about: `Olá, bem-vindo(a)! Me chamo Lucas Calabró Berti, sou mestrando em Ciência Política no IESP/UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política brasileira e sul-americana, instituições e comportamento político, com foco em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru. Atualmente pesquiso no Observatório Político Sul-Americano (OPSA/IESP), no Núcleo de Estudos sobre o Congresso (NECON/IESP) e no Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.`,
-        educationList: [
-          '<b>Mestrando em Ciência Política - IESP/UERJ</b><br>Orientador: Prof. Dr. Fabiano Santos (<a href="http://lattes.cnpq.br/3534868879163140" target="_blank">CV</a>)',
-          '<b>Bacharel em Ciência Política - UNIRIO (2024)</b><br>Orientador: Prof. Dr. André Coelho (<a href="http://lattes.cnpq.br/7370207316680307" target="_blank">CV</a>)'
-        ],
-        academicExperienceList: [
-          '<b><a href="https://opsa.com.br" target="_blank">Pesquisador no OPSA</a></b><br>Produção de análises sobre política peruana (2025 - atual)',
-          '<b><a href="https://necon.iesp.uerj.br" target="_blank">Pesquisador no NECON</a></b><br>Pesquisas sobre o Congresso Nacional (2025 - atual)',
-          '<b><a href="https://www.instagram.com/grisul.unirio/" target="_blank">Pesquisador no GRISUL</a></b><br>Estudos sobre o Sul Global (2021 - atual)',
-          '<b>Entrevistas para TCC</b><br>Depto. de Ciência Política da Universidad de La República, Uruguai (2024)'
-        ],
-        bolsasList: [
-          'Mestrado - FAPERJ (2025 - atual)',
-          'Monitoria - Política e Sociedade na América Latina (2022 - 2023)',
-          'Iniciação Científica - UNIRIO (2023 - 2024)'
-        ],
-        professionalExperienceList: [
-          '<b>Assessor de redes sociais</b><br>Dep. Fed. Fernanda Melchionna (2020 e 2022)',
-          '<b>Professor particular de inglês</b><br>(2020–2025)'
-        ],
-        projectsList: [
-          '<b><a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">Conjuntura Latitude Sul</a></b><br>Editor do boletim mensal (2025 - atual)',
-          '<b><a href="https://opsa.com.br/projeto-governanca-pan-amazonica/" target="_blank">Projeto Governança Pan-Amazônica</a></b><br>Pesquisador (2025 - atual)'
-        ],
-        publicationsList: [
-          '<div class="timeline-item"><b>Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional</b><br><small>TCC completo: <a href="http://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">Repositório UNIRIO</a></small></div>'
-        ],
-        appearancesList: [
-          '<li><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">Podcast Mundioka #581 – Mesmo em crise, Peru pode superar Brasil e México?</a></li>',
-          '<li><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">Podcast Mundioka #644 – México: Justiça nas urnas</a></li>',
-          '<li><a href="https://open.spotify.com/episode/2JJ5X8zQeNXPjpYFGApNRy?si=32489883f95a4ed1" target="_blank">Podcast Mundioka #731 - Déjà vu no Peru: mais uma vez o país fica sem presidente</a></li>'
-        ],
-        awardsList: [
-          'Melhor Trabalho de Graduação - Jornada Discente UNIRIO (2024)'
-        ],
+        aboutTitle: 'Sobre mim',
+        about1: `Olá, bem-vindo(a)! Me chamo Lucas Calabró Berti, sou mestrando em Ciência Política no IESP/UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política brasileira e sul-americana, instituições e comportamento político, com foco em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo – principalmente no Brasil, Uruguai e Peru.`,
+        about2: `Atualmente pesquiso no Observatório Político Sul-Americano (OPSA/IESP), no Núcleo de Estudos sobre o Congresso (NECON/IESP) e no Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do periódico mensal Conjuntura Latitude Sul.`,
+        contact: 'Contato',
         languages: '🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)'
       },
       en: {
         title: 'Lucas Calabró Berti',
         subtitle: 'Political Scientist • Researcher',
         nav: {
-          about:'About', education:'Education', academicExperience:'Academic Experience',
-          scholarships:'Scholarships', professionalExperience:'Professional Experience', projects:'Projects',
-          publications:'Publications', appearances:'Appearances', awards:'Awards', contact:'Contact'
+          home: 'About',
+          education: 'Education',
+          academic: 'Academic Experience',
+          publications: 'Publications',
+          projects: 'Projects',
+          contact: 'Contact'
         },
         aboutTitle: 'About',
-        about: `Hello, welcome! My name is Lucas Calabró Berti. I'm a Master\'s student in Political Science at IESP-UERJ and hold a BA in Political Science from UNIRIO. My research focuses on South American politics, institutions, and political behavior, especially presidentialism, legislative studies, executive-legislative relations, and governing coalitions in Brazil, Uruguay, and Peru. I currently research at OPSA, NECON, and GRISUL, and I edit the monthly journal Conjuntura Latitude Sul.`,
-        educationList: [
-          '<b>Master\'s student in Political Science - IESP/UERJ</b><br>Advisor: Prof. Fabiano Santos, PhD (<a href="http://lattes.cnpq.br/3534868879163140" target="_blank">CV</a>)',
-          '<b>Bachelor in Political Science - UNIRIO (2024)</b><br>Advisor: Prof. André Coelho, PhD (<a href="http://lattes.cnpq.br/7370207316680307" target="_blank">CV</a>)'
-        ],
-        academicExperienceList: [
-          '<b><a href="https://opsa.com.br" target="_blank">Researcher at OPSA</a></b><br>Producing analyses on Peruvian politics (2025 - present)',
-          '<b><a href="https://necon.iesp.uerj.br" target="_blank">Researcher at NECON</a></b><br>Studies on the National Congress (2025 - present)',
-          '<b><a href="https://www.instagram.com/grisul.unirio/" target="_blank">Researcher at GRISUL</a></b><br>Studies on the Global South (2021 - present)',
-          '<b>Interviews for BA Thesis</b><br>Department of Political Science, Universidad de La República, Uruguay (2024)'
-        ],
-        bolsasList: [
-          'Master\'s scholarship - FAPERJ (2025 - present)',
-          'Teaching assistant - Politics and Society in Latin America (2022 - 2023)',
-          'Undergraduate research grant - UNIRIO (2023 - 2024)'
-        ],
-        professionalExperienceList: [
-          '<b>Social media assistant</b><br>Federal Deputy Fernanda Melchionna (2020 & 2022)',
-          '<b>Private English teacher</b><br>(2020–2025)'
-        ],
-        projectsList: [
-          '<b><a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">Conjuntura Latitude Sul</a></b><br>Editor of the monthly journal (2025 - present)',
-          '<b><a href="https://opsa.com.br/projeto-governanca-pan-amazonica/" target="_blank">Pan-Amazon Governance Project</a></b><br>Researcher (2025 - present)'
-        ],
-        publicationsList: [
-          '<div class="timeline-item"><b>Latin Contrasts: Uruguayan Presidential Stability Amid Regional Instability</b><br><small>Read the BA thesis: <a href="http://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">UNIRIO Repository</a></small></div>'
-        ],
-        appearancesList: [
-          '<li><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">Mundioka Podcast #581 – Even in crisis, can Peru surpass Brazil and Mexico?</a></li>',
-          '<li><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">Mundioka Podcast #644 – Mexico: Justice at the ballot box</a></li>',
-          '<li><a href="https://open.spotify.com/episode/2JJ5X8zQeNXPjpYFGApNRy?si=32489883f95a4ed1" target="_blank">Mundioka Podcast #731 - Déjà vu in Peru: another moment without a President</a></li>'
-        ],
-        awardsList: [
-          'Best Undergraduate Work - UNIRIO Student Conference (2024)'
-        ],
+        about1: `Hello, welcome! My name is Lucas Calabró Berti. I'm a Master's student in Political Science at IESP-UERJ and hold a BA in Political Science from UNIRIO. My research focuses on South American politics, institutions, and political behavior, especially presidentialism, legislative studies, executive-legislative relations, and governing coalitions in Brazil, Uruguay, and Peru.`,
+        about2: `I currently research at OPSA, NECON, and GRISUL, and I edit the monthly journal Conjuntura Latitude Sul.`,
+        contact: 'Contact',
         languages: '🌐 Languages: English (fluent), French & Spanish (advanced), Italian (intermediate)'
       }
     };
 
-    // ===== VARIÁVEIS GLOBAIS =====
+    // ===== VARIÁVEIS =====
     let currentLang = 'pt';
-    const sections = document.querySelectorAll('section');
     const langToggle = document.getElementById('lang-toggle');
     const backToTop = document.getElementById('back-to-top');
 
-    // ===== FUNÇÃO PARA APLICAR IDIOMA =====
+    // ===== APLICAR IDIOMA =====
     function applyLanguage(langKey) {
       const langData = content[langKey];
       if (!langData) return;
@@ -780,36 +419,57 @@
       document.getElementById('subtitle').innerText = langData.subtitle;
 
       // Navegação
-      document.getElementById('nav-about').innerText = langData.nav.about;
+      document.getElementById('nav-home').innerText = langData.nav.home;
       document.getElementById('nav-education').innerText = langData.nav.education;
-      document.getElementById('nav-academic-experience').innerText = langData.nav.academicExperience;
-      document.getElementById('nav-scholarships').innerText = langData.nav.scholarships;
-      document.getElementById('nav-professional-experience').innerText = langData.nav.professionalExperience;
-      document.getElementById('nav-projects').innerText = langData.nav.projects;
+      document.getElementById('nav-academic').innerText = langData.nav.academic;
       document.getElementById('nav-publications').innerText = langData.nav.publications;
-      document.getElementById('nav-appearances').innerText = langData.nav.appearances;
-      document.getElementById('nav-awards').innerText = langData.nav.awards;
+      document.getElementById('nav-projects').innerText = langData.nav.projects;
       document.getElementById('nav-contact').innerText = langData.nav.contact;
 
-      // Títulos das seções
+      // Seções
       document.getElementById('about-title').innerText = langData.aboutTitle;
-      document.getElementById('education-title').innerText = langData.nav.education;
-      document.getElementById('academic-experience-title').innerText = langData.nav.academicExperience;
-      document.getElementById('bolsas-title').innerText = langData.nav.scholarships;
-      document.getElementById('professional-experience-title').innerText = langData.nav.professionalExperience;
-      document.getElementById('projects-title').innerText = langData.nav.projects;
-      document.getElementById('publications-title').innerText = langData.nav.publications;
-      document.getElementById('appearances-title').innerText = langData.nav.appearances;
-      document.getElementById('awards-title').innerText = langData.nav.awards;
-      document.getElementById('contact-title').innerText = langData.nav.contact;
+      
+      // Manter os dois parágrafos
+      const aboutSection = document.getElementById('sobre');
+      aboutSection.innerHTML = `
+        <h2 id="about-title">${langData.aboutTitle}</h2>
+        <p id="about-text">${langData.about1}</p>
+        <p style="margin-top: 1rem;">${langData.about2}</p>
+      `;
 
-      // Textos
-      document.getElementById('about-text').innerHTML = langData.about;
+      document.getElementById('contact-title').innerText = langData.contact;
+      document.getElementById('languages').innerHTML = langData.languages;
 
-      // Cards (Formatação especial)
-      document.getElementById('education-list').innerHTML = langData.educationList
-        .map(item => `<div class="experience-card">${item}</div>`)
-        .join('');
+      // Botão
+      langToggle.innerText = langKey === 'pt' ? 'EN' : 'PT';
+    }
 
-      document.getElementById('academic-experience-list').innerHTML = langData.academicExperienceList
-        .map(item
+    // ===== BOTÃO VOLTAR AO TOPO =====
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ===== TOGGLE IDIOMA =====
+    langToggle.addEventListener('click', () => {
+      document.body.style.opacity = '0.5';
+      
+      setTimeout(() => {
+        currentLang = currentLang === 'pt' ? 'en' : 'pt';
+        applyLanguage(currentLang);
+        document.body.style.opacity = '1';
+      }, 300);
+    });
+
+    // ===== INICIALIZAÇÃO =====
+    applyLanguage(currentLang);
+  </script>
+</body>
+</html>
