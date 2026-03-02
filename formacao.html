@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formação - Lucas Berti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 id="title">Lucas Calabró Berti</h1>
+    <p id="subtitle">Cientista Político • Pesquisador</p>
+    <nav>
+      <a href="index.html" id="nav-home">Sobre mim</a>
+      <a href="formacao.html" id="nav-education">Formação</a>
+      <a href="atuacao-academica.html" target="_blank" id="nav-academic">Atuação Acadêmica</a>
+      <a href="publicacoes.html" target="_blank" id="nav-publications">Publicações</a>
+      <a href="projetos.html" target="_blank" id="nav-projects">Projetos</a>
+      <a href="contato.html" target="_blank" id="nav-contact">Contato</a>
+      <button id="lang-toggle">EN</button>
+    </nav>
+  </header>
+
+  <div class="container pagina-completa">
+    <a href="index.html" class="btn-voltar">← Voltar</a>
+    
+    <h2 id="page-title">Formação Acadêmica</h2>
+    
+    <div class="cards-container" id="education-list">
+      <!-- Mestrado -->
+      <div class="card">
+        <h4>Mestrando em Ciência Política</h4>
+        <div class="periodo">2025 - atualmente</div>
+        <p><strong>IESP/UERJ</strong> - Instituto de Estudos Sociais e Políticos</p>
+        <p>Orientador: Prof. Dr. Fabiano Santos</p>
+        <p>Linha de pesquisa: Instituições Políticas</p>
+        <p><a href="http://lattes.cnpq.br/3534868879163140" target="_blank">Currículo Lattes do orientador</a></p>
+      </div>
+
+      <!-- Graduação -->
+      <div class="card">
+        <h4>Bacharel em Ciência Política</h4>
+        <div class="periodo">2020 - 2024</div>
+        <p><strong>UNIRIO</strong> - Universidade Federal do Estado do Rio de Janeiro</p>
+        <p>Orientador: Prof. Dr. André Coelho</p>
+        <p>TCC: "Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional"</p>
+        <p><a href="http://lattes.cnpq.br/7370207316680307" target="_blank">Currículo Lattes do orientador</a></p>
+      </div>
+    </div>
+
+    <h3 id="courses-title">Disciplinas Relevantes</h3>
+    <ul class="lista-detalhada" id="courses-list">
+      <li>Teoria Política Contemporânea</li>
+      <li>Instituições Políticas Comparadas</li>
+      <li>Métodos de Pesquisa em Ciência Política</li>
+      <li>Política Brasileira</li>
+      <li>Política Sul-Americana</li>
+      <li>Estudos Legislativos</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>© 2025 - Lucas Berti</p>
+  </footer>
+
+  <button id="back-to-top" title="Voltar ao topo">↑</button>
+
+  <script>
+    const content = {
+      pt: {
+        title: 'Lucas Calabró Berti',
+        subtitle: 'Cientista Político • Pesquisador',
+        nav: {
+          home: 'Sobre mim',
+          education: 'Formação',
+          academic: 'Atuação Acadêmica',
+          publications: 'Publicações',
+          projects: 'Projetos',
+          contact: 'Contato'
+        },
+        pageTitle: 'Formação Acadêmica',
+        coursesTitle: 'Disciplinas Relevantes'
+      },
+      en: {
+        title: 'Lucas Calabró Berti',
+        subtitle: 'Political Scientist • Researcher',
+        nav: {
+          home: 'About',
+          education: 'Education',
+          academic: 'Academic Experience',
+          publications: 'Publications',
+          projects: 'Projects',
+          contact: 'Contact'
+        },
+        pageTitle: 'Academic Education',
+        coursesTitle: 'Relevant Courses'
+      }
+    };
+
+    let currentLang = 'pt';
+    const langToggle = document.getElementById('lang-toggle');
+    const backToTop = document.getElementById('back-to-top');
+
+    function applyLanguage(langKey) {
+      const langData = content[langKey];
+      if (!langData) return;
+
+      document.getElementById('title').innerText = langData.title;
+      document.getElementById('subtitle').innerText = langData.subtitle;
+
+      document.getElementById('nav-home').innerText = langData.nav.home;
+      document.getElementById('nav-education').innerText = langData.nav.education;
+      document.getElementById('nav-academic').innerText = langData.nav.academic;
+      document.getElementById('nav-publications').innerText = langData.nav.publications;
+      document.getElementById('nav-projects').innerText = langData.nav.projects;
+      document.getElementById('nav-contact').innerText = langData.nav.contact;
+
+      document.getElementById('page-title').innerText = langData.pageTitle;
+      document.getElementById('courses-title').innerText = langData.coursesTitle;
+
+      langToggle.innerText = langKey === 'pt' ? 'EN' : 'PT';
+    }
+
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 500);
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    langToggle.addEventListener('click', () => {
+      document.body.style.opacity = '0.5';
+      setTimeout(() => {
+        currentLang = currentLang === 'pt' ? 'en' : 'pt';
+        applyLanguage(currentLang);
+        document.body.style.opacity = '1';
+      }, 300);
+    });
+
+    applyLanguage(currentLang);
+  </script>
+</body>
+</html>
