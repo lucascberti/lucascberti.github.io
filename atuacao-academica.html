@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atuação Acadêmica - Lucas Berti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 id="title">Lucas Calabró Berti</h1>
+    <p id="subtitle">Cientista Político • Pesquisador</p>
+    <nav>
+      <a href="index.html" id="nav-home">Sobre mim</a>
+      <a href="formacao.html" target="_blank" id="nav-education">Formação</a>
+      <a href="atuacao-academica.html" id="nav-academic">Atuação Acadêmica</a>
+      <a href="publicacoes.html" target="_blank" id="nav-publications">Publicações</a>
+      <a href="projetos.html" target="_blank" id="nav-projects">Projetos</a>
+      <a href="contato.html" target="_blank" id="nav-contact">Contato</a>
+      <button id="lang-toggle">EN</button>
+    </nav>
+  </header>
+
+  <div class="container pagina-completa">
+    <a href="index.html" class="btn-voltar">← Voltar</a>
+    
+    <h2 id="page-title">Atuação Acadêmica</h2>
+    
+    <div class="cards-container" id="academic-list">
+      <!-- OPSA -->
+      <div class="card">
+        <h4><a href="https://opsa.com.br" target="_blank">Observatório Político Sul-Americano (OPSA/IESP)</a></h4>
+        <div class="periodo">2025 - atualmente</div>
+        <p><strong>Pesquisador</strong></p>
+        <p>Produção de análises sobre política peruana, com foco em crises presidenciais e relações Executivo-Legislativo.</p>
+        <p>Participação na elaboração do boletim Conjuntura Latitude Sul.</p>
+      </div>
+
+      <!-- NECON -->
+      <div class="card">
+        <h4><a href="https://necon.iesp.uerj.br" target="_blank">Núcleo de Estudos sobre o Congresso (NECON/IESP)</a></h4>
+        <div class="periodo">2025 - atualmente</div>
+        <p><strong>Pesquisador</strong></p>
+        <p>Pesquisas sobre o Congresso Nacional brasileiro, com ênfase em coalizões de governo e comportamento parlamentar.</p>
+      </div>
+
+      <!-- GRISUL -->
+      <div class="card">
+        <h4><a href="https://www.instagram.com/grisul.unirio/" target="_blank">Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO)</a></h4>
+        <div class="periodo">2021 - atualmente</div>
+        <p><strong>Pesquisador</strong></p>
+        <p>Estudos sobre o Sul Global, com ênfase em América do Sul e integração regional.</p>
+      </div>
+
+      <!-- Pesquisa de campo -->
+      <div class="card">
+        <h4>Pesquisa de Campo - Uruguai</h4>
+        <div class="periodo">2024</div>
+        <p><strong>Entrevistas para TCC</strong></p>
+        <p>Departamento de Ciência Política, Universidad de La República, Montevidéu.</p>
+        <p>Entrevistas com especialistas sobre estabilidade presidencial no Uruguai.</p>
+      </div>
+    </div>
+
+    <h3 id="research-lines-title">Linhas de Pesquisa</h3>
+    <ul class="lista-detalhada" id="research-lines">
+      <li>Presidencialismo e coalizões de governo</li>
+      <li>Estudos legislativos comparados</li>
+      <li>Relações Executivo-Legislativo na América do Sul</li>
+      <li>Instituições políticas no Brasil, Uruguai e Peru</li>
+      <li>Crises políticas e instabilidade presidencial</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>© 2025 - Lucas Berti</p>
+  </footer>
+
+  <button id="back-to-top" title="Voltar ao topo">↑</button>
+
+  <script>
+    const content = {
+      pt: {
+        title: 'Lucas Calabró Berti',
+        subtitle: 'Cientista Político • Pesquisador',
+        nav: {
+          home: 'Sobre mim',
+          education: 'Formação',
+          academic: 'Atuação Acadêmica',
+          publications: 'Publicações',
+          projects: 'Projetos',
+          contact: 'Contato'
+        },
+        pageTitle: 'Atuação Acadêmica',
+        researchLinesTitle: 'Linhas de Pesquisa'
+      },
+      en: {
+        title: 'Lucas Calabró Berti',
+        subtitle: 'Political Scientist • Researcher',
+        nav: {
+          home: 'About',
+          education: 'Education',
+          academic: 'Academic Experience',
+          publications: 'Publications',
+          projects: 'Projects',
+          contact: 'Contact'
+        },
+        pageTitle: 'Academic Experience',
+        researchLinesTitle: 'Research Lines'
+      }
+    };
+
+    let currentLang = 'pt';
+    const langToggle = document.getElementById('lang-toggle');
+    const backToTop = document.getElementById('back-to-top');
+
+    function applyLanguage(langKey) {
+      const langData = content[langKey];
+      if (!langData) return;
+
+      document.getElementById('title').innerText = langData.title;
+      document.getElementById('subtitle').innerText = langData.subtitle;
+
+      document.getElementById('nav-home').innerText = langData.nav.home;
+      document.getElementById('nav-education').innerText = langData.nav.education;
+      document.getElementById('nav-academic').innerText = langData.nav.academic;
+      document.getElementById('nav-publications').innerText = langData.nav.publications;
+      document.getElementById('nav-projects').innerText = langData.nav.projects;
+      document.getElementById('nav-contact').innerText = langData.nav.contact;
+
+      document.getElementById('page-title').innerText = langData.pageTitle;
+      document.getElementById('research-lines-title').innerText = langData.researchLinesTitle;
+
+      langToggle.innerText = langKey === 'pt' ? 'EN' : 'PT';
+    }
+
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 500);
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    langToggle.addEventListener('click', () => {
+      document.body.style.opacity = '0.5';
+      setTimeout(() => {
+        currentLang = currentLang === 'pt' ? 'en' : 'pt';
+        applyLanguage(currentLang);
+        document.body.style.opacity = '1';
+      }, 300);
+    });
+
+    applyLanguage(currentLang);
+  </script>
+</body>
+</html>
