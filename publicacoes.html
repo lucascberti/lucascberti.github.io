@@ -29,11 +29,126 @@
     <p id="subtitle">Cientista Político • Pesquisador</p>
     <nav>
       <a href="index.html" id="nav-home">Sobre mim</a>
-      <a href="formacao.html" target="_blank" id="nav-education">Formação</a>
-      <a href="atuacao-academica.html" target="_blank" id="nav-academic">Atuação Acadêmica</a>
-      <a href="publicacoes.html" id="nav-publications">Publicações</a>
-      <a href="projetos.html" target="_blank" id="nav-projects">Projetos</a>
-      <a href="contato.html" target="_blank" id="nav-contact">Contato</a>
+      <a href="formacao.html" id="nav-education">Formação</a>
+      <a href="atuacao-academica.html" id="nav-academic">Atuação Acadêmica</a>
+      <a href="publicacoes.html" id="nav-publications" class="active">Publicações</a>
+      <a href="projetos.html" id="nav-projects">Projetos</a>
+      <a href="contato.html" id="nav-contact">Contato</a>
       <button id="lang-toggle">EN</button>
     </nav>
- 
+  </header>
+
+  <div class="container pagina-completa">
+    <h2 id="page-title">Publicações</h2>
+    
+    <div class="publicacao-item">
+      <h4>Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional</h4>
+      <div class="publicacao-meta">Trabalho de Conclusão de Curso (Graduação) - 2024</div>
+      <p>Este trabalho analisa os fatores que explicam a estabilidade presidencial no Uruguai em contraste com a instabilidade recorrente em países vizinhos como Brasil e Peru. A pesquisa investiga o papel das instituições políticas, do sistema de partidos e das coalizões de governo na manutenção da governabilidade.</p>
+      <p><a href="http://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">🔗 Acesse o texto completo</a></p>
+    </div>
+
+    <h3 style="margin-top: 2rem;" id="appearances-title">Participações em Podcasts</h3>
+    
+    <div class="publicacao-item">
+      <h4><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">Podcast Mundioka #581</a></h4>
+      <div class="publicacao-meta">2024</div>
+      <p>"Mesmo em crise, Peru pode superar Brasil e México?" - Análise sobre a crise política peruana e seu impacto econômico.</p>
+    </div>
+
+    <div class="publicacao-item">
+      <h4><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">Podcast Mundioka #644</a></h4>
+      <div class="publicacao-meta">2024</div>
+      <p>"México: Justiça nas urnas" - Debate sobre as eleições judiciais no México e a reforma do judiciário.</p>
+    </div>
+
+    <div class="publicacao-item">
+      <h4><a href="https://open.spotify.com/episode/2JJ5X8zQeNXPjpYFGApNRy" target="_blank">Podcast Mundioka #731</a></h4>
+      <div class="publicacao-meta">2025</div>
+      <p>"Déjà vu no Peru: mais uma vez o país fica sem presidente" - Análise da nova crise presidencial no Peru.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 - Lucas Berti</p>
+  </footer>
+
+  <button id="back-to-top" title="Voltar ao topo">↑</button>
+
+  <script>
+    const content = {
+      pt: {
+        title: 'Lucas Calabró Berti',
+        subtitle: 'Cientista Político • Pesquisador',
+        nav: {
+          home: 'Sobre mim',
+          education: 'Formação',
+          academic: 'Atuação Acadêmica',
+          publications: 'Publicações',
+          projects: 'Projetos',
+          contact: 'Contato'
+        },
+        pageTitle: 'Publicações',
+        appearancesTitle: 'Participações em Podcasts'
+      },
+      en: {
+        title: 'Lucas Calabró Berti',
+        subtitle: 'Political Scientist • Researcher',
+        nav: {
+          home: 'About',
+          education: 'Education',
+          academic: 'Academic Experience',
+          publications: 'Publications',
+          projects: 'Projects',
+          contact: 'Contact'
+        },
+        pageTitle: 'Publications',
+        appearancesTitle: 'Podcast Appearances'
+      }
+    };
+
+    let currentLang = 'pt';
+    const langToggle = document.getElementById('lang-toggle');
+    const backToTop = document.getElementById('back-to-top');
+
+    function applyLanguage(langKey) {
+      const langData = content[langKey];
+      if (!langData) return;
+
+      document.getElementById('title').innerText = langData.title;
+      document.getElementById('subtitle').innerText = langData.subtitle;
+
+      document.getElementById('nav-home').innerText = langData.nav.home;
+      document.getElementById('nav-education').innerText = langData.nav.education;
+      document.getElementById('nav-academic').innerText = langData.nav.academic;
+      document.getElementById('nav-publications').innerText = langData.nav.publications;
+      document.getElementById('nav-projects').innerText = langData.nav.projects;
+      document.getElementById('nav-contact').innerText = langData.nav.contact;
+
+      document.getElementById('page-title').innerText = langData.pageTitle;
+      document.getElementById('appearances-title').innerText = langData.appearancesTitle;
+
+      langToggle.innerText = langKey === 'pt' ? 'EN' : 'PT';
+    }
+
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 500);
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    langToggle.addEventListener('click', () => {
+      document.body.style.opacity = '0.5';
+      setTimeout(() => {
+        currentLang = currentLang === 'pt' ? 'en' : 'pt';
+        applyLanguage(currentLang);
+        document.body.style.opacity = '1';
+      }, 300);
+    });
+
+    applyLanguage(currentLang);
+  </script>
+</body>
+</html>
