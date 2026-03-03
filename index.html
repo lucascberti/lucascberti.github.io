@@ -1,80 +1,233 @@
-<script>
-  const content = {
-    pt: {
-      title: 'Lucas Calabró Berti',
-      subtitle: 'Cientista Político • Pesquisador',
-      nav: {
-        home: 'Sobre mim',
-        education: 'Formação',
-        academic: 'Atuação Acadêmica',
-        publications: 'Publicações',
-        projects: 'Projetos',
-        contact: 'Contato'  // ← ADICIONADO!
-      },
-      aboutTitle: 'Sobre mim',
-      about1: 'Olá, bem-vindo(a)! Me chamo Lucas Calabró Berti, sou mestrando em Ciência Política no IESP/UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política brasileira e sul-americana, instituições e comportamento político, com ênfase em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo.',
-      about2: 'Atualmente pesquiso no Observatório Político Sul-Americano (OPSA/IESP), no Núcleo de Estudos sobre o Congresso (NECON/IESP) e no Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do Conjuntura Latitude Sul, periódico mensal do OPSA, onde escrevo sobre política peruana.',
-      contact: 'Contato',
-      languages: '🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)'
-    },
-    en: {
-      title: 'Lucas Calabró Berti',
-      subtitle: 'Political Scientist • Researcher',
-      nav: {
-        home: 'About',
-        education: 'Education',
-        academic: 'Academic Experience',
-        publications: 'Publications',
-        projects: 'Projects',
-        contact: 'Contact'  // ← ADICIONADO!
-      },
-      aboutTitle: 'About',
-      about1: 'Hello, welcome! My name is Lucas Calabró Berti. I am currently pursuing my Master\'s degree in Political Science at IESP-UERJ and hold a BA in Political Science from UNIRIO. My research focuses on Brazilian and South American politics, institutions, and political behavior, especially presidentialism, legislative studies, executive-legislative relations, and governing coalitions.',
-      about2: 'I am currently affiliated with the South American Political Observatory (OPSA/IESP), the Congress Studies Group (NECON/IESP), and the Global South and International Relations Group (GRISUL/UNIRIO). I also serve as editor of the monthly journal Conjuntura Latitude Sul (OPSA), where I write about Peruvian politics.',
-      contact: 'Contact',
-      languages: '🌐 Languages: English (fluent), French & Spanish (advanced), Italian (intermediate)'
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucas Calabró Berti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://lucascberti.github.io/style.css">
+  <style>
+    /* Estilos específicos da home */
+    .home-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      gap: 3rem;
     }
-  };
 
-  let currentLang = 'pt';
-  const langToggle = document.getElementById('lang-toggle');
-  const backToTop = document.getElementById('back-to-top');
+    .profile-pic {
+      flex-shrink: 0;
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--verde-sálvia);
+      position: sticky;
+      top: 100px;
+      align-self: start;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.3s ease;
+    }
 
-  function applyLanguage(langKey) {
-    const langData = content[langKey];
-    if (!langData) return;
+    .profile-pic:hover {
+      transform: scale(1.02);
+    }
 
-    document.getElementById('title').innerText = langData.title;
-    document.getElementById('subtitle').innerText = langData.subtitle;
+    .home-content {
+      flex: 1;
+    }
 
-    document.getElementById('nav-home').innerText = langData.nav.home;
-    document.getElementById('nav-education').innerText = langData.nav.education;
-    document.getElementById('nav-academic').innerText = langData.nav.academic;
-    document.getElementById('nav-publications').innerText = langData.nav.publications;
-    document.getElementById('nav-projects').innerText = langData.nav.projects;
-    document.getElementById('nav-contact').innerText = langData.nav.contact;  // ← AGORA FUNCIONA!
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
 
-    document.getElementById('about-title').innerText = langData.aboutTitle;
-    document.getElementById('about-text1').innerText = langData.about1;
-    document.getElementById('about-text2').innerText = langData.about2;
-    document.getElementById('contact-title').innerText = langData.contact;
-    document.getElementById('languages').innerText = langData.languages;
+    .contact-card {
+      background: var(--bg-card);
+      padding: 1.2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: var(--text-primary);
+      display: block;
+    }
 
-    langToggle.innerText = langKey === 'pt' ? 'EN' : 'PT';
-  }
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      background: var(--verde-sálvia);
+    }
 
-  window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > 500);
-  });
+    .contact-card .emoji {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
 
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+    @media (max-width: 900px) {
+      .home-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1.5rem;
+      }
 
-  langToggle.addEventListener('click', () => {
-    currentLang = currentLang === 'pt' ? 'en' : 'pt';
+      .profile-pic {
+        position: static;
+        width: 200px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">Lucas Calabró Berti</h1>
+    <p id="subtitle">Cientista Político • Pesquisador</p>
+    <nav>
+      <a href="index.html" id="nav-home" class="active">Sobre mim</a>
+      <a href="formacao.html" id="nav-education">Formação</a>
+      <a href="atuacao-academica.html" id="nav-academic">Atuação Acadêmica</a>
+      <a href="publicacoes.html" id="nav-publications">Publicações</a>
+      <a href="projetos.html" id="nav-projects">Projetos</a>
+      <a href="contato.html" id="nav-contact">Contato</a>
+      <button id="lang-toggle">EN</button>
+    </nav>
+  </header>
+
+  <div class="home-container">
+    <img src="imagem/foto-lucas.jpg" alt="Lucas Calabró Berti" class="profile-pic" onerror="this.src='https://via.placeholder.com/250x250?text=Lucas+Berti'"/>
+
+    <div class="home-content">
+      <section id="sobre">
+        <h2 id="about-title">Sobre mim</h2>
+        <p id="about-text1"></p>
+        <p style="margin-top: 1rem;" id="about-text2"></p>
+      </section>
+
+      <section id="contato-rapido" style="margin-top: 2rem;">
+        <h2 id="contact-title">Contato</h2>
+        <div class="contact-grid">
+          <a href="mailto:lucasberti@iesp.uerj.br" class="contact-card">
+            <span class="emoji">📧</span>
+            <strong>Email</strong>
+            <small>lucasberti@iesp.uerj.br</small>
+          </a>
+          <a href="https://www.linkedin.com/in/lucascberti11" target="_blank" class="contact-card">
+            <span class="emoji">🔗</span>
+            <strong>LinkedIn</strong>
+            <small>@lucascberti11</small>
+          </a>
+          <a href="https://github.com/lucascberti" target="_blank" class="contact-card">
+            <span class="emoji">🐙</span>
+            <strong>GitHub</strong>
+            <small>@lucascberti</small>
+          </a>
+          <a href="https://lattes.cnpq.br/3201012395712916" target="_blank" class="contact-card">
+            <span class="emoji">📄</span>
+            <strong>Lattes</strong>
+            <small>Currículo</small>
+          </a>
+        </div>
+        <p style="margin-top: 1.5rem;" id="languages"></p>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 - Lucas Berti</p>
+  </footer>
+
+  <button id="back-to-top" title="Voltar ao topo">↑</button>
+
+  <!-- SEU SCRIPT AQUI (O QUE VOCÊ MANDOU) -->
+  <script>
+    const content = {
+      pt: {
+        title: 'Lucas Calabró Berti',
+        subtitle: 'Cientista Político • Pesquisador',
+        nav: {
+          home: 'Sobre mim',
+          education: 'Formação',
+          academic: 'Atuação Acadêmica',
+          publications: 'Publicações',
+          projects: 'Projetos',
+          contact: 'Contato'
+        },
+        aboutTitle: 'Sobre mim',
+        about1: 'Olá, bem-vindo(a)! Me chamo Lucas Calabró Berti, sou mestrando em Ciência Política no IESP/UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política brasileira e sul-americana, instituições e comportamento político, com ênfase em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo.',
+        about2: 'Atualmente pesquiso no Observatório Político Sul-Americano (OPSA/IESP), no Núcleo de Estudos sobre o Congresso (NECON/IESP) e no Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do Conjuntura Latitude Sul, periódico mensal do OPSA, onde escrevo sobre política peruana.',
+        contact: 'Contato',
+        languages: '🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)'
+      },
+      en: {
+        title: 'Lucas Calabró Berti',
+        subtitle: 'Political Scientist • Researcher',
+        nav: {
+          home: 'About',
+          education: 'Education',
+          academic: 'Academic Experience',
+          publications: 'Publications',
+          projects: 'Projects',
+          contact: 'Contact'
+        },
+        aboutTitle: 'About',
+        about1: 'Hello, welcome! My name is Lucas Calabró Berti. I am currently pursuing my Master\'s degree in Political Science at IESP-UERJ and hold a BA in Political Science from UNIRIO. My research focuses on Brazilian and South American politics, institutions, and political behavior, especially presidentialism, legislative studies, executive-legislative relations, and governing coalitions.',
+        about2: 'I am currently affiliated with the South American Political Observatory (OPSA/IESP), the Congress Studies Group (NECON/IESP), and the Global South and International Relations Group (GRISUL/UNIRIO). I also serve as editor of the monthly journal Conjuntura Latitude Sul (OPSA), where I write about Peruvian politics.',
+        contact: 'Contact',
+        languages: '🌐 Languages: English (fluent), French & Spanish (advanced), Italian (intermediate)'
+      }
+    };
+
+    let currentLang = 'pt';
+    const langToggle = document.getElementById('lang-toggle');
+    const backToTop = document.getElementById('back-to-top');
+
+    function applyLanguage(langKey) {
+      const langData = content[langKey];
+      if (!langData) return;
+
+      document.getElementById('title').innerText = langData.title;
+      document.getElementById('subtitle').innerText = langData.subtitle;
+
+      document.getElementById('nav-home').innerText = langData.nav.home;
+      document.getElementById('nav-education').innerText = langData.nav.education;
+      document.getElementById('nav-academic').innerText = langData.nav.academic;
+      document.getElementById('nav-publications').innerText = langData.nav.publications;
+      document.getElementById('nav-projects').innerText = langData.nav.projects;
+      document.getElementById('nav-contact').innerText = langData.nav.contact;
+
+      document.getElementById('about-title').innerText = langData.aboutTitle;
+      document.getElementById('about-text1').innerText = langData.about1;
+      document.getElementById('about-text2').innerText = langData.about2;
+      document.getElementById('contact-title').innerText = langData.contact;
+      document.getElementById('languages').innerText = langData.languages;
+
+      langToggle.innerText = langKey === 'pt' ? 'EN' : 'PT';
+    }
+
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 500);
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    langToggle.addEventListener('click', () => {
+      document.body.style.opacity = '0.5';
+      setTimeout(() => {
+        currentLang = currentLang === 'pt' ? 'en' : 'pt';
+        applyLanguage(currentLang);
+        document.body.style.opacity = '1';
+      }, 300);
+    });
+
     applyLanguage(currentLang);
-  });
-
-  applyLanguage(currentLang);
-</script>
+  </script>
+</body>
+</html>
