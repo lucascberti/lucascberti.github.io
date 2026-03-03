@@ -38,12 +38,18 @@
   }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ===== ESTILOS BASE ===== */
 body {
   font-family: 'Roboto', sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 /* ===== HEADER ===== */
@@ -97,8 +103,8 @@ nav a:hover {
   box-shadow: var(--shadow-sm);
 }
 
-nav a:first-child {
-  background: var(--verde-musgo);
+nav a.active {
+  background: var(--verde-musgo) !important;
   font-weight: 700;
 }
 
