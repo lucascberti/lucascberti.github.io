@@ -5,21 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Produções - Lucas Berti</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://lucascberti.github.io/style.css">
+  <link rel="stylesheet" href="https://lucascberti.github.io/style.css">
   <style>
-    .publicacao-item {
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--verde-sálvia);
+    /* Estilo adicional para garantir consistência */
+    .card {
+      margin-bottom: 1.5rem;
     }
-    .publicacao-item h4 {
+    .card h4 {
       color: var(--verde-floresta);
       margin-bottom: 0.5rem;
     }
-    .publicacao-meta {
+    .card .publicacao-meta {
       color: var(--verde-musgo);
       font-size: 0.9rem;
+      font-weight: 500;
       margin-bottom: 0.5rem;
+    }
+    .section-title {
+      margin: 2.5rem 0 1.5rem 0;
+    }
+    .section-title:first-of-type {
+      margin-top: 0;
     }
   </style>
 </head>
@@ -41,55 +47,64 @@
   <div class="container pagina-completa">
     <h2 id="page-title">Produções</h2>
     
-    <!-- SEÇÃO PUBLICAÇÕES (apenas TCC) -->
-    <h3 id="publications-section-title">Publicações</h3>
+    <!-- SEÇÃO PUBLICAÇÕES -->
+    <h3 class="section-title" id="publications-section-title">Publicações</h3>
     
-    <div class="publicacao-item">
-      <h4 id="tcc-title-pt">Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional</h4>
-      <h4 id="tcc-title-en" style="display: none;">Latin Contrasts: Uruguayan Presidential Stability Amid Regional Instability</h4>
-      
-      <div class="publicacao-meta" id="tcc-meta-pt">Trabalho de Conclusão de Curso (Graduação) - 2024</div>
-      <div class="publicacao-meta" id="tcc-meta-en" style="display: none;">Undergraduate Thesis - 2024</div>
-      
-      <p id="tcc-desc-pt">Este trabalho analisa as possíveis causas da estabilidade presidencial no Uruguai. A pesquisa investiga o papel das instituições políticas, do sistema de partidos e das coalizões de governo na manutenção do presidente no poder.</p>
-      <p id="tcc-desc-en" style="display: none;">This work analyzes the possible causes of presidential stability in Uruguay. The research investigates the role of political institutions, party systems, and government coalitions in keeping the president in power.</p>
-      
-      <p><a href="https://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank" id="tcc-link-pt">🔗 Acesse o texto completo</a><a href="https://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank" id="tcc-link-en" style="display: none;">🔗 Access the full text</a></p>
+    <div class="cards-container">
+      <!-- Card do TCC -->
+      <div class="card">
+        <h4 id="tcc-title-pt">Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional</h4>
+        <h4 id="tcc-title-en" style="display: none;">Latin Contrasts: Uruguayan Presidential Stability Amid Regional Instability</h4>
+        
+        <div class="publicacao-meta" id="tcc-meta-pt">Trabalho de Conclusão de Curso (Graduação) - 2024</div>
+        <div class="publicacao-meta" id="tcc-meta-en" style="display: none;">Undergraduate Thesis - 2024</div>
+        
+        <p id="tcc-desc-pt">Este trabalho analisa as possíveis causas da estabilidade presidencial no Uruguai. A pesquisa investiga o papel das instituições políticas, do sistema de partidos e das coalizões de governo na manutenção do presidente no poder.</p>
+        <p id="tcc-desc-en" style="display: none;">This work analyzes the possible causes of presidential stability in Uruguay. The research investigates the role of political institutions, party systems, and government coalitions in keeping the president in power.</p>
+        
+        <p><a href="https://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank" id="tcc-link-pt">🔗 Acesse o texto completo</a><a href="https://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank" id="tcc-link-en" style="display: none;">🔗 Access the full text</a></p>
+      </div>
     </div>
 
     <!-- SEÇÃO COMENTÁRIOS NA MÍDIA -->
-    <h3 style="margin-top: 2rem;" id="media-title">Comentários na Mídia</h3>
+    <h3 class="section-title" style="margin-top: 2rem;" id="media-title">Comentários na Mídia</h3>
     
-    <div class="publicacao-item">
-      <h4><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">Podcast Mundioka #581</a></h4>
-      <div class="publicacao-meta" id="pod1-meta-pt">2024</div>
-      <div class="publicacao-meta" id="pod1-meta-en" style="display: none;">2024</div>
-      <p id="pod1-desc-pt">"Mesmo em crise, Peru pode superar Brasil e México?" - Análise sobre a crise política peruana e seu impacto econômico.</p>
-      <p id="pod1-desc-en" style="display: none;">"Even in crisis, can Peru surpass Brazil and Mexico?" - Analysis of the Peruvian political crisis and its economic impact.</p>
-    </div>
+    <div class="cards-container">
+      <!-- Podcast #581 -->
+      <div class="card">
+        <h4><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank">Podcast Mundioka #581</a></h4>
+        <div class="publicacao-meta" id="pod1-meta-pt">2025</div>
+        <div class="publicacao-meta" id="pod1-meta-en" style="display: none;">2024</div>
+        <p id="pod1-desc-pt">"Mesmo em crise, Peru pode superar Brasil e México?" - Análise sobre a crise política peruana e seu impacto econômico.</p>
+        <p id="pod1-desc-en" style="display: none;">"Even in crisis, can Peru surpass Brazil and Mexico?" - Analysis of the Peruvian political crisis and its economic impact.</p>
+      </div>
 
-    <div class="publicacao-item">
-      <h4><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">Podcast Mundioka #644</a></h4>
-      <div class="publicacao-meta" id="pod2-meta-pt">2024</div>
-      <div class="publicacao-meta" id="pod2-meta-en" style="display: none;">2024</div>
-      <p id="pod2-desc-pt">"México: Justiça nas urnas" - Debate sobre as eleições judiciais no México e a reforma do judiciário.</p>
-      <p id="pod2-desc-en" style="display: none;">"Mexico: Justice at the ballot box" - Debate on judicial elections in Mexico and judiciary reform.</p>
-    </div>
+      <!-- Podcast #644 -->
+      <div class="card">
+        <h4><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank">Podcast Mundioka #644</a></h4>
+        <div class="publicacao-meta" id="pod2-meta-pt">2025</div>
+        <div class="publicacao-meta" id="pod2-meta-en" style="display: none;">2024</div>
+        <p id="pod2-desc-pt">"México: Justiça nas urnas" - Debate sobre as eleições judiciais no México e a reforma do judiciário.</p>
+        <p id="pod2-desc-en" style="display: none;">"Mexico: Justice at the ballot box" - Debate on judicial elections in Mexico and judiciary reform.</p>
+      </div>
 
-    <div class="publicacao-item">
-      <h4><a href="https://open.spotify.com/episode/2JJ5X8zQeNXPjpYFGApNRy" target="_blank">Podcast Mundioka #731</a></h4>
-      <div class="publicacao-meta" id="pod3-meta-pt">2025</div>
-      <div class="publicacao-meta" id="pod3-meta-en" style="display: none;">2025</div>
-      <p id="pod3-desc-pt">"Déjà vu no Peru: mais uma vez o país fica sem presidente" - Análise da nova crise presidencial no Peru.</p>
-      <p id="pod3-desc-en" style="display: none;">"Déjà vu in Peru: once again the country is without a president" - Analysis of the new presidential crisis in Peru.</p>
-    </div>
+      <!-- Podcast #731 -->
+      <div class="card">
+        <h4><a href="https://open.spotify.com/episode/2JJ5X8zQeNXPjpYFGApNRy" target="_blank">Podcast Mundioka #731</a></h4>
+        <div class="publicacao-meta" id="pod3-meta-pt">2025</div>
+        <div class="publicacao-meta" id="pod3-meta-en" style="display: none;">2025</div>
+        <p id="pod3-desc-pt">"Déjà vu no Peru: mais uma vez o país fica sem presidente" - Análise da nova crise presidencial no Peru.</p>
+        <p id="pod3-desc-en" style="display: none;">"Déjà vu in Peru: once again the country is without a president" - Analysis of the new presidential crisis in Peru.</p>
+      </div>
 
-    <div class="publicacao-item">
-      <h4><a href="https://open.spotify.com/episode/3S4dV5bvOQTRHRQkNw2xnw">Podcast Mundioka #791</a></h4>
-      <div class="publicacao-meta" id="pod4-meta-pt">2025</div>
-      <div class="publicacao-meta" id="pod4-meta-en" style="display: none;">2025</div>
-      <p id="pod4-desc-pt">"Países latino-americanos unidos, pero no mucho" - Análise da invasão estadunidense na Venezuela.</p>
-      <p id="pod4-desc-en" style="display: none;">"Latin American countries united, but not so much" - Analysis of the US invasion in Venezuela.</p>
+      <!-- Podcast #791 -->
+      <div class="card">
+        <h4><a href="https://open.spotify.com/episode/3S4dV5bvOQTRHRQkNw2xnw">Podcast Mundioka #791</a></h4>
+        <div class="publicacao-meta" id="pod4-meta-pt">2026</div>
+        <div class="publicacao-meta" id="pod4-meta-en" style="display: none;">2025</div>
+        <p id="pod4-desc-pt">"Países latino-americanos unidos, pero no mucho" - Análise da invasão estadunidense na Venezuela.</p>
+        <p id="pod4-desc-en" style="display: none;">"Latin American countries united, but not so much" - Analysis of the US invasion in Venezuela.</p>
+      </div>
     </div>
   </div>
 
