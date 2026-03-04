@@ -92,7 +92,7 @@
       <a href="index.html" id="nav-home" class="active">Sobre mim</a>
       <a href="formacao.html" id="nav-education">Formação</a>
       <a href="atuacao-academica.html" id="nav-academic">Atuação Acadêmica</a>
-      <a href="publicacoes.html" id="nav-publications">Publicações</a>
+      <a href="publicacoes.html" id="nav-publications">Produções</a>
       <a href="projetos.html" id="nav-projects">Projetos</a>
       <a href="contato.html" id="nav-contact">Contato</a>
       <button id="lang-toggle">EN</button>
@@ -105,8 +105,11 @@
     <div class="home-content">
       <section id="sobre">
         <h2 id="about-title">Sobre mim</h2>
-        <p id="about-text1"></p>
-        <p style="margin-top: 1rem;" id="about-text2"></p>
+        <p id="about-text1-pt">Olá, bem-vindo(a)! Me chamo Lucas Calabró Berti, sou mestrando em Ciência Política no IESP/UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política brasileira e sul-americana, instituições e comportamento político, com ênfase em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo. Minha agenda de pesquisa combina análise institucional e abordagem empírica, com crescente ênfase em metodologia quantitativa, análise de dados legislativos e modelos estatísticos aplicados à Ciência Política.</p>
+        <p id="about-text1-en" style="display: none;">Hello, welcome! My name is Lucas Calabró Berti. I am a Master's student in Political Science at IESP-UERJ and hold a BA in Political Science from UNIRIO. My research focuses on Brazilian and South American politics, institutions, and political behavior, with emphasis on presidentialism, legislative studies, executive-legislative relations, and government coalitions. My research agenda combines institutional analysis and empirical approach, with growing emphasis on quantitative methodology, legislative data analysis, and statistical models applied to Political Science.</p>
+        
+        <p style="margin-top: 1rem;" id="about-text2-pt">Atualmente pesquiso no Observatório Político Sul-Americano (OPSA/IESP), no Núcleo de Estudos sobre o Congresso (NECON/IESP) e no Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do Conjuntura Latitude Sul, periódico mensal do OPSA, onde escrevo sobre política peruana.</p>
+        <p style="margin-top: 1rem; display: none;" id="about-text2-en">I currently research at the South American Political Observatory (OPSA/IESP), the Center for Studies on Congress (NECON/IESP), and the International Relations and Global South Group (GRISUL/UNIRIO). I also serve as editor of Conjuntura Latitude Sul, a monthly journal from OPSA, where I write about Peruvian politics.</p>
       </section>
 
       <section id="contato-rapido" style="margin-top: 2rem;">
@@ -133,7 +136,8 @@
             <small>Currículo</small>
           </a>
         </div>
-        <p style="margin-top: 1.5rem;" id="languages"></p>
+        <p style="margin-top: 1.5rem;" id="languages-pt">🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)</p>
+        <p style="margin-top: 1.5rem; display: none;" id="languages-en">🌐 Languages: English (fluent), French & Spanish (advanced), Italian (intermediate)</p>
       </section>
     </div>
   </div>
@@ -144,7 +148,6 @@
 
   <button id="back-to-top" title="Voltar ao topo">↑</button>
 
-  <!-- SEU SCRIPT AQUI (O QUE VOCÊ MANDOU) -->
   <script>
     const content = {
       pt: {
@@ -154,15 +157,12 @@
           home: 'Sobre mim',
           education: 'Formação',
           academic: 'Atuação Acadêmica',
-          publications: 'Publicações',
+          publications: 'Produções',
           projects: 'Projetos',
           contact: 'Contato'
         },
         aboutTitle: 'Sobre mim',
-        about1: 'Olá, bem-vindo(a)! Me chamo Lucas Calabró Berti, sou mestrando em Ciência Política no IESP/UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso e escrevo sobre política brasileira e sul-americana, instituições e comportamento político, com ênfase em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo.',
-        about2: 'Atualmente pesquiso no Observatório Político Sul-Americano (OPSA/IESP), no Núcleo de Estudos sobre o Congresso (NECON/IESP) e no Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO). Também sou editor do Conjuntura Latitude Sul, periódico mensal do OPSA, onde escrevo sobre política peruana.',
-        contact: 'Contato',
-        languages: '🌐 Idiomas: Inglês (fluente), Francês e Espanhol (avançados), Italiano (intermediário)'
+        contact: 'Contato'
       },
       en: {
         title: 'Lucas Calabró Berti',
@@ -171,15 +171,12 @@
           home: 'About',
           education: 'Education',
           academic: 'Academic Experience',
-          publications: 'Publications',
+          publications: 'Productions',
           projects: 'Projects',
           contact: 'Contact'
         },
         aboutTitle: 'About',
-        about1: 'Hello, welcome! My name is Lucas Calabró Berti. I am currently pursuing my Master\'s degree in Political Science at IESP-UERJ and hold a BA in Political Science from UNIRIO. My research focuses on Brazilian and South American politics, institutions, and political behavior, especially presidentialism, legislative studies, executive-legislative relations, and governing coalitions.',
-        about2: 'I am currently affiliated with the South American Political Observatory (OPSA/IESP), the Congress Studies Group (NECON/IESP), and the Global South and International Relations Group (GRISUL/UNIRIO). I also serve as editor of the monthly journal Conjuntura Latitude Sul (OPSA), where I write about Peruvian politics.',
-        contact: 'Contact',
-        languages: '🌐 Languages: English (fluent), French & Spanish (advanced), Italian (intermediate)'
+        contact: 'Contact'
       }
     };
 
@@ -191,9 +188,11 @@
       const langData = content[langKey];
       if (!langData) return;
 
+      // Header
       document.getElementById('title').innerText = langData.title;
       document.getElementById('subtitle').innerText = langData.subtitle;
 
+      // Navegação
       document.getElementById('nav-home').innerText = langData.nav.home;
       document.getElementById('nav-education').innerText = langData.nav.education;
       document.getElementById('nav-academic').innerText = langData.nav.academic;
@@ -201,11 +200,19 @@
       document.getElementById('nav-projects').innerText = langData.nav.projects;
       document.getElementById('nav-contact').innerText = langData.nav.contact;
 
+      // Títulos
       document.getElementById('about-title').innerText = langData.aboutTitle;
-      document.getElementById('about-text1').innerText = langData.about1;
-      document.getElementById('about-text2').innerText = langData.about2;
       document.getElementById('contact-title').innerText = langData.contact;
-      document.getElementById('languages').innerText = langData.languages;
+
+      // Mostrar/esconder elementos por idioma
+      const elements = document.querySelectorAll('[id$="-pt"], [id$="-en"]');
+      elements.forEach(el => {
+        if (el.id.endsWith(`-${langKey}`)) {
+          el.style.display = '';
+        } else if (el.id.endsWith('-pt') || el.id.endsWith('-en')) {
+          el.style.display = 'none';
+        }
+      });
 
       langToggle.innerText = langKey === 'pt' ? 'EN' : 'PT';
     }
