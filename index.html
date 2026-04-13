@@ -1,486 +1,500 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucas Calabró Berti — Cientista Político</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucas Calabró Berti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --ink: #1a1814; --ink-mid: #4a4640; --ink-light: #8a857e; --ink-faint: #c8c3bc;
-      --paper: #f8f5f0; --paper-warm: #f0ebe3; --paper-card: #faf8f5;
-      --accent: #2d4a3e; --accent-light: #e8efe9;
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --sans: 'DM Sans', system-ui, sans-serif;
-      --max: 860px; --side: 2.5rem;
+      --bg: #fff;
+      --bg-section: #f7f7f7;
+      --border: #e0e0e0;
+      --ink: #333;
+      --ink-mid: #555;
+      --ink-lt: #888;
+      --blue: #2962ff;
+      --blue-lt: #e8f0fe;
+      --accent: #2962ff;
+      --sans: 'Roboto', sans-serif;
+      --nav-h: 54px;
     }
+    [data-theme="dark"] {
+      --bg: #1a1a27;
+      --bg-section: #222233;
+      --border: #333348;
+      --ink: #e0e0e0;
+      --ink-mid: #aaa;
+      --ink-lt: #666;
+      --blue: #90caf9;
+      --blue-lt: #1a2a3a;
+    }
+
     html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; transition: background .3s, color .3s; }
 
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(248,245,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--ink-faint); display: flex; align-items: center; justify-content: space-between; padding: 0 var(--side); height: 56px; }
-    .nav-name { font-family: var(--serif); font-size: 17px; font-weight: 500; color: var(--ink); text-decoration: none; }
-    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
-    .nav-links a { font-size: 12.5px; color: var(--ink-mid); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--ink); }
-    .lang-toggle { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mid); border: 1px solid var(--ink-faint); padding: 4px 10px; border-radius: 3px; cursor: pointer; background: none; font-family: var(--sans); transition: all 0.2s; }
-    .lang-toggle:hover { border-color: var(--ink-mid); color: var(--ink); }
-
-    /* LAYOUT */
-    main { padding-top: 56px; }
-    section { max-width: var(--max); margin: 0 auto; padding: 5rem var(--side); }
-    section + section { border-top: 1px solid var(--ink-faint); }
-
-    .label { font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-light); display: flex; align-items: center; gap: 10px; margin-bottom: 2.5rem; }
-    .label::after { content: ''; flex: 1; height: 1px; background: var(--ink-faint); }
-
-    /* HERO */
-    #sobre { padding-top: 6rem; padding-bottom: 5rem; display: grid; grid-template-columns: 1fr 160px; gap: 3rem; align-items: start; }
-    .hero-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 1.1rem; }
-    .hero-name { font-family: var(--serif); font-size: clamp(38px,5vw,56px); font-weight: 500; line-height: 1.05; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 1.75rem; }
-    .hero-bio { font-size: 15px; line-height: 1.8; color: var(--ink-mid); max-width: 560px; margin-bottom: 1.5rem; }
-    .hero-photo { width: 140px; height: 160px; border-radius: 4px; background: var(--paper-warm); border: 1px solid var(--ink-faint); overflow: hidden; display: flex; align-items: center; justify-content: center; }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-initials { font-family: var(--serif); font-size: 36px; font-weight: 500; color: var(--ink-light); }
-    .groups-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2rem; }
-    .group-tag { font-size: 12px; padding: 5px 14px; border: 1px solid var(--ink-faint); border-radius: 2px; color: var(--ink-mid); background: none; }
-
-    /* FORMAÇÃO */
-    .edu-item { display: grid; grid-template-columns: 100px 1fr; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--paper-warm); }
-    .edu-item:last-of-type { border-bottom: none; padding-bottom: 0; }
-    .edu-year { font-size: 12px; color: var(--ink-light); padding-top: 3px; }
-    .edu-degree { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
-    .edu-inst { font-size: 13px; color: var(--ink-light); margin-bottom: 1rem; }
-    .edu-detail { font-size: 13.5px; color: var(--ink-mid); line-height: 1.65; }
-    .edu-detail strong { color: var(--ink); font-weight: 500; }
-    .edu-link { display: inline-block; margin-top: 0.75rem; font-size: 12px; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-    .edu-link:hover { border-color: var(--accent); }
-    .courses-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: 8px; margin-top: 2rem; }
-    .course-item { font-size: 13px; color: var(--ink-mid); padding: 8px 12px; background: var(--paper-card); border: 1px solid var(--paper-warm); border-radius: 3px; }
-    .course-item.active { color: var(--accent); background: var(--accent-light); border-color: #c0d4c8; }
-
-    /* ATUAÇÃO / PROJETOS */
-    .act-item, .proj-item { display: grid; grid-template-columns: 100px 1fr; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--paper-warm); }
-    .act-item:last-of-type, .proj-item:last-of-type { border-bottom: none; padding-bottom: 0; }
-    .act-year, .proj-year { font-size: 12px; color: var(--ink-light); padding-top: 3px; }
-    .act-org, .proj-name { font-family: var(--serif); font-size: 19px; font-weight: 500; color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-    .act-org:hover, .proj-name:hover { border-color: var(--ink); }
-    .act-role, .proj-role { font-size: 12px; color: var(--ink-light); letter-spacing: 0.05em; text-transform: uppercase; margin: 4px 0 0.75rem; }
-    .act-desc, .proj-desc { font-size: 13.5px; color: var(--ink-mid); line-height: 1.65; }
-
-    /* PRODUÇÕES */
-    .pub-group-title { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--ink); margin-bottom: 1.75rem; }
-    .pub-item { padding: 1.75rem 0; border-bottom: 1px solid var(--paper-warm); }
-    .pub-item:last-of-type { border-bottom: none; padding-bottom: 0; }
-    .pub-year { font-size: 11px; color: var(--ink-light); letter-spacing: 0.08em; margin-bottom: 6px; }
-    .pub-title { font-family: var(--serif); font-size: 18px; font-weight: 500; font-style: italic; color: var(--ink); line-height: 1.3; margin-bottom: 0.5rem; }
-    .pub-type { font-size: 12px; color: var(--ink-light); margin-bottom: 0.75rem; }
-    .pub-desc { font-size: 13.5px; color: var(--ink-mid); line-height: 1.65; margin-bottom: 0.75rem; }
-    .pub-link { font-size: 12px; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-    .pub-link:hover { border-color: var(--accent); }
-    .media-item { display: grid; grid-template-columns: 60px 1fr; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid var(--paper-warm); align-items: start; }
-    .media-item:last-of-type { border-bottom: none; padding-bottom: 0; }
-    .media-num { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ink-faint); line-height: 1; }
-    .media-year { font-size: 11px; color: var(--ink-light); margin-bottom: 4px; }
-    .media-title { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; transition: color 0.2s; }
-    .media-title:hover { color: var(--accent); }
-    .media-desc { font-size: 13px; color: var(--ink-mid); margin-top: 3px; }
-    .pub-spacer { height: 3rem; }
-
-    /* CONTATO */
-    #contato { padding-bottom: 6rem; }
-    .contact-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; border: 1px solid var(--ink-faint); border-radius: 4px; overflow: hidden; }
-    .contact-card { padding: 1.5rem 1.75rem; background: var(--paper-card); text-decoration: none; display: block; transition: background 0.2s; border-right: 1px solid var(--ink-faint); border-bottom: 1px solid var(--ink-faint); }
-    .contact-card:nth-child(2n) { border-right: none; }
-    .contact-card:nth-last-child(-n+2) { border-bottom: none; }
-    .contact-card:hover { background: var(--paper-warm); }
-    .contact-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 6px; }
-    .contact-value { font-size: 14px; font-weight: 500; color: var(--ink); }
-    .lang-section { margin-top: 3.5rem; }
-    .lang-title { font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 1rem; }
-    .lang-list { display: flex; flex-wrap: wrap; gap: 8px; }
-    .lang-pill { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-mid); padding: 6px 14px; border: 1px solid var(--ink-faint); border-radius: 2px; }
-    .lang-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-    .dot-fluent { background: #2d4a3e; } .dot-advanced { background: #4a6fa5; } .dot-intermediate { background: var(--ink-faint); }
-
-    /* FOOTER */
-    footer { border-top: 1px solid var(--ink-faint); padding: 1.5rem var(--side); display: flex; align-items: center; justify-content: space-between; }
-    footer p { font-size: 12px; color: var(--ink-light); }
-    .back-top { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
-    .back-top:hover { color: var(--ink); }
-
-    /* RESPONSIVE */
-    @media (max-width: 640px) {
-      :root { --side: 1.25rem; }
-      #sobre { grid-template-columns: 1fr; }
-      .hero-photo { display: none; }
-      .edu-item, .act-item, .proj-item { grid-template-columns: 1fr; gap: 0.25rem; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .contact-card { border-right: none !important; border-bottom: 1px solid var(--ink-faint) !important; }
-      .contact-card:last-child { border-bottom: none !important; }
-      .nav-links a { display: none; }
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      height: var(--nav-h);
+      background: color-mix(in srgb, var(--bg) 95%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 1.5rem; gap: 1rem;
     }
+    .nav-logo { font-size: 17px; font-weight: 500; color: var(--ink); text-decoration: none; margin-right: auto; }
+    .nav-links { display: flex; gap: 1.25rem; align-items: center; }
+    .nav-links a { font-size: 13px; color: var(--ink-mid); text-decoration: none; transition: color .2s; font-weight: 400; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-actions { display: flex; gap: 8px; align-items: center; margin-left: .5rem; }
+    .icon-btn { width: 32px; height: 32px; border-radius: 50%; border: none; background: none; cursor: pointer; color: var(--ink-lt); display: flex; align-items: center; justify-content: center; transition: color .2s; }
+    .icon-btn:hover { color: var(--blue); }
+    .icon-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .lang-btn { font-size: 12px; color: var(--ink-lt); border: 1px solid var(--border); padding: 3px 10px; border-radius: 4px; cursor: pointer; background: none; font-family: var(--sans); transition: all .2s; }
+    .lang-btn:hover { color: var(--blue); border-color: var(--blue); }
 
-    /* FADE-IN */
-    @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
-    .hero-eyebrow { animation: fadeUp 0.6s ease both; }
-    .hero-name    { animation: fadeUp 0.6s 0.1s ease both; }
-    .hero-bio     { animation: fadeUp 0.6s 0.2s ease both; }
-    .groups-row   { animation: fadeUp 0.6s 0.3s ease both; }
+    /* ── LAYOUT ── */
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 4rem 0; }
+    .sec-alt { background: var(--bg-section); }
+    .sec-title { font-size: 22px; font-weight: 500; color: var(--ink); margin-bottom: 2rem; padding-bottom: .75rem; border-bottom: 2px solid var(--blue); display: inline-block; }
 
-    /* LANG TOGGLE — hide/show */
+    /* ── HERO ── */
+    #sobre { padding: 3.5rem 0; }
+    .hero-inner { display: flex; gap: 2.5rem; align-items: flex-start; }
+    .hero-left { flex-shrink: 0; text-align: center; }
+    .hero-avatar {
+      width: 165px; height: 165px; border-radius: 50%;
+      background: #e8eaf6; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      border: 4px solid var(--border);
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+    }
+    .hero-avatar img { width:100%; height:100%; object-fit:cover; }
+    .hero-initials { font-size: 48px; font-weight: 300; color: #7986cb; }
+    .hero-socials { display: flex; justify-content: center; gap: 8px; margin-top: 1rem; flex-wrap: wrap; }
+    .social-btn { width: 34px; height: 34px; border-radius: 50%; background: var(--blue-lt); display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--blue); font-size: 13px; font-weight: 500; transition: background .2s; }
+    .social-btn:hover { background: var(--blue); color: #fff; }
+    .social-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .hero-right { flex: 1; }
+    .hero-name { font-size: 32px; font-weight: 500; color: var(--ink); line-height: 1.15; margin-bottom: .2rem; }
+    .hero-role { font-size: 15px; color: var(--ink-mid); font-weight: 300; margin-bottom: .1rem; }
+    .hero-inst { font-size: 14px; color: var(--blue); margin-bottom: 1.5rem; }
+    .hero-bio { font-size: 14.5px; color: var(--ink-mid); line-height: 1.75; max-width: 600px; }
+    .hero-bio + .hero-bio { margin-top: .75rem; }
+
+    /* two cols inside hero */
+    .hero-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+    .hero-col-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: .75rem; }
+    .interests { list-style: none; }
+    .interests li { font-size: 13.5px; color: var(--ink-mid); padding: 2px 0; display: flex; align-items: center; gap: 8px; }
+    .interests li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
+    .edu-entries { display: flex; flex-direction: column; gap: .9rem; }
+    .edu-entry {}
+    .edu-deg { font-size: 13.5px; font-weight: 500; color: var(--ink); }
+    .edu-inst-name { font-size: 12.5px; color: var(--ink-lt); }
+    .edu-yr { font-size: 12px; color: var(--ink-lt); }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
+    .skill-card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: .9rem 1.1rem; }
+    [data-theme="dark"] .skill-card { background: var(--bg-section); }
+    .sk-name { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 7px; }
+    .sk-bar-bg { height: 4px; background: var(--border); border-radius: 99px; }
+    .sk-bar { height: 100%; background: var(--blue); border-radius: 99px; }
+    .sk-level { font-size: 11.5px; color: var(--ink-lt); margin-top: 4px; }
+
+    /* ── TIMELINE ── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-row { display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+    .tl-row:last-child { border-bottom: none; }
+    .tl-year { font-size: 12px; color: var(--ink-lt); padding-top: 2px; line-height: 1.5; }
+    .tl-name { font-size: 16px; font-weight: 500; color: var(--blue); text-decoration: none; }
+    .tl-name:hover { text-decoration: underline; }
+    .tl-role { font-size: 12.5px; color: var(--ink-lt); margin: 2px 0 .5rem; }
+    .tl-desc { font-size: 13.5px; color: var(--ink-mid); line-height: 1.65; }
+
+    /* ── PUBLICAÇÕES ── */
+    .pub-list { display: flex; flex-direction: column; gap: 1px; }
+    .pub-card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem 1.5rem; transition: box-shadow .2s; }
+    [data-theme="dark"] .pub-card { background: var(--bg-section); }
+    .pub-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,.07); }
+    .pub-card + .pub-card { margin-top: 12px; }
+    .pub-yr { font-size: 12px; color: var(--ink-lt); margin-bottom: 4px; }
+    .pub-title { font-size: 15px; font-weight: 500; color: var(--blue); text-decoration: none; line-height: 1.35; display: block; margin-bottom: 4px; }
+    .pub-title:hover { text-decoration: underline; }
+    .pub-meta { font-size: 12.5px; color: var(--ink-lt); margin-bottom: .65rem; }
+    .pub-abstract { font-size: 13.5px; color: var(--ink-mid); line-height: 1.65; margin-bottom: .75rem; }
+    .pub-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pub-tag { font-size: 11px; color: var(--blue); background: var(--blue-lt); padding: 2px 10px; border-radius: 99px; }
+
+    /* ── MÍDIA ── */
+    .media-cards { display: flex; flex-direction: column; gap: 12px; }
+    .media-card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1.1rem 1.4rem; display: grid; grid-template-columns: 56px 1fr; gap: 1rem; align-items: start; transition: box-shadow .2s; }
+    [data-theme="dark"] .media-card { background: var(--bg-section); }
+    .media-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,.07); }
+    .media-ep { font-size: 13px; font-weight: 500; color: var(--blue); text-align: center; padding-top: 2px; }
+    .media-yr { font-size: 11.5px; color: var(--ink-lt); margin-bottom: 2px; }
+    .media-t { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; }
+    .media-t:hover { color: var(--blue); }
+    .media-d { font-size: 13px; color: var(--ink-mid); margin-top: 2px; }
+
+    /* ── PROJETOS ── */
+    .proj-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 14px; }
+    .proj-card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1.3rem 1.5rem; transition: box-shadow .2s; }
+    [data-theme="dark"] .proj-card { background: var(--bg-section); }
+    .proj-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,.07); }
+    .proj-yr { font-size: 12px; color: var(--ink-lt); margin-bottom: 5px; }
+    .proj-name { font-size: 15px; font-weight: 500; color: var(--blue); text-decoration: none; display: block; margin-bottom: 2px; }
+    .proj-name:hover { text-decoration: underline; }
+    .proj-role { font-size: 12px; color: var(--ink-lt); margin-bottom: .65rem; }
+    .proj-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.65; }
+
+    /* ── CURSOS ── */
+    .courses { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+    .course { font-size: 13px; color: var(--ink-mid); padding: 7px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }
+    [data-theme="dark"] .course { background: var(--bg-section); }
+    .course.active { color: var(--blue); background: var(--blue-lt); border-color: #90caf9; }
+
+    /* ── CONTATO ── */
+    .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .ccard { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1.2rem 1.5rem; text-decoration: none; display: flex; align-items: center; gap: 12px; transition: box-shadow .2s; }
+    [data-theme="dark"] .ccard { background: var(--bg-section); }
+    .ccard:hover { box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .ccard-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--blue-lt); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .ccard-icon svg { width: 16px; height: 16px; fill: none; stroke: var(--blue); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .ccard-label { font-size: 11px; color: var(--ink-lt); letter-spacing: .05em; text-transform: uppercase; }
+    .ccard-value { font-size: 13.5px; font-weight: 500; color: var(--ink); }
+    .langs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
+    .lang-pill { font-size: 13px; color: var(--ink-mid); padding: 5px 14px; border: 1px solid var(--border); border-radius: 99px; display: flex; align-items: center; gap: 7px; }
+    .ldot { width: 7px; height: 7px; border-radius: 50%; }
+    .lf { background: #2962ff; } .la { background: #1565c0; } .li { background: #aaa; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--bg-section); border-top: 1px solid var(--border); padding: 1.25rem 1.5rem; text-align: center; }
+    footer p { font-size: 12.5px; color: var(--ink-lt); }
+
+    /* ── LANG ── */
     [data-lang] { display: none; }
     .lang-pt [data-lang="pt"] { display: revert; }
     .lang-en [data-lang="en"] { display: revert; }
-    /* inline elements */
-    span[data-lang], a[data-lang] { display: inline; }
-    .lang-pt span[data-lang="en"], .lang-pt a[data-lang="en"] { display: none; }
-    .lang-en span[data-lang="pt"], .lang-en a[data-lang="pt"] { display: none; }
+    span[data-lang], a[data-lang], em[data-lang], p[data-lang] { display: inline; }
+    .lang-pt span[data-lang="en"], .lang-pt a[data-lang="en"], .lang-pt em[data-lang="en"] { display: none; }
+    .lang-en span[data-lang="pt"], .lang-en a[data-lang="pt"], .lang-en em[data-lang="pt"] { display: none; }
+    p[data-lang] { display: none; }
+    .lang-pt p[data-lang="pt"] { display: block; }
+    .lang-en p[data-lang="en"] { display: block; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero-inner { flex-direction: column; align-items: center; text-align: center; }
+      .hero-right { width: 100%; }
+      .hero-cols { grid-template-columns: 1fr; }
+      .tl-row { grid-template-columns: 1fr; gap: .25rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
   </style>
 </head>
 <body class="lang-pt">
 
-  <nav>
-    <a href="#sobre" class="nav-name">Lucas Calabró Berti</a>
-    <div class="nav-links">
-      <a href="#sobre"><span data-lang="pt">Sobre</span><span data-lang="en">About</span></a>
-      <a href="#formacao"><span data-lang="pt">Formação</span><span data-lang="en">Education</span></a>
-      <a href="#atuacao"><span data-lang="pt">Atuação</span><span data-lang="en">Research</span></a>
-      <a href="#producoes"><span data-lang="pt">Produções</span><span data-lang="en">Publications</span></a>
-      <a href="#projetos"><span data-lang="pt">Projetos</span><span data-lang="en">Projects</span></a>
-      <a href="#contato"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span></a>
-      <button class="lang-toggle" id="langBtn">EN</button>
+<!-- NAV -->
+<nav>
+  <a href="#sobre" class="nav-logo">Lucas Calabró Berti</a>
+  <div class="nav-links">
+    <a href="#sobre"><span data-lang="pt">Sobre</span><span data-lang="en">About</span></a>
+    <a href="#atuacao"><span data-lang="pt">Atuação</span><span data-lang="en">Research</span></a>
+    <a href="#producoes"><span data-lang="pt">Produções</span><span data-lang="en">Publications</span></a>
+    <a href="#projetos"><span data-lang="pt">Projetos</span><span data-lang="en">Projects</span></a>
+    <a href="#contato"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span></a>
+  </div>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeBtn" title="Toggle theme">
+      <svg id="iSun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg id="iMoon" viewBox="0 0 24 24" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="lang-btn" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- SOBRE -->
+<section id="sobre">
+<div class="wrap">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-avatar">
+        <img src="imagem/foto-lucas.jpg" alt="Lucas Berti"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="hero-initials" style="display:none">LB</span>
+      </div>
+      <div class="hero-socials">
+        <a href="mailto:lucasberti@iesp.uerj.br" class="social-btn" title="Email">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/lucascberti11" target="_blank" class="social-btn" title="LinkedIn">in</a>
+        <a href="https://github.com/lucascberti" target="_blank" class="social-btn" title="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="https://lattes.cnpq.br/3201012395712916" target="_blank" class="social-btn" title="Lattes">CV</a>
+      </div>
     </div>
-  </nav>
 
-  <main>
+    <div class="hero-right">
+      <h1 class="hero-name">Lucas Calabró Berti</h1>
+      <p class="hero-role"><span data-lang="pt">Mestrando em Ciência Política</span><span data-lang="en">Master's Student in Political Science</span></p>
+      <p class="hero-inst"><a href="https://iesp.uerj.br" target="_blank" style="color:inherit;text-decoration:none;">IESP-UERJ</a></p>
 
-    <!-- SOBRE -->
-    <section id="sobre">
+      <p class="hero-bio" data-lang="pt">Olá! Sou mestrando em Ciência Política no IESP/UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso política brasileira e sul-americana, com ênfase em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo. Minha agenda combina análise institucional e abordagem empírica, com crescente ênfase em metodologia quantitativa, análise de dados legislativos e modelos estatísticos aplicados à Ciência Política.</p>
+      <p class="hero-bio" data-lang="en">Hello! I am a Master's student in Political Science at IESP/UERJ and hold a BA in Political Science from UNIRIO. My research focuses on Brazilian and South American politics, with emphasis on presidentialism, legislative studies, executive-legislative relations, and government coalitions. My research agenda combines institutional analysis and empirical approaches, with growing emphasis on quantitative methodology, legislative data analysis, and statistical models applied to Political Science.</p>
+      <p class="hero-bio" data-lang="pt" style="margin-top:.6rem;">Atualmente pesquiso no OPSA/IESP, no NECON/IESP e no GRISUL/UNIRIO. Também sou editor do <em>Conjuntura Latitude Sul</em>, periódico mensal do OPSA.</p>
+      <p class="hero-bio" data-lang="en" style="margin-top:.6rem;">I currently research at OPSA/IESP, NECON/IESP, and GRISUL/UNIRIO. I also serve as editor of <em>Conjuntura Latitude Sul</em>, a monthly journal from OPSA.</p>
+
+      <div class="hero-cols">
+        <div>
+          <p class="hero-col-title"><span data-lang="pt">Interesses</span><span data-lang="en">Interests</span></p>
+          <ul class="interests">
+            <li><span data-lang="pt">Presidencialismo</span><span data-lang="en">Presidentialism</span></li>
+            <li><span data-lang="pt">Estudos Legislativos</span><span data-lang="en">Legislative Studies</span></li>
+            <li><span data-lang="pt">Relações Executivo-Legislativo</span><span data-lang="en">Executive-Legislative Relations</span></li>
+            <li><span data-lang="pt">Coalizões de Governo</span><span data-lang="en">Government Coalitions</span></li>
+            <li><span data-lang="pt">Política Comparada — América do Sul</span><span data-lang="en">Comparative Politics — South America</span></li>
+            <li><span data-lang="pt">Metodologia Quantitativa</span><span data-lang="en">Quantitative Methodology</span></li>
+          </ul>
+        </div>
+        <div>
+          <p class="hero-col-title"><span data-lang="pt">Formação</span><span data-lang="en">Education</span></p>
+          <div class="edu-entries">
+            <div class="edu-entry">
+              <p class="edu-deg"><span data-lang="pt">Mestrado em Ciência Política</span><span data-lang="en">Master's in Political Science</span></p>
+              <p class="edu-inst-name">IESP / UERJ</p>
+              <p class="edu-yr">2025 – <span data-lang="pt">presente</span><span data-lang="en">present</span></p>
+            </div>
+            <div class="edu-entry">
+              <p class="edu-deg"><span data-lang="pt">Bacharel em Ciência Política</span><span data-lang="en">BA in Political Science</span></p>
+              <p class="edu-inst-name">UNIRIO</p>
+              <p class="edu-yr">2020 – 2024</p>
+            </div>
+            <div class="edu-entry">
+              <p class="edu-deg"><span data-lang="pt">Pesquisa de Campo</span><span data-lang="en">Field Research</span></p>
+              <p class="edu-inst-name"><span data-lang="pt">Udelar, Montevidéu</span><span data-lang="en">Udelar, Montevideo</span></p>
+              <p class="edu-yr">2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section class="sec-alt">
+<div class="wrap">
+  <h2 class="sec-title"><span data-lang="pt">Habilidades</span><span data-lang="en">Skills</span></h2>
+  <div class="skills-grid">
+    <div class="skill-card"><p class="sk-name">R</p><div class="sk-bar-bg"><div class="sk-bar" style="width:80%"></div></div><p class="sk-level"><span data-lang="pt">Avançado</span><span data-lang="en">Advanced</span></p></div>
+    <div class="skill-card"><p class="sk-name"><span data-lang="pt">Análise Estatística</span><span data-lang="en">Statistical Analysis</span></p><div class="sk-bar-bg"><div class="sk-bar" style="width:80%"></div></div><p class="sk-level"><span data-lang="pt">Avançado</span><span data-lang="en">Advanced</span></p></div>
+    <div class="skill-card"><p class="sk-name"><span data-lang="pt">Dados Legislativos</span><span data-lang="en">Legislative Data</span></p><div class="sk-bar-bg"><div class="sk-bar" style="width:85%"></div></div><p class="sk-level"><span data-lang="pt">Avançado</span><span data-lang="en">Advanced</span></p></div>
+    <div class="skill-card"><p class="sk-name"><span data-lang="pt">Análise Qualitativa</span><span data-lang="en">Qualitative Analysis</span></p><div class="sk-bar-bg"><div class="sk-bar" style="width:75%"></div></div><p class="sk-level"><span data-lang="pt">Avançado</span><span data-lang="en">Advanced</span></p></div>
+    <div class="skill-card"><p class="sk-name">Python</p><div class="sk-bar-bg"><div class="sk-bar" style="width:40%"></div></div><p class="sk-level"><span data-lang="pt">Intermediário</span><span data-lang="en">Intermediate</span></p></div>
+    <div class="skill-card"><p class="sk-name"><span data-lang="pt">Comunicação Política</span><span data-lang="en">Political Communication</span></p><div class="sk-bar-bg"><div class="sk-bar" style="width:70%"></div></div><p class="sk-level"><span data-lang="pt">Avançado</span><span data-lang="en">Advanced</span></p></div>
+  </div>
+</div>
+</section>
+
+<!-- ATUAÇÃO -->
+<section id="atuacao">
+<div class="wrap">
+  <h2 class="sec-title"><span data-lang="pt">Atuação Acadêmica</span><span data-lang="en">Academic Experience</span></h2>
+  <div class="timeline">
+    <div class="tl-row">
+      <div class="tl-year"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></div>
       <div>
-        <p class="hero-eyebrow">
-          <span data-lang="pt">Cientista Político · Pesquisador · Rio de Janeiro</span>
-          <span data-lang="en">Political Scientist · Researcher · Rio de Janeiro</span>
-        </p>
-        <h1 class="hero-name">Lucas Calabró<br>Berti</h1>
-        <p class="hero-bio" data-lang="pt">
-          Mestrando em Ciência Política no IESP/UERJ e bacharel pela UNIRIO. Pesquiso política brasileira e sul-americana, com ênfase em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo.
-        </p>
-        <p class="hero-bio" data-lang="en">
-          Master's student in Political Science at IESP/UERJ and BA from UNIRIO. I research Brazilian and South American politics, focusing on presidentialism, legislative studies, executive-legislative relations, and government coalitions.
-        </p>
-        <p class="hero-bio" data-lang="pt" style="margin-top:0.75rem;">
-          Minha agenda combina análise institucional e abordagem empírica, com crescente ênfase em metodologia quantitativa e modelos estatísticos aplicados à Ciência Política.
-        </p>
-        <p class="hero-bio" data-lang="en" style="margin-top:0.75rem;">
-          My research agenda combines institutional analysis and empirical approaches, with growing emphasis on quantitative methodology and statistical models applied to Political Science.
-        </p>
-        <div class="groups-row">
-          <span class="group-tag">OPSA / IESP</span>
-          <span class="group-tag">NECON / IESP</span>
-          <span class="group-tag">GRISUL / UNIRIO</span>
-        </div>
+        <a href="https://opsa.com.br" target="_blank" class="tl-name">Observatório Político Sul-Americano (OPSA/IESP)</a>
+        <p class="tl-role"><span data-lang="pt">Pesquisador</span><span data-lang="en">Researcher</span></p>
+        <p class="tl-desc"><span data-lang="pt">Produção de análises sobre política peruana, com foco em crises presidenciais e relações Executivo-Legislativo. Editor do boletim mensal <em>Conjuntura Latitude Sul</em>.</span><span data-lang="en">Production of analyses on Peruvian politics, focusing on presidential crises and Executive-Legislative relations. Editor of the monthly bulletin <em>Conjuntura Latitude Sul</em>.</span></p>
       </div>
-      <div class="hero-photo">
-        <img src="imagem/foto-lucas.jpg" alt="Lucas Berti" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <span class="hero-initials" style="display:none;">LB</span>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></div>
+      <div>
+        <a href="https://necon.iesp.uerj.br" target="_blank" class="tl-name">Núcleo de Estudos sobre o Congresso (NECON/IESP)</a>
+        <p class="tl-role"><span data-lang="pt">Pesquisador</span><span data-lang="en">Researcher</span></p>
+        <p class="tl-desc"><span data-lang="pt">Pesquisas sobre o Congresso Nacional brasileiro, com ênfase em coalizões de governo e comportamento parlamentar.</span><span data-lang="en">Research on the Brazilian National Congress, with emphasis on government coalitions and parliamentary behavior.</span></p>
       </div>
-    </section>
-
-    <!-- FORMAÇÃO -->
-    <section id="formacao">
-      <p class="label"><span data-lang="pt">Formação Acadêmica</span><span data-lang="en">Education</span></p>
-
-      <div class="edu-item">
-        <div class="edu-year"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></div>
-        <div>
-          <p class="edu-degree"><span data-lang="pt">Mestrado em Ciência Política</span><span data-lang="en">Master's in Political Science</span></p>
-          <p class="edu-inst"><span data-lang="pt">IESP / UERJ — Instituto de Estudos Sociais e Políticos</span><span data-lang="en">IESP / UERJ — Institute of Social and Political Studies</span></p>
-          <div class="edu-detail">
-            <p><strong><span data-lang="pt">Dissertação:</span><span data-lang="en">Thesis:</span></strong>
-              <span data-lang="pt"> "Do Tamanho à Disciplina: Uma Análise da Reconfiguração dos Vínculos Políticos e do Sucesso Presidencial no Brasil (2003–2025)"</span>
-              <span data-lang="en"> "From Size to Discipline: An Analysis of the Reconfiguration of Political Ties and Presidential Success in Brazil (2003–2025)"</span>
-            </p>
-            <p style="margin-top:0.5rem;">
-              <strong><span data-lang="pt">Orientador:</span><span data-lang="en">Advisor:</span></strong> Prof. Dr. Fabiano Santos &nbsp;·&nbsp;
-              <strong><span data-lang="pt">Linha:</span><span data-lang="en">Line:</span></strong>
-              <span data-lang="pt"> Instituições e Comportamento</span><span data-lang="en"> Institutions and Behavior</span>
-            </p>
-          </div>
-          <a href="https://lattes.cnpq.br/3534868879163140" target="_blank" class="edu-link">
-            <span data-lang="pt">Lattes do orientador ↗</span><span data-lang="en">Advisor's CV ↗</span>
-          </a>
-        </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year"><span data-lang="pt">2021 – presente</span><span data-lang="en">2021 – present</span></div>
+      <div>
+        <a href="https://www.instagram.com/grisul.unirio/" target="_blank" class="tl-name">Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO)</a>
+        <p class="tl-role"><span data-lang="pt">Pesquisador</span><span data-lang="en">Researcher</span></p>
+        <p class="tl-desc"><span data-lang="pt">Estudos sobre o Sul Global, com ênfase em América do Sul e relações Executivo-Legislativo comparadas.</span><span data-lang="en">Studies on the Global South, with emphasis on South America and comparative Executive-Legislative relations.</span></p>
       </div>
-
-      <div class="edu-item">
-        <div class="edu-year">2020 – 2024</div>
-        <div>
-          <p class="edu-degree"><span data-lang="pt">Bacharelado em Ciência Política</span><span data-lang="en">Bachelor's in Political Science</span></p>
-          <p class="edu-inst"><span data-lang="pt">UNIRIO — Universidade Federal do Estado do Rio de Janeiro</span><span data-lang="en">UNIRIO — Federal University of the State of Rio de Janeiro</span></p>
-          <div class="edu-detail">
-            <p><strong><span data-lang="pt">TCC:</span><span data-lang="en">Undergraduate Thesis:</span></strong>
-              <span data-lang="pt"> "Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional"</span>
-              <span data-lang="en"> "Latin Contrasts: Uruguayan Presidential Stability Amid Regional Instability"</span>
-            </p>
-            <p style="margin-top:0.5rem;"><strong><span data-lang="pt">Orientador:</span><span data-lang="en">Advisor:</span></strong> Prof. Dr. André Luiz Coelho</p>
-          </div>
-          <a href="https://lattes.cnpq.br/7370207316680307" target="_blank" class="edu-link">
-            <span data-lang="pt">Lattes do orientador ↗</span><span data-lang="en">Advisor's CV ↗</span>
-          </a>
-        </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year">2024</div>
+      <div>
+        <span class="tl-name" style="cursor:default"><span data-lang="pt">Pesquisa de Campo — Uruguai</span><span data-lang="en">Field Research — Uruguay</span></span>
+        <p class="tl-role"><span data-lang="pt">Entrevistas para TCC · Udelar, Montevidéu</span><span data-lang="en">BA Thesis Interviews · Udelar, Montevideo</span></p>
+        <p class="tl-desc"><span data-lang="pt">Entrevistas com especialistas do Departamento de Ciência Política da Universidad de La República sobre estabilidade presidencial no Uruguai.</span><span data-lang="en">Interviews with experts at the Department of Political Science, Universidad de La República, on presidential stability in Uruguay.</span></p>
       </div>
+    </div>
+  </div>
+</div>
+</section>
 
-      <p class="label" style="margin-top:3rem;"><span data-lang="pt">Disciplinas da Pós-Graduação</span><span data-lang="en">Graduate Courses</span></p>
-      <div class="courses-grid">
-        <div class="course-item"><span data-lang="pt">Teoria Política I</span><span data-lang="en">Political Theory I</span></div>
-        <div class="course-item"><span data-lang="pt">Teoria Política II</span><span data-lang="en">Political Theory II</span></div>
-        <div class="course-item"><span data-lang="pt">Métodos Quantitativos I</span><span data-lang="en">Quantitative Methods I</span></div>
-        <div class="course-item"><span data-lang="pt">Métodos Quantitativos II</span><span data-lang="en">Quantitative Methods II</span></div>
-        <div class="course-item"><span data-lang="pt">Política Brasileira</span><span data-lang="en">Brazilian Politics</span></div>
-        <div class="course-item"><span data-lang="pt">Estudos Legislativos</span><span data-lang="en">Legislative Studies</span></div>
-        <div class="course-item active"><span data-lang="pt">Métodos Quantitativos III · em curso</span><span data-lang="en">Quantitative Methods III · in progress</span></div>
-        <div class="course-item active"><span data-lang="pt">Espaço, população e política · em curso</span><span data-lang="en">Space, Population and Politics · in progress</span></div>
+<!-- PRODUÇÕES -->
+<section id="producoes" class="sec-alt">
+<div class="wrap">
+  <h2 class="sec-title"><span data-lang="pt">Produções</span><span data-lang="en">Publications & Media</span></h2>
+
+  <p style="font-size:14px;font-weight:500;color:var(--ink);margin-bottom:1rem"><span data-lang="pt">Publicações Acadêmicas</span><span data-lang="en">Academic Publications</span></p>
+  <div class="pub-list">
+    <div class="pub-card">
+      <p class="pub-yr">2024</p>
+      <a href="https://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank" class="pub-title">
+        <span data-lang="pt">Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional</span>
+        <span data-lang="en">Latin Contrasts: Uruguayan Presidential Stability Amid Regional Instability</span>
+      </a>
+      <p class="pub-meta"><span data-lang="pt">Trabalho de Conclusão de Curso · UNIRIO</span><span data-lang="en">Undergraduate Thesis · UNIRIO</span></p>
+      <p class="pub-abstract"><span data-lang="pt">Analisa as possíveis causas da estabilidade presidencial no Uruguai, investigando o papel das instituições políticas, do sistema de partidos e das coalizões de governo na manutenção do presidente no poder.</span><span data-lang="en">Analyzes the possible causes of presidential stability in Uruguay, investigating the role of political institutions, party systems, and government coalitions in keeping the president in power.</span></p>
+      <div class="pub-tags">
+        <span class="pub-tag"><span data-lang="pt">Presidencialismo</span><span data-lang="en">Presidentialism</span></span>
+        <span class="pub-tag">Uruguai</span>
+        <span class="pub-tag"><span data-lang="pt">América Latina</span><span data-lang="en">Latin America</span></span>
+        <span class="pub-tag"><span data-lang="pt">Estabilidade Política</span><span data-lang="en">Political Stability</span></span>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- ATUAÇÃO -->
-    <section id="atuacao">
-      <p class="label"><span data-lang="pt">Atuação Acadêmica</span><span data-lang="en">Academic Experience</span></p>
+  <p style="font-size:14px;font-weight:500;color:var(--ink);margin-top:2rem;margin-bottom:1rem"><span data-lang="pt">Comentários na Mídia</span><span data-lang="en">Media Appearances</span></p>
+  <div class="media-cards">
+    <div class="media-card">
+      <div class="media-ep">#581</div>
+      <div><p class="media-yr">2025</p><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank" class="media-t"><span data-lang="pt">Podcast Mundioka — "Mesmo em crise, Peru pode superar Brasil e México?"</span><span data-lang="en">Podcast Mundioka — "Even in crisis, can Peru surpass Brazil and Mexico?"</span></a><p class="media-d"><span data-lang="pt">Análise sobre a crise política peruana e seu impacto econômico.</span><span data-lang="en">Analysis of the Peruvian political crisis and its economic impact.</span></p></div>
+    </div>
+    <div class="media-card">
+      <div class="media-ep">#644</div>
+      <div><p class="media-yr">2025</p><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank" class="media-t"><span data-lang="pt">Podcast Mundioka — "México: Justiça nas urnas"</span><span data-lang="en">Podcast Mundioka — "Mexico: Justice at the ballot box"</span></a><p class="media-d"><span data-lang="pt">Debate sobre as eleições judiciais no México e a reforma do judiciário.</span><span data-lang="en">Debate on judicial elections in Mexico and judiciary reform.</span></p></div>
+    </div>
+    <div class="media-card">
+      <div class="media-ep">#731</div>
+      <div><p class="media-yr">2025</p><a href="https://open.spotify.com/episode/2JJ5X8zQeNXPjpYFGApNRy" target="_blank" class="media-t"><span data-lang="pt">Podcast Mundioka — "Déjà vu no Peru: mais uma vez o país fica sem presidente"</span><span data-lang="en">Podcast Mundioka — "Déjà vu in Peru: once again the country is without a president"</span></a><p class="media-d"><span data-lang="pt">Análise da nova crise presidencial no Peru.</span><span data-lang="en">Analysis of the new presidential crisis in Peru.</span></p></div>
+    </div>
+    <div class="media-card">
+      <div class="media-ep">#791</div>
+      <div><p class="media-yr">2026</p><a href="https://open.spotify.com/episode/3S4dV5bvOQTRHRQkNw2xnw" target="_blank" class="media-t"><span data-lang="pt">Podcast Mundioka — "Países latino-americanos unidos, pero no mucho"</span><span data-lang="en">Podcast Mundioka — "Latin American countries united, but not so much"</span></a><p class="media-d"><span data-lang="pt">Análise da invasão estadunidense na Venezuela.</span><span data-lang="en">Analysis of the US invasion in Venezuela.</span></p></div>
+    </div>
+  </div>
+</div>
+</section>
 
-      <div class="act-item">
-        <div class="act-year"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></div>
-        <div>
-          <a href="https://opsa.com.br" target="_blank" class="act-org">Observatório Político Sul-Americano</a>
-          <p class="act-role"><span data-lang="pt">Pesquisador · OPSA / IESP</span><span data-lang="en">Researcher · OPSA / IESP</span></p>
-          <p class="act-desc">
-            <span data-lang="pt">Produção de análises sobre política peruana, com foco em crises presidenciais e relações Executivo-Legislativo. Editor do boletim mensal <em>Conjuntura Latitude Sul</em>.</span>
-            <span data-lang="en">Production of analyses on Peruvian politics, focusing on presidential crises and Executive-Legislative relations. Editor of the monthly bulletin <em>Conjuntura Latitude Sul</em>.</span>
-          </p>
-        </div>
-      </div>
+<!-- PROJETOS -->
+<section id="projetos">
+<div class="wrap">
+  <h2 class="sec-title"><span data-lang="pt">Projetos de Pesquisa</span><span data-lang="en">Research Projects</span></h2>
+  <div class="proj-cards">
+    <div class="proj-card">
+      <p class="proj-yr"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></p>
+      <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank" class="proj-name">Conjuntura Latitude Sul</a>
+      <p class="proj-role"><span data-lang="pt">Editor · OPSA / IESP</span><span data-lang="en">Editor · OPSA / IESP</span></p>
+      <p class="proj-desc"><span data-lang="pt">Publicação mensal que analisa a conjuntura política dos países sul-americanos. Responsável pela edição, revisão e seleção de artigos.</span><span data-lang="en">Monthly publication analyzing the political situation in South American countries. Responsible for editing, reviewing, and selecting articles.</span></p>
+    </div>
+    <div class="proj-card">
+      <p class="proj-yr"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></p>
+      <a href="https://opsa.com.br/projeto-governanca-pan-amazonica/" target="_blank" class="proj-name"><span data-lang="pt">Governança Pan-Amazônica</span><span data-lang="en">Pan-Amazonian Governance</span></a>
+      <p class="proj-role"><span data-lang="pt">Pesquisador · OPSA / IESP</span><span data-lang="en">Researcher · OPSA / IESP</span></p>
+      <p class="proj-desc"><span data-lang="pt">Pesquisa sobre instituições políticas e governança nos países da Pan-Amazônia, com foco em coordenação regional e políticas ambientais.</span><span data-lang="en">Research on political institutions and governance in Pan-Amazonian countries, focusing on regional coordination and environmental policies.</span></p>
+    </div>
+    <div class="proj-card">
+      <p class="proj-yr">2025</p>
+      <span class="proj-name" style="cursor:default"><span data-lang="pt">Ranking da Igualdade Racial</span><span data-lang="en">Racial Equality Ranking</span></span>
+      <p class="proj-role"><span data-lang="pt">Assistente de Pesquisa · OLB / Instituto Peregum</span><span data-lang="en">Research Assistant · OLB / Instituto Peregum</span></p>
+      <p class="proj-desc"><span data-lang="pt">Codificação de votos, discursos e emendas parlamentares para ranking (−10 a 10) sobre igualdade racial. Parceria: Instituto Peregum, Fundação Tide Setúbal e GEMAA-UERJ.</span><span data-lang="en">Coding of votes, speeches, and amendments for a ranking (−10 to 10) on racial equality. Partners: Instituto Peregum, Fundação Tide Setúbal, and GEMAA-UERJ.</span></p>
+    </div>
+  </div>
 
-      <div class="act-item">
-        <div class="act-year"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></div>
-        <div>
-          <a href="https://necon.iesp.uerj.br" target="_blank" class="act-org">Núcleo de Estudos sobre o Congresso</a>
-          <p class="act-role"><span data-lang="pt">Pesquisador · NECON / IESP</span><span data-lang="en">Researcher · NECON / IESP</span></p>
-          <p class="act-desc">
-            <span data-lang="pt">Pesquisas sobre o Congresso Nacional brasileiro, com ênfase em coalizões de governo e comportamento parlamentar.</span>
-            <span data-lang="en">Research on the Brazilian National Congress, with emphasis on government coalitions and parliamentary behavior.</span>
-          </p>
-        </div>
-      </div>
+  <h2 class="sec-title" style="margin-top:3rem"><span data-lang="pt">Disciplinas da Pós-Graduação</span><span data-lang="en">Graduate Courses</span></h2>
+  <div class="courses">
+    <div class="course"><span data-lang="pt">Teoria Política I</span><span data-lang="en">Political Theory I</span></div>
+    <div class="course"><span data-lang="pt">Teoria Política II</span><span data-lang="en">Political Theory II</span></div>
+    <div class="course"><span data-lang="pt">Métodos Quantitativos I</span><span data-lang="en">Quantitative Methods I</span></div>
+    <div class="course"><span data-lang="pt">Métodos Quantitativos II</span><span data-lang="en">Quantitative Methods II</span></div>
+    <div class="course"><span data-lang="pt">Política Brasileira</span><span data-lang="en">Brazilian Politics</span></div>
+    <div class="course"><span data-lang="pt">Estudos Legislativos</span><span data-lang="en">Legislative Studies</span></div>
+    <div class="course active"><span data-lang="pt">Métodos Quantitativos III · em curso</span><span data-lang="en">Quantitative Methods III · in progress</span></div>
+    <div class="course active"><span data-lang="pt">Espaço, população e política · em curso</span><span data-lang="en">Space, Population and Politics · in progress</span></div>
+  </div>
+</div>
+</section>
 
-      <div class="act-item">
-        <div class="act-year"><span data-lang="pt">2021 – presente</span><span data-lang="en">2021 – present</span></div>
-        <div>
-          <a href="https://www.instagram.com/grisul.unirio/" target="_blank" class="act-org">Grupo de Relações Internacionais e Sul Global</a>
-          <p class="act-role"><span data-lang="pt">Pesquisador · GRISUL / UNIRIO</span><span data-lang="en">Researcher · GRISUL / UNIRIO</span></p>
-          <p class="act-desc">
-            <span data-lang="pt">Estudos sobre o Sul Global, com ênfase em América do Sul e relações Executivo-Legislativo comparadas.</span>
-            <span data-lang="en">Studies on the Global South, with emphasis on South America and comparative Executive-Legislative relations.</span>
-          </p>
-        </div>
-      </div>
+<!-- CONTATO -->
+<section id="contato" class="sec-alt">
+<div class="wrap">
+  <h2 class="sec-title"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span></h2>
+  <div class="contact-grid">
+    <a href="mailto:lucasberti@iesp.uerj.br" class="ccard">
+      <div class="ccard-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+      <div><p class="ccard-label">Email</p><p class="ccard-value">lucasberti@iesp.uerj.br</p></div>
+    </a>
+    <a href="https://www.linkedin.com/in/lucascberti11" target="_blank" class="ccard">
+      <div class="ccard-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+      <div><p class="ccard-label">LinkedIn</p><p class="ccard-value">@lucascberti11</p></div>
+    </a>
+    <a href="https://github.com/lucascberti" target="_blank" class="ccard">
+      <div class="ccard-icon"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
+      <div><p class="ccard-label">GitHub</p><p class="ccard-value">@lucascberti</p></div>
+    </a>
+    <a href="https://lattes.cnpq.br/3201012395712916" target="_blank" class="ccard">
+      <div class="ccard-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+      <div><p class="ccard-label">Lattes</p><p class="ccard-value"><span data-lang="pt">Currículo CNPq</span><span data-lang="en">CNPq CV</span></p></div>
+    </a>
+  </div>
+  <div style="margin-top:1.5rem">
+    <p style="font-size:13px;color:var(--ink-lt);margin-bottom:.75rem"><span data-lang="pt">Idiomas</span><span data-lang="en">Languages</span></p>
+    <div class="langs">
+      <span class="lang-pill"><span class="ldot lf"></span><span data-lang="pt">Inglês — fluente</span><span data-lang="en">English — fluent</span></span>
+      <span class="lang-pill"><span class="ldot la"></span><span data-lang="pt">Francês — avançado</span><span data-lang="en">French — advanced</span></span>
+      <span class="lang-pill"><span class="ldot la"></span><span data-lang="pt">Espanhol — avançado</span><span data-lang="en">Spanish — advanced</span></span>
+      <span class="lang-pill"><span class="ldot li"></span><span data-lang="pt">Italiano — intermediário</span><span data-lang="en">Italian — intermediate</span></span>
+    </div>
+  </div>
+</div>
+</section>
 
-      <div class="act-item">
-        <div class="act-year">2024</div>
-        <div>
-          <span class="act-org" style="cursor:default;"><span data-lang="pt">Pesquisa de Campo — Uruguai</span><span data-lang="en">Field Research — Uruguay</span></span>
-          <p class="act-role"><span data-lang="pt">Entrevistas para TCC · Udelar, Montevidéu</span><span data-lang="en">Interviews for BA Thesis · Udelar, Montevideo</span></p>
-          <p class="act-desc">
-            <span data-lang="pt">Entrevistas com especialistas do Departamento de Ciência Política da Universidad de La República sobre estabilidade presidencial no Uruguai.</span>
-            <span data-lang="en">Interviews with experts at the Department of Political Science, Universidad de La República, on presidential stability in Uruguay.</span>
-          </p>
-        </div>
-      </div>
-    </section>
+</main>
 
-    <!-- PRODUÇÕES -->
-    <section id="producoes">
-      <p class="label"><span data-lang="pt">Produções</span><span data-lang="en">Publications</span></p>
+<footer>
+  <p>© 2026 Lucas Calabró Berti &nbsp;·&nbsp; <span data-lang="pt">Desenvolvido com HTML puro</span><span data-lang="en">Built with plain HTML</span></p>
+</footer>
 
-      <p class="pub-group-title"><span data-lang="pt">Publicações</span><span data-lang="en">Academic Publications</span></p>
+<script>
+  const langBtn = document.getElementById('langBtn');
+  let lang = 'pt';
+  langBtn.addEventListener('click', () => {
+    lang = lang === 'pt' ? 'en' : 'pt';
+    document.body.className = 'lang-' + lang;
+    langBtn.textContent = lang === 'pt' ? 'EN' : 'PT';
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  });
 
-      <div class="pub-item">
-        <p class="pub-year">2024</p>
-        <p class="pub-title">
-          <span data-lang="pt">Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional</span>
-          <span data-lang="en">Latin Contrasts: Uruguayan Presidential Stability Amid Regional Instability</span>
-        </p>
-        <p class="pub-type">
-          <span data-lang="pt">Trabalho de Conclusão de Curso · Graduação · UNIRIO</span>
-          <span data-lang="en">Undergraduate Thesis · UNIRIO</span>
-        </p>
-        <p class="pub-desc">
-          <span data-lang="pt">Analisa as causas da estabilidade presidencial no Uruguai, investigando o papel das instituições políticas, do sistema de partidos e das coalizões de governo.</span>
-          <span data-lang="en">Analyzes the causes of presidential stability in Uruguay, investigating the role of political institutions, party systems, and government coalitions.</span>
-        </p>
-        <a href="https://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank" class="pub-link">
-          <span data-lang="pt">Acesse o texto completo ↗</span><span data-lang="en">Access full text ↗</span>
-        </a>
-      </div>
-
-      <div class="pub-spacer"></div>
-      <p class="pub-group-title"><span data-lang="pt">Comentários na Mídia</span><span data-lang="en">Media Appearances</span></p>
-
-      <div class="media-item">
-        <div class="media-num">#581</div>
-        <div>
-          <p class="media-year">2025</p>
-          <a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank" class="media-title">
-            <span data-lang="pt">Podcast Mundioka — "Mesmo em crise, Peru pode superar Brasil e México?" ↗</span>
-            <span data-lang="en">Podcast Mundioka — "Even in crisis, can Peru surpass Brazil and Mexico?" ↗</span>
-          </a>
-          <p class="media-desc">
-            <span data-lang="pt">Análise sobre a crise política peruana e seu impacto econômico.</span>
-            <span data-lang="en">Analysis of the Peruvian political crisis and its economic impact.</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="media-item">
-        <div class="media-num">#644</div>
-        <div>
-          <p class="media-year">2025</p>
-          <a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank" class="media-title">
-            <span data-lang="pt">Podcast Mundioka — "México: Justiça nas urnas" ↗</span>
-            <span data-lang="en">Podcast Mundioka — "Mexico: Justice at the ballot box" ↗</span>
-          </a>
-          <p class="media-desc">
-            <span data-lang="pt">Debate sobre as eleições judiciais no México e a reforma do judiciário.</span>
-            <span data-lang="en">Debate on judicial elections in Mexico and judiciary reform.</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="media-item">
-        <div class="media-num">#731</div>
-        <div>
-          <p class="media-year">2025</p>
-          <a href="https://open.spotify.com/episode/2JJ5X8zQeNXPjpYFGApNRy" target="_blank" class="media-title">
-            <span data-lang="pt">Podcast Mundioka — "Déjà vu no Peru: mais uma vez o país fica sem presidente" ↗</span>
-            <span data-lang="en">Podcast Mundioka — "Déjà vu in Peru: once again the country is without a president" ↗</span>
-          </a>
-          <p class="media-desc">
-            <span data-lang="pt">Análise da nova crise presidencial no Peru.</span>
-            <span data-lang="en">Analysis of the new presidential crisis in Peru.</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="media-item">
-        <div class="media-num">#791</div>
-        <div>
-          <p class="media-year">2026</p>
-          <a href="https://open.spotify.com/episode/3S4dV5bvOQTRHRQkNw2xnw" target="_blank" class="media-title">
-            <span data-lang="pt">Podcast Mundioka — "Países latino-americanos unidos, pero no mucho" ↗</span>
-            <span data-lang="en">Podcast Mundioka — "Latin American countries united, but not so much" ↗</span>
-          </a>
-          <p class="media-desc">
-            <span data-lang="pt">Análise da invasão estadunidense na Venezuela.</span>
-            <span data-lang="en">Analysis of the US invasion in Venezuela.</span>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJETOS -->
-    <section id="projetos">
-      <p class="label"><span data-lang="pt">Projetos de Pesquisa</span><span data-lang="en">Research Projects</span></p>
-
-      <div class="proj-item">
-        <div class="proj-year"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></div>
-        <div>
-          <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank" class="proj-name">Conjuntura Latitude Sul</a>
-          <p class="proj-role"><span data-lang="pt">Editor · OPSA / IESP</span><span data-lang="en">Editor · OPSA / IESP</span></p>
-          <p class="proj-desc">
-            <span data-lang="pt">Publicação mensal do OPSA que analisa a conjuntura política dos países sul-americanos. Responsável pela edição, revisão e seleção de artigos.</span>
-            <span data-lang="en">Monthly publication from OPSA analyzing the political situation in South American countries. Responsible for editing, reviewing, and selecting articles.</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="proj-item">
-        <div class="proj-year"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></div>
-        <div>
-          <a href="https://opsa.com.br/projeto-governanca-pan-amazonica/" target="_blank" class="proj-name"><span data-lang="pt">Governança Pan-Amazônica</span><span data-lang="en">Pan-Amazonian Governance</span></a>
-          <p class="proj-role"><span data-lang="pt">Pesquisador · OPSA / IESP</span><span data-lang="en">Researcher · OPSA / IESP</span></p>
-          <p class="proj-desc">
-            <span data-lang="pt">Pesquisa sobre instituições políticas e governança nos países da Pan-Amazônia, com foco em coordenação regional e políticas ambientais.</span>
-            <span data-lang="en">Research on political institutions and governance in Pan-Amazonian countries, focusing on regional coordination and environmental policies.</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="proj-item">
-        <div class="proj-year">2025</div>
-        <div>
-          <span class="proj-name" style="cursor:default;"><span data-lang="pt">Ranking da Igualdade Racial</span><span data-lang="en">Racial Equality Ranking</span></span>
-          <p class="proj-role"><span data-lang="pt">Assistente de Pesquisa · OLB / Instituto Peregum</span><span data-lang="en">Research Assistant · OLB / Instituto Peregum</span></p>
-          <p class="proj-desc">
-            <span data-lang="pt">Codificação de votos, discursos e emendas parlamentares para produção de ranking (−10 a 10) sobre igualdade racial. Parceria entre Instituto Peregum, Fundação Tide Setúbal e GEMAA-UERJ.</span>
-            <span data-lang="en">Coding of votes, speeches, and parliamentary amendments to produce a ranking (−10 to 10) on racial equality. Partnership between Instituto Peregum, Fundação Tide Setúbal, and GEMAA-UERJ.</span>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato">
-      <p class="label"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span></p>
-
-      <div class="contact-grid">
-        <a href="mailto:lucasberti@iesp.uerj.br" class="contact-card">
-          <p class="contact-label">E-mail</p>
-          <p class="contact-value">lucasberti@iesp.uerj.br</p>
-        </a>
-        <a href="https://www.linkedin.com/in/lucascberti11" target="_blank" class="contact-card">
-          <p class="contact-label">LinkedIn</p>
-          <p class="contact-value">@lucascberti11</p>
-        </a>
-        <a href="https://github.com/lucascberti" target="_blank" class="contact-card">
-          <p class="contact-label">GitHub</p>
-          <p class="contact-value">@lucascberti</p>
-        </a>
-        <a href="https://lattes.cnpq.br/3201012395712916" target="_blank" class="contact-card">
-          <p class="contact-label">Lattes</p>
-          <p class="contact-value"><span data-lang="pt">Currículo CNPq</span><span data-lang="en">CNPq CV</span></p>
-        </a>
-      </div>
-
-      <div class="lang-section">
-        <p class="lang-title"><span data-lang="pt">Idiomas</span><span data-lang="en">Languages</span></p>
-        <div class="lang-list">
-          <span class="lang-pill"><span class="lang-dot dot-fluent"></span><span data-lang="pt">Inglês — fluente</span><span data-lang="en">English — fluent</span></span>
-          <span class="lang-pill"><span class="lang-dot dot-advanced"></span><span data-lang="pt">Francês — avançado</span><span data-lang="en">French — advanced</span></span>
-          <span class="lang-pill"><span class="lang-dot dot-advanced"></span><span data-lang="pt">Espanhol — avançado</span><span data-lang="en">Spanish — advanced</span></span>
-          <span class="lang-pill"><span class="lang-dot dot-intermediate"></span><span data-lang="pt">Italiano — intermediário</span><span data-lang="en">Italian — intermediate</span></span>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>© 2026 Lucas Calabró Berti</p>
-    <a href="#sobre" class="back-top"><span data-lang="pt">↑ Voltar ao topo</span><span data-lang="en">↑ Back to top</span></a>
-  </footer>
-
-  <script>
-    const btn = document.getElementById('langBtn');
-    let lang = 'pt';
-    btn.addEventListener('click', () => {
-      lang = lang === 'pt' ? 'en' : 'pt';
-      document.body.className = 'lang-' + lang;
-      btn.textContent = lang === 'pt' ? 'EN' : 'PT';
-      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-    });
-  </script>
-
+  const themeBtn = document.getElementById('themeBtn');
+  const iSun = document.getElementById('iSun');
+  const iMoon = document.getElementById('iMoon');
+  let dark = false;
+  themeBtn.addEventListener('click', () => {
+    dark = !dark;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    iSun.style.display  = dark ? 'none' : '';
+    iMoon.style.display = dark ? '' : 'none';
+  });
+</script>
 </body>
 </html>
