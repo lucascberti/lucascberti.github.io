@@ -42,26 +42,24 @@
     .sec-alt { background: var(--bg-s); }
     .sec-title { font-size: 22px; font-weight: 500; color: var(--ink); margin-bottom: 2rem; padding-bottom: .75rem; border-bottom: 2px solid var(--blue); display: inline-block; }
 
-    /* HERO */
+    /* HERO — estilo fmeireles */
     #sobre { padding: 3.5rem 0; }
     .hero-inner { display: flex; gap: 2.5rem; align-items: flex-start; }
-    .hero-left { flex-shrink: 0; text-align: center; }
-    .hero-avatar { width: 165px; height: 165px; border-radius: 50%; background: #e8eaf6; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 4px solid var(--border); box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+    .hero-left { flex-shrink: 0; text-align: center; width: 150px; }
+    .hero-avatar { width: 150px; height: 150px; border-radius: 4px; background: #e8eaf6; overflow: hidden; display: flex; align-items: center; justify-content: center; }
     .hero-avatar img { width:100%; height:100%; object-fit:cover; }
     .hero-initials { font-size: 48px; font-weight: 300; color: #7986cb; }
-    .hero-socials { display: flex; justify-content: center; gap: 8px; margin-top: 1rem; flex-wrap: wrap; }
-    .social-btn { width: 34px; height: 34px; border-radius: 50%; background: var(--blue-lt); display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--blue); font-size: 12px; font-weight: 500; transition: background .2s; }
-    .social-btn:hover { background: var(--blue); color: #fff; }
-    .social-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .hero-left-name { font-size: 18px; font-weight: 500; color: var(--ink); margin-top: .75rem; line-height: 1.2; }
+    .hero-left-inst { font-size: 13px; color: var(--ink-lt); margin-top: .2rem; }
+    .hero-socials { display: flex; justify-content: center; gap: 6px; margin-top: .85rem; flex-wrap: wrap; }
+    .social-btn { font-size: 11.5px; color: var(--blue); text-decoration: none; transition: opacity .2s; }
+    .social-btn:hover { opacity: .7; }
     .hero-right { flex: 1; }
-    .hero-name { font-size: 32px; font-weight: 500; color: var(--ink); line-height: 1.15; margin-bottom: .2rem; }
-    .hero-role { font-size: 15px; color: var(--ink-mid); font-weight: 300; margin-bottom: .1rem; }
-    .hero-inst { font-size: 14px; color: var(--blue); margin-bottom: .4rem; }
-    .hero-badge { display: inline-block; font-size: 11.5px; color: var(--blue); background: var(--blue-lt); padding: 2px 10px; border-radius: 99px; margin-bottom: 1.25rem; }
-    .hero-bio { font-size: 14.5px; color: var(--ink-mid); line-height: 1.75; max-width: 600px; }
-    .hero-bio + .hero-bio { margin-top: .65rem; }
-    .hero-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
-    .hero-col-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: .75rem; }
+    .hero-about-title { font-size: 22px; font-weight: 500; color: var(--ink); margin-bottom: 1rem; }
+    .hero-bio { font-size: 14.5px; color: var(--ink-mid); line-height: 1.8; }
+    .hero-bio + .hero-bio { margin-top: .75rem; }
+    .hero-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; padding-top: 1.75rem; border-top: 1px solid var(--border); }
+    .hero-col-title { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: .6rem; text-transform: uppercase; letter-spacing: .04em; }
     .interests { list-style: none; }
     .interests li { font-size: 13.5px; color: var(--ink-mid); padding: 2px 0; display: flex; align-items: center; gap: 8px; }
     .interests li::before { content:''; width:5px; height:5px; border-radius:50%; background: var(--blue); flex-shrink:0; }
@@ -122,7 +120,7 @@
     .proj-yr { font-size: 12px; color: var(--ink-lt); margin-bottom: 5px; }
     .proj-name { font-size: 15px; font-weight: 500; color: var(--blue); text-decoration: none; display: block; margin-bottom: 2px; }
     .proj-name:hover { text-decoration: underline; }
-    .proj-name-plain { font-size: 15px; font-weight: 500; color: var(--ink); display: block; margin-bottom: 2px; }
+    .proj-name-plain { font-size: 15px; font-weight: 500; color: var(--blue); display: block; margin-bottom: 2px; }
     .proj-role { font-size: 12px; color: var(--ink-lt); margin-bottom: .65rem; }
     .proj-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.65; }
 
@@ -130,7 +128,7 @@
     .exp-row { display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
     .exp-row:last-child { border-bottom: none; }
     .exp-year { font-size: 12px; color: var(--ink-lt); padding-top: 2px; }
-    .exp-title { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+    .exp-title { font-size: 15px; font-weight: 500; color: var(--blue); margin-bottom: 2px; }
     .exp-org { font-size: 13px; color: var(--ink-lt); margin-bottom: .5rem; }
     .exp-desc { font-size: 13.5px; color: var(--ink-mid); line-height: 1.65; }
 
@@ -192,6 +190,7 @@
   <div class="nav-links">
     <a href="#sobre"><span data-lang="pt">Sobre</span><span data-lang="en">About</span></a>
     <a href="#atuacao"><span data-lang="pt">Atuação</span><span data-lang="en">Research</span></a>
+    <a href="#formacao"><span data-lang="pt">Formação</span><span data-lang="en">Education</span></a>
     <a href="#producoes"><span data-lang="pt">Produções</span><span data-lang="en">Publications</span></a>
     <a href="#projetos"><span data-lang="pt">Projetos</span><span data-lang="en">Projects</span></a>
     <a href="#experiencia"><span data-lang="pt">Experiência</span><span data-lang="en">Experience</span></a>
@@ -212,70 +211,85 @@
 <section id="sobre">
 <div class="wrap">
   <div class="hero-inner">
+
     <div class="hero-left">
       <div class="hero-avatar">
         <img src="imagem/foto-lucas.jpg" alt="Lucas Berti" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
         <span class="hero-initials" style="display:none">LB</span>
       </div>
+      <p class="hero-left-name">Lucas Calabró Berti</p>
+      <p class="hero-left-inst"><a href="https://iesp.uerj.br" target="_blank" style="color:inherit;text-decoration:none;">IESP-UERJ</a></p>
       <div class="hero-socials">
-        <a href="mailto:lucasberti@iesp.uerj.br" class="social-btn" title="Email">
-          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/lucascberti11" target="_blank" class="social-btn" title="LinkedIn">in</a>
-        <a href="https://github.com/lucascberti" target="_blank" class="social-btn" title="GitHub">
-          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        </a>
-        <a href="https://lattes.cnpq.br/3201012395712916" target="_blank" class="social-btn" title="Lattes">CV</a>
-        <a href="https://orcid.org/0000-0002-8057-5482" target="_blank" class="social-btn" title="ORCID" style="font-size:10px">iD</a>
-        <a href="https://drive.google.com/file/d/1hdiDsreV6VCObOeBeAruRNkNQPz0x9je/view?usp=sharing" download class="social-btn" title="Download CV">
-          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </a>
+        <a href="mailto:lucasberti@iesp.uerj.br" class="social-btn">Email</a>
+        <a href="https://www.linkedin.com/in/lucascberti11" target="_blank" class="social-btn">LinkedIn</a>
+        <a href="https://github.com/lucascberti" target="_blank" class="social-btn">GitHub</a>
+        <a href="https://lattes.cnpq.br/3201012395712916" target="_blank" class="social-btn">Lattes</a>
+        <a href="https://orcid.org/0000-0002-8057-5482" target="_blank" class="social-btn">ORCID</a>
+        <a href="CV_Lucas_Berti.pdf" download class="social-btn">CV</a>
       </div>
     </div>
 
     <div class="hero-right">
-      <h1 class="hero-name">Lucas Calabró Berti</h1>
-      <p class="hero-role"><span data-lang="pt">Mestrando em Ciência Política</span><span data-lang="en">Master's Student in Political Science</span></p>
-      <p class="hero-inst"><a href="https://iesp.uerj.br" target="_blank" style="color:inherit;text-decoration:none;">IESP-UERJ</a></p>
-      <span class="hero-badge"><span data-lang="pt">Bolsista FAPERJ</span><span data-lang="en">FAPERJ Fellow</span></span>
+      <h2 class="hero-about-title"><span data-lang="pt">Sobre</span><span data-lang="en">About</span></h2>
 
-      <p class="hero-bio" data-lang="pt">Mestrando em Ciência Política no IESP/UERJ e bacharel em Ciência Política pela UNIRIO. Pesquiso política brasileira e sul-americana, instituições e comportamento político, com ênfase em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo. Pesquisador do NECON, OLE, OPSA e GRISUL.</p>
-      <p class="hero-bio" data-lang="en">Master's student in Political Science at IESP/UERJ and BA in Political Science from UNIRIO. Research focuses on Brazilian and South American politics, institutions and political behavior, with emphasis on presidentialism, legislative studies, executive-legislative relations, and government coalitions. Researcher at NECON, OLE, OPSA, and GRISUL.</p>
+      <p class="hero-bio" data-lang="pt">Sou mestrando em Ciência Política no <a href="https://iesp.uerj.br" target="_blank">IESP/UERJ</a> e bacharel em Ciência Política pela UNIRIO. Pesquiso política brasileira e sul-americana, instituições e comportamento político, com ênfase em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo.</p>
+      <p class="hero-bio" data-lang="en">I am a Master's student in Political Science at <a href="https://iesp.uerj.br" target="_blank">IESP/UERJ</a> and hold a BA in Political Science from UNIRIO. My research focuses on Brazilian and South American politics, institutions, and political behavior, with emphasis on presidentialism, legislative studies, executive-legislative relations, and government coalitions.</p>
 
-      <div class="hero-cols">
-        <div>
-          <p class="hero-col-title"><span data-lang="pt">Interesses</span><span data-lang="en">Interests</span></p>
-          <ul class="interests">
-            <li><span data-lang="pt">Presidencialismo</span><span data-lang="en">Presidentialism</span></li>
-            <li><span data-lang="pt">Estudos Legislativos</span><span data-lang="en">Legislative Studies</span></li>
-            <li><span data-lang="pt">Relações Executivo-Legislativo</span><span data-lang="en">Executive-Legislative Relations</span></li>
-            <li><span data-lang="pt">Coalizões de Governo</span><span data-lang="en">Government Coalitions</span></li>
-            <li><span data-lang="pt">Política Comparada — América do Sul</span><span data-lang="en">Comparative Politics — South America</span></li>
-            <li><span data-lang="pt">Metodologia Quantitativa</span><span data-lang="en">Quantitative Methodology</span></li>
-          </ul>
-        </div>
-        <div>
-          <p class="hero-col-title"><span data-lang="pt">Formação</span><span data-lang="en">Education</span></p>
-          <div class="edu-entries">
-            <div>
-              <p class="edu-deg"><span data-lang="pt">Mestrado em Ciência Política</span><span data-lang="en">Master's in Political Science</span></p>
-              <p class="edu-inst-name">IESP / UERJ</p>
-              <p class="edu-yr">2025 – <span data-lang="pt">presente</span><span data-lang="en">present</span></p>
-            </div>
-            <div>
-              <p class="edu-deg"><span data-lang="pt">Bacharel em Ciência Política</span><span data-lang="en">BA in Political Science</span></p>
-              <p class="edu-inst-name">UNIRIO</p>
-              <p class="edu-yr">2020 – 2024</p>
-            </div>
-            <div>
-              <p class="edu-deg"><span data-lang="pt">Pesquisa de Campo</span><span data-lang="en">Field Research</span></p>
-              <p class="edu-inst-name"><span data-lang="pt">Udelar, Montevidéu</span><span data-lang="en">Udelar, Montevideo</span></p>
-              <p class="edu-yr">2024</p>
-            </div>
-          </div>
-        </div>
+      <p class="hero-bio" data-lang="pt" style="margin-top:.75rem;">Atualmente sou pesquisador no <a href="https://necon.iesp.uerj.br" target="_blank">Núcleo de Estudos sobre o Congresso (NECON/IESP)</a>, no <a href="https://iesp.uerj.br" target="_blank">Observatório dos Legislativos Estaduais (OLE/IESP)</a>, no <a href="https://opsa.com.br" target="_blank">Observatório Político Sul-Americano (OPSA/IESP)</a> e no <a href="https://www.instagram.com/grisul.unirio/" target="_blank">Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO)</a>. Sou também editor do periódico mensal <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">Conjuntura Latitude Sul</a> (ISSN 2526-5822).</p>
+      <p class="hero-bio" data-lang="en" style="margin-top:.75rem;">I currently research at the <a href="https://necon.iesp.uerj.br" target="_blank">Center for Studies on Congress (NECON/IESP)</a>, the <a href="https://iesp.uerj.br" target="_blank">Observatory of State Legislatures (OLE/IESP)</a>, the <a href="https://opsa.com.br" target="_blank">South American Political Observatory (OPSA/IESP)</a>, and the <a href="https://www.instagram.com/grisul.unirio/" target="_blank">International Relations and Global South Group (GRISUL/UNIRIO)</a>. I also serve as editor of the monthly journal <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">Conjuntura Latitude Sul</a> (ISSN 2526-5822).</p>
+
+
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- FORMAÇÃO -->
+<section id="formacao" class="sec-alt">
+<div class="wrap">
+  <h2 class="sec-title"><span data-lang="pt">Formação Acadêmica</span><span data-lang="en">Education</span></h2>
+  <div class="timeline">
+
+    <div class="tl-row">
+      <div class="tl-year"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></div>
+      <div>
+        <span class="tl-name" style="cursor:default"><span data-lang="pt">Mestrado em Ciência Política</span><span data-lang="en">Master's in Political Science</span></span>
+        <p class="tl-role">IESP/UERJ — <span data-lang="pt">Instituto de Estudos Sociais e Políticos, Rio de Janeiro</span><span data-lang="en">Institute of Social and Political Studies, Rio de Janeiro</span></p>
+        <p class="tl-desc">
+          <span data-lang="pt"><strong>Dissertação:</strong> "Do Tamanho à Disciplina: Uma Análise da Reconfiguração dos Vínculos Políticos e do Sucesso Presidencial no Brasil (2003–2025)"<br>
+          <strong>Linha de pesquisa:</strong> Instituições e Comportamento · <strong>Bolsista FAPERJ</strong></span>
+          <span data-lang="en"><strong>Thesis:</strong> "From Size to Discipline: An Analysis of the Reconfiguration of Political Ties and Presidential Success in Brazil (2003–2025)"<br>
+          <strong>Research line:</strong> Institutions and Behavior · <strong>FAPERJ scholarship</strong></span>
+        </p>
+        <p class="tl-desc" style="margin-top:.6rem">
+          <span data-lang="pt"><strong>Orientador:</strong> <a href="https://lattes.cnpq.br/3534868879163140" target="_blank">Prof. Dr. Fabiano Santos</a></span>
+          <span data-lang="en"><strong>Advisor:</strong> <a href="https://lattes.cnpq.br/3534868879163140" target="_blank">Prof. Dr. Fabiano Santos</a></span>
+        </p>
+        <p class="tl-desc" style="margin-top:.75rem; font-size:13px; color:var(--ink-lt)"><span data-lang="pt"><strong>Disciplinas cursadas:</strong> Teoria Política I e II · Métodos Quantitativos I, II e III (em curso) · Política Brasileira · Estudos Legislativos · Espaço, População e Política (em curso)</span><span data-lang="en"><strong>Courses:</strong> Political Theory I & II · Quantitative Methods I, II & III (in progress) · Brazilian Politics · Legislative Studies · Space, Population and Politics (in progress)</span></p>
       </div>
     </div>
+
+    <div class="tl-row">
+      <div class="tl-year">2020 – 2024</div>
+      <div>
+        <span class="tl-name" style="cursor:default"><span data-lang="pt">Bacharelado em Ciência Política</span><span data-lang="en">BA in Political Science</span></span>
+        <p class="tl-role">UNIRIO — <span data-lang="pt">Universidade Federal do Estado do Rio de Janeiro</span><span data-lang="en">Federal University of the State of Rio de Janeiro</span></p>
+        <p class="tl-desc">
+          <span data-lang="pt"><strong>TCC:</strong> <a href="https://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">"Contrastes latinos: a estabilidade presidencial uruguaia em meio à instabilidade regional"</a> — <em>Premiado: Melhor TCC – V Jornada Discente PPGCP/UNIRIO (2024)</em></span>
+          <span data-lang="en"><strong>Thesis:</strong> <a href="https://www.repositorio-bc.unirio.br:8080/xmlui/handle/unirio/14601" target="_blank">"Latin Contrasts: Uruguayan Presidential Stability Amid Regional Instability"</a> — <em>Award: Best Undergraduate Thesis – PPGCP/UNIRIO (2024)</em></span>
+        </p>
+        <p class="tl-desc" style="margin-top:.6rem">
+          <span data-lang="pt"><strong>Orientador:</strong> <a href="https://lattes.cnpq.br/7370207316680307" target="_blank">Prof. Dr. André Luiz Coelho</a></span>
+          <span data-lang="en"><strong>Advisor:</strong> <a href="https://lattes.cnpq.br/7370207316680307" target="_blank">Prof. Dr. André Luiz Coelho</a></span>
+        </p>
+        <p class="tl-desc" style="margin-top:.6rem">
+          <span data-lang="pt"><strong>Pesquisa de campo:</strong> Universidad de la República, Montevidéu, Uruguai (2024)</span>
+          <span data-lang="en"><strong>Field research:</strong> Universidad de la República, Montevideo, Uruguay (2024)</span>
+        </p>
+      </div>
+    </div>
+
   </div>
 </div>
 </section>
@@ -305,10 +319,11 @@
     </div>
 
     <div class="tl-row">
-      <div class="tl-year"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></div>
+      <div class="tl-year"><span data-lang="pt">2026 – presente</span><span data-lang="en">2026 – present</span></div>
       <div>
         <span class="tl-name" style="cursor:default">Observatório dos Legislativos Estaduais (OLE/IESP)</span>
         <p class="tl-role"><span data-lang="pt">Pesquisador · IESP/UERJ</span><span data-lang="en">Researcher · IESP/UERJ</span></p>
+        <p class="tl-desc"><span data-lang="pt">Pesquisa e monitoramento dos legislativos estaduais brasileiros, com foco em comportamento parlamentar e produção legislativa nos estados.</span><span data-lang="en">Research and monitoring of Brazilian state legislatures, focusing on parliamentary behavior and legislative output at the state level.</span></p>
       </div>
     </div>
 
@@ -364,14 +379,6 @@
 <section id="producoes">
 <div class="wrap">
   <h2 class="sec-title"><span data-lang="pt">Produções e Publicações</span><span data-lang="en">Publications & Output</span></h2>
-
-  <p class="pub-group"><span data-lang="pt">Capítulo de Livro</span><span data-lang="en">Book Chapter</span></p>
-  <div class="pub-card">
-    <p class="pub-yr">2022</p>
-    <span class="pub-title-plain">BERTI, L. C.; REIS, L. <span data-lang="pt">"Migrações ambientais".</span><span data-lang="en">"Environmental migrations".</span></span>
-    <p class="pub-meta"><span data-lang="pt">In: Villarreal Villamar; Echart Muñoz (Org.). <em>Atlas das Migrações na América Latina</em>. Rio de Janeiro: Périplos.</span><span data-lang="en">In: Villarreal Villamar; Echart Muñoz (Org.). <em>Atlas of Migrations in Latin America</em>. Rio de Janeiro: Périplos.</span></p>
-    <div class="pub-tags"><span class="pub-tag"><span data-lang="pt">Migrações</span><span data-lang="en">Migration</span></span><span class="pub-tag"><span data-lang="pt">América Latina</span><span data-lang="en">Latin America</span></span></div>
-  </div>
 
   <p class="pub-group"><span data-lang="pt">TCC / Tese de Graduação</span><span data-lang="en">Undergraduate Thesis</span></p>
   <div class="pub-card">
@@ -447,10 +454,10 @@
       <p class="proj-desc"><span data-lang="pt">Pesquisa sobre instituições políticas e governança nos países da Pan-Amazônia, com foco em coordenação regional e políticas ambientais.</span><span data-lang="en">Research on political institutions and governance in Pan-Amazonian countries, focusing on regional coordination and environmental policies.</span></p>
     </div>
     <div class="proj-card">
-      <p class="proj-yr"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></p>
+      <p class="proj-yr"><span data-lang="pt">2026 – presente</span><span data-lang="en">2026 – present</span></p>
       <span class="proj-name-plain">Observatório dos Legislativos Estaduais (OLE/IESP)</span>
       <p class="proj-role"><span data-lang="pt">Pesquisador · IESP/UERJ</span><span data-lang="en">Researcher · IESP/UERJ</span></p>
-      <p class="proj-desc"><span data-lang="pt">Pesquisa e monitoramento dos legislativos estaduais brasileiros.</span><span data-lang="en">Research and monitoring of Brazilian state legislatures.</span></p>
+      <p class="proj-desc"><span data-lang="pt">Pesquisa e monitoramento dos legislativos estaduais brasileiros, com foco em comportamento parlamentar e produção legislativa nos estados.</span><span data-lang="en">Research and monitoring of Brazilian state legislatures, focusing on parliamentary behavior and legislative output at the state level.</span></p>
     </div>
     <div class="proj-card">
       <p class="proj-yr">2025</p>
@@ -525,7 +532,7 @@
       <div class="ccard-icon"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
       <div><p class="ccard-label">GitHub</p><p class="ccard-value">@lucascberti</p></div>
     </a>
-    <a href="https://drive.google.com/file/d/1hdiDsreV6VCObOeBeAruRNkNQPz0x9je/view?usp=sharing" download class="ccard">
+    <a href="CV_Lucas_Berti.pdf" download class="ccard">
       <div class="ccard-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
       <div><p class="ccard-label">Curriculum Vitae</p><p class="ccard-value"><span data-lang="pt">Download CV (PDF)</span><span data-lang="en">Download CV (PDF)</span></p></div>
     </a>
@@ -570,4 +577,4 @@
   });
 </script>
 </body>
-</html> 
+</html>
