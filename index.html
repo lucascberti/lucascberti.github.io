@@ -6,166 +6,371 @@
   <title>Lucas Calabró Berti</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --bg: #faf9f7; --bg-s: #f2f0ed; --border: #e0ddd8;
-      --ink: #333; --ink-mid: #555; --ink-lt: #999;
-      --blue: #3d6b47; --blue-lt: #e8f2ea;
-      --sans: 'Roboto', sans-serif; --nav-h: 54px;
+      --bg:      #F8F6F0;
+      --bg-alt:  #F0EDE4;
+      --text:    #1A1A1A;
+      --primary: #1C3A2E;
+      --accent:  #D4A853;
+      --muted:   #6B7280;
+      --border:  #E5E0D5;
+      --white:   #FFFFFF;
+      --serif:   'Playfair Display', Georgia, serif;
+      --sans:    'Inter', system-ui, sans-serif;
+      --nav-h:   72px;
+      --max-w:   1100px;
+      --pad-x:   2.5rem;
     }
     [data-theme="dark"] {
-      --bg: #161a15; --bg-s: #1e221d; --border: #2e332d;
-      --ink: #e0ddd8; --ink-mid: #aaa; --ink-lt: #666;
-      --blue: #7db885; --blue-lt: #1a2b1c;
+      --bg:      #161a15;
+      --bg-alt:  #1e221d;
+      --text:    #e8e4dc;
+      --primary: #7db885;
+      --accent:  #D4A853;
+      --muted:   #8a9a8e;
+      --border:  #2e332d;
+      --white:   #1e221d;
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; transition: background .3s, color .3s; }
 
-    /* NAV */
-    nav { position: sticky; top: 0; z-index: 100; height: var(--nav-h); background: var(--blue); backdrop-filter: blur(10px); border-bottom: 1px solid color-mix(in srgb, var(--blue) 80%, black); display: flex; align-items: center; padding: 0 1.5rem; gap: 1rem; }
-    .nav-logo { font-size: 17px; font-weight: 500; color: #fff; text-decoration: none; margin-right: auto; }
-    .nav-links { display: flex; gap: 1.25rem; }
-    .nav-links a { font-size: 13px; color: rgba(255,255,255,.75); text-decoration: none; transition: color .2s; }
-    .nav-links a:hover { color: #fff; }
-    .nav-actions { display: flex; gap: 8px; align-items: center; margin-left: .5rem; }
-    .icon-btn { width: 32px; height: 32px; border-radius: 50%; border: none; background: none; cursor: pointer; color: rgba(255,255,255,.75); display: flex; align-items: center; justify-content: center; transition: color .2s; }
-    .icon-btn:hover { color: #fff; }
-    .icon-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .lang-btn { font-size: 12px; color: rgba(255,255,255,.75); border: 1px solid rgba(255,255,255,.4); padding: 3px 10px; border-radius: 4px; cursor: pointer; background: none; font-family: var(--sans); transition: all .2s; }
-    .lang-btn:hover { color: #fff; border-color: #fff; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; transition: background .3s, color .3s; }
 
-    /* LAYOUT */
-    .wrap { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
-    section { padding: 4rem 0; }
-    .sec-alt { background: var(--bg-s); }
-    .sec-title { font-size: 22px; font-weight: 500; color: var(--blue); margin-bottom: 2rem; padding-bottom: .75rem; border-bottom: 2px solid var(--blue); display: inline-block; }
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      height: var(--nav-h);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 var(--pad-x);
+    }
+    .nav-logo {
+      font-family: var(--serif); font-size: 17px; font-weight: 600;
+      color: var(--text); text-decoration: none; margin-right: auto;
+      letter-spacing: 0.01em;
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-size: 12.5px; font-weight: 500; color: var(--muted);
+      text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-actions { display: flex; gap: 10px; align-items: center; margin-left: 2rem; }
+    .icon-btn {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid var(--border); background: none; cursor: pointer;
+      color: var(--muted); display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+    }
+    .icon-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .icon-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .lang-btn {
+      font-size: 11.5px; font-weight: 600; letter-spacing: 0.1em;
+      font-family: var(--sans); color: var(--muted);
+      border: 1px solid var(--border); padding: 5px 14px;
+      border-radius: 3px; cursor: pointer; background: none;
+      transition: all .2s; text-transform: uppercase;
+    }
+    .lang-btn:hover { color: var(--primary); border-color: var(--primary); }
 
-    /* HERO — estilo fmeireles */
-    #sobre { padding: 3.5rem 0; }
-    .hero-inner { display: flex; gap: 2.5rem; align-items: flex-start; }
-    .hero-left { flex-shrink: 0; text-align: center; width: 190px; }
-    .hero-avatar { width: 190px; height: 190px; border-radius: 50%; background: #e8eaf6; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    /* ── LAYOUT ── */
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x); }
+    section { padding: 5.5rem 0; }
+    .sec-alt { background: var(--bg-alt); }
+    .sec-title {
+      font-family: var(--serif); font-size: 30px; font-weight: 600;
+      color: var(--primary); margin-bottom: 3rem;
+      padding-bottom: .8rem; border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    /* ── HERO ── */
+    #sobre {
+      min-height: calc(100vh - var(--nav-h));
+      display: flex; align-items: center;
+      padding: 0;
+    }
+    #sobre .wrap { width: 100%; }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 5rem;
+      align-items: center;
+    }
+    /* LEFT */
+    .hero-left { }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(52px, 7vw, 88px);
+      font-weight: 700; line-height: 1.0;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-divider {
+      width: 48px; height: 3px;
+      background: var(--accent);
+      margin-bottom: 1.25rem;
+      border-radius: 2px;
+    }
+    .hero-subtitle {
+      font-size: 15px; color: var(--muted); font-weight: 400;
+      margin-bottom: 1.5rem; letter-spacing: 0.01em;
+    }
+    .hero-bio {
+      font-size: 15px; color: var(--muted); line-height: 1.85;
+      max-width: 560px; margin-bottom: .9rem;
+    }
+    .hero-bio a { color: var(--primary); text-decoration: none; font-weight: 500; border-bottom: 1px solid transparent; transition: border-color .2s; }
+    .hero-bio a:hover { border-color: var(--primary); }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 2rem; }
+    .btn-primary {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+      color: #fff; background: var(--primary);
+      padding: 13px 28px; border-radius: 4px;
+      text-decoration: none; transition: opacity .2s;
+      border: 2px solid var(--primary);
+    }
+    .btn-primary:hover { opacity: .88; }
+    .btn-outline {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+      color: var(--primary); background: none;
+      padding: 13px 28px; border-radius: 4px;
+      text-decoration: none; transition: all .2s;
+      border: 2px solid var(--primary);
+    }
+    .btn-outline:hover { background: var(--primary); color: #fff; }
+
+    /* RIGHT — foto */
+    .hero-right { flex-shrink: 0; }
+    .hero-avatar-wrap {
+      position: relative;
+      width: 260px; height: 260px;
+    }
+    .hero-avatar-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -10px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      opacity: .5;
+    }
+    .hero-avatar {
+      width: 260px; height: 260px; border-radius: 50%;
+      background: var(--bg-alt); overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      border: 3px solid var(--accent);
+    }
     .hero-avatar img { width:100%; height:100%; object-fit:cover; }
-    .hero-initials { font-size: 56px; font-weight: 300; color: #7986cb; }
-    .hero-left-name { font-size: 22px; font-weight: 500; color: var(--ink); margin-top: .85rem; line-height: 1.25; }
-    .hero-left-inst { font-size: 13px; color: var(--ink-lt); margin-top: .2rem; }
-    .hero-socials { display: flex; justify-content: center; gap: 6px; margin-top: .85rem; flex-wrap: wrap; }
-    .social-btn { font-size: 11.5px; color: var(--blue); text-decoration: none; transition: opacity .2s; }
-    .social-btn:hover { opacity: .7; }
-    .hero-socials { display: flex; justify-content: center; gap: 6px; margin-top: .85rem; flex-wrap: wrap; }
-    .social-btn { font-size: 11.5px; color: var(--blue); text-decoration: none; transition: opacity .2s; }
-    .social-btn:hover { opacity: .7; }
-    .hero-right { flex: 1; }
-    .hero-about-title { font-size: 24px; font-weight: 500; color: var(--ink); margin-bottom: 1rem; }
-    .hero-bio { font-size: 14.5px; color: var(--ink-mid); line-height: 1.8; }
-    .hero-bio a { color: var(--blue); text-decoration: none; }
-    .hero-bio a:hover { text-decoration: underline; }
-    .hero-bio + .hero-bio { margin-top: .75rem; }
-    .hero-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; padding-top: 1.75rem; border-top: 1px solid var(--border); }
-    .hero-col-title { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: .6rem; text-transform: uppercase; letter-spacing: .04em; }
-    .interests { list-style: none; }
-    .interests li { font-size: 13.5px; color: var(--ink-mid); padding: 2px 0; display: flex; align-items: center; gap: 8px; }
-    .interests li::before { content:''; width:5px; height:5px; border-radius:50%; background: var(--blue); flex-shrink:0; }
-    .edu-entries { display: flex; flex-direction: column; gap: .9rem; }
-    .edu-deg { font-size: 13.5px; font-weight: 500; color: var(--ink); }
-    .edu-inst-name { font-size: 12.5px; color: var(--ink-lt); }
-    .edu-yr { font-size: 12px; color: var(--ink-lt); }
+    .hero-initials { font-family: var(--serif); font-size: 72px; font-weight: 400; color: var(--primary); opacity: .3; }
 
-    /* TIMELINE */
+    /* LINKS embaixo da foto */
+    .hero-socials { display: flex; justify-content: center; gap: 10px; margin-top: 1.25rem; flex-wrap: wrap; }
+    .social-btn {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color .2s, border-color .2s; padding-bottom: 1px;
+    }
+    .social-btn:hover { color: var(--primary); border-color: var(--primary); }
+
+    /* seta */
+    .hero-arrow {
+      display: flex; justify-content: center;
+      margin-top: 3rem; color: var(--muted);
+      animation: bounce 2s infinite;
+    }
+    .hero-arrow svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+    /* ── TIMELINE ── */
     .timeline { display: flex; flex-direction: column; }
-    .tl-row { display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+    .tl-row {
+      display: grid; grid-template-columns: 130px 1fr; gap: 2.5rem;
+      padding: 2rem 0; border-bottom: 1px solid var(--border);
+    }
     .tl-row:last-child { border-bottom: none; }
-    .tl-year { font-size: 12px; color: var(--ink-lt); padding-top: 2px; line-height: 1.5; }
-    .tl-name { font-size: 16px; font-weight: 500; color: var(--blue); text-decoration: none; }
-    .tl-name:hover { text-decoration: underline; }
-    .tl-role { font-size: 12.5px; color: var(--ink-lt); margin: 2px 0 .5rem; }
-    .tl-desc { font-size: 13.5px; color: var(--ink-mid); line-height: 1.65; }
-    .tl-desc a { color: var(--blue); text-decoration: none; }
-    .tl-desc a:hover { text-decoration: underline; }
+    .tl-year { font-size: 12px; color: var(--muted); padding-top: 4px; line-height: 1.5; font-weight: 500; }
+    .tl-name {
+      font-family: var(--serif); font-size: 18px; font-weight: 600;
+      color: var(--primary); text-decoration: none; letter-spacing: -0.01em;
+      transition: color .2s;
+    }
+    .tl-name:hover { color: var(--accent); }
+    .tl-role { font-size: 12px; color: var(--muted); margin: 4px 0 .7rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+    .tl-desc { font-size: 14px; color: var(--muted); line-height: 1.75; }
+    .tl-desc a { color: var(--primary); text-decoration: none; font-weight: 500; border-bottom: 1px solid transparent; transition: border-color .2s; }
+    .tl-desc a:hover { border-color: var(--primary); }
+    .tl-desc strong { color: var(--text); font-weight: 600; }
 
-    /* PUBLICAÇÕES */
-    .pub-group { font-size: 14px; font-weight: 500; color: var(--ink); margin: 2rem 0 1rem; }
+    /* ── PUBLICAÇÕES ── */
+    .pub-group {
+      font-family: var(--serif); font-size: 17px; font-weight: 600;
+      color: var(--text); margin: 3rem 0 1.25rem;
+    }
     .pub-group:first-child { margin-top: 0; }
-    .pub-card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem 1.5rem; transition: box-shadow .2s; margin-bottom: 10px; }
-    [data-theme="dark"] .pub-card { background: var(--bg-s); }
-    .pub-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,.07); }
-    .pub-yr { font-size: 12px; color: var(--ink-lt); margin-bottom: 4px; }
-    .pub-title { font-size: 15px; font-weight: 500; color: var(--blue); text-decoration: none; line-height: 1.35; display: block; margin-bottom: 4px; }
-    .pub-title:hover { text-decoration: underline; }
-    .pub-title-plain { font-size: 15px; font-weight: 500; color: var(--ink); line-height: 1.35; display: block; margin-bottom: 4px; }
-    .pub-meta { font-size: 12.5px; color: var(--ink-lt); margin-bottom: .65rem; }
-    .pub-abstract { font-size: 13.5px; color: var(--ink-mid); line-height: 1.65; margin-bottom: .75rem; }
-    .pub-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: .5rem; }
-    .pub-tag { font-size: 11px; color: var(--blue); background: var(--blue-lt); padding: 2px 10px; border-radius: 99px; }
-    .award-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; color: #b8860b; background: #fff8e1; border: 1px solid #ffe082; padding: 2px 10px; border-radius: 99px; margin-top: 6px; }
-    [data-theme="dark"] .award-badge { background: #2a2000; border-color: #6a5000; color: #ffd54f; }
+    .pub-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.5rem 1.75rem;
+      transition: box-shadow .2s, border-color .2s; margin-bottom: 12px;
+    }
+    [data-theme="dark"] .pub-card { background: var(--bg-alt); }
+    .pub-card:hover { box-shadow: 0 6px 24px rgba(28,58,46,.08); border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+    .pub-yr { font-size: 11px; color: var(--muted); margin-bottom: 6px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+    .pub-title {
+      font-family: var(--serif); font-size: 17px; font-weight: 600;
+      color: var(--primary); text-decoration: none; line-height: 1.4;
+      display: block; margin-bottom: 5px; transition: color .2s;
+    }
+    .pub-title:hover { color: var(--accent); }
+    .pub-title-plain {
+      font-family: var(--serif); font-size: 17px; font-weight: 600;
+      color: var(--text); line-height: 1.4; display: block; margin-bottom: 5px;
+    }
+    .pub-meta { font-size: 13px; color: var(--muted); margin-bottom: .75rem; }
+    .pub-abstract { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: .75rem; }
+    .pub-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: .75rem; }
+    .pub-tag {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+      color: var(--primary); background: var(--bg-alt);
+      padding: 3px 13px; border-radius: 99px; border: 1px solid var(--border);
+    }
+    .award-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 12px; font-weight: 600;
+      color: #92650a; background: #fef9ee; border: 1px solid var(--accent);
+      padding: 3px 13px; border-radius: 99px; margin-top: 8px;
+    }
 
-    /* BOLETINS */
-    .bulletin-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-    .bulletin-list li { font-size: 13.5px; color: var(--ink-mid); padding: 8px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: baseline; gap: 8px; }
-    [data-theme="dark"] .bulletin-list li { background: var(--bg-s); }
-    .bulletin-list li::before { content: '●'; font-size: 8px; color: var(--blue); flex-shrink: 0; }
+    /* ── BOLETINS ── */
+    .bulletin-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .bulletin-list li {
+      font-size: 14px; color: var(--muted); padding: 11px 16px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 6px; display: flex; align-items: baseline; gap: 12px;
+      transition: border-color .2s;
+    }
+    [data-theme="dark"] .bulletin-list li { background: var(--bg-alt); }
+    .bulletin-list li:hover { border-color: var(--accent); }
+    .bulletin-list li::before { content: '—'; font-size: 12px; color: var(--accent); flex-shrink: 0; font-weight: 700; }
 
-    /* MÍDIA */
+    /* ── MÍDIA ── */
     .media-cards { display: flex; flex-direction: column; gap: 10px; }
-    .media-card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1.1rem 1.4rem; display: grid; grid-template-columns: 56px 1fr; gap: 1rem; align-items: start; transition: box-shadow .2s; }
-    [data-theme="dark"] .media-card { background: var(--bg-s); }
-    .media-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,.07); }
-    .media-ep { font-size: 13px; font-weight: 500; color: var(--blue); text-align: center; padding-top: 2px; }
-    .media-yr { font-size: 11.5px; color: var(--ink-lt); margin-bottom: 2px; }
-    .media-t { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; }
-    .media-t:hover { color: var(--blue); }
-    .media-d { font-size: 13px; color: var(--ink-mid); margin-top: 2px; }
+    .media-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.25rem 1.5rem;
+      display: grid; grid-template-columns: 64px 1fr; gap: 1.5rem;
+      align-items: start; transition: box-shadow .2s, border-color .2s;
+    }
+    [data-theme="dark"] .media-card { background: var(--bg-alt); }
+    .media-card:hover { box-shadow: 0 6px 24px rgba(28,58,46,.08); border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+    .media-ep {
+      font-family: var(--serif); font-size: 20px; font-weight: 700;
+      color: var(--accent); text-align: center; padding-top: 2px;
+    }
+    .media-yr { font-size: 11px; color: var(--muted); margin-bottom: 3px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+    .media-t { font-size: 14.5px; font-weight: 600; color: var(--text); text-decoration: none; transition: color .2s; line-height: 1.4; }
+    .media-t:hover { color: var(--primary); }
+    .media-d { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
-    /* PROJETOS */
-    .proj-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 14px; }
-    .proj-card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1.3rem 1.5rem; transition: box-shadow .2s; }
-    [data-theme="dark"] .proj-card { background: var(--bg-s); }
-    .proj-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,.07); }
-    .proj-yr { font-size: 12px; color: var(--ink-lt); margin-bottom: 5px; }
-    .proj-name { font-size: 15px; font-weight: 500; color: var(--blue); text-decoration: none; display: block; margin-bottom: 2px; }
-    .proj-name:hover { text-decoration: underline; }
-    .proj-name-plain { font-size: 15px; font-weight: 500; color: var(--blue); display: block; margin-bottom: 2px; }
-    .proj-role { font-size: 12px; color: var(--ink-lt); margin-bottom: .65rem; }
-    .proj-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.65; }
+    /* ── PROJETOS ── */
+    .proj-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .proj-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      border-radius: 8px; padding: 1.5rem 1.75rem;
+      transition: box-shadow .2s;
+    }
+    [data-theme="dark"] .proj-card { background: var(--bg-alt); }
+    .proj-card:hover { box-shadow: 0 6px 24px rgba(28,58,46,.08); }
+    .proj-yr { font-size: 11px; color: var(--muted); margin-bottom: 7px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; }
+    .proj-name {
+      font-family: var(--serif); font-size: 17px; font-weight: 600;
+      color: var(--primary); text-decoration: none; display: block;
+      margin-bottom: 3px; transition: color .2s;
+    }
+    .proj-name:hover { color: var(--accent); }
+    .proj-name-plain {
+      font-family: var(--serif); font-size: 17px; font-weight: 600;
+      color: var(--primary); display: block; margin-bottom: 3px;
+    }
+    .proj-role { font-size: 11.5px; color: var(--muted); margin-bottom: .8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+    .proj-desc { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
 
-    /* EXPERIÊNCIA */
-    .exp-row { display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
+    /* ── EXPERIÊNCIA ── */
+    .exp-row {
+      display: grid; grid-template-columns: 130px 1fr; gap: 2.5rem;
+      padding: 1.75rem 0; border-bottom: 1px solid var(--border);
+    }
     .exp-row:last-child { border-bottom: none; }
-    .exp-year { font-size: 12px; color: var(--ink-lt); padding-top: 2px; }
-    .exp-title { font-size: 15px; font-weight: 500; color: var(--blue); margin-bottom: 2px; }
-    .exp-org { font-size: 13px; color: var(--ink-lt); margin-bottom: .5rem; }
-    .exp-desc { font-size: 13.5px; color: var(--ink-mid); line-height: 1.65; }
+    .exp-year { font-size: 12px; color: var(--muted); padding-top: 3px; font-weight: 500; }
+    .exp-title {
+      font-family: var(--serif); font-size: 17px; font-weight: 600;
+      color: var(--primary); margin-bottom: 3px;
+    }
+    .exp-org { font-size: 13px; color: var(--muted); margin-bottom: .5rem; }
+    .exp-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
-    /* PRÊMIOS */
+    /* ── PRÊMIOS ── */
     .awards-list { display: flex; flex-direction: column; gap: 10px; }
-    .award-row { display: flex; align-items: baseline; gap: 12px; padding: 10px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 5px; }
-    [data-theme="dark"] .award-row { background: var(--bg-s); }
-    .award-yr { font-size: 12px; color: var(--ink-lt); flex-shrink: 0; width: 38px; }
-    .award-text { font-size: 13.5px; color: var(--ink-mid); }
-    .award-text strong { color: var(--ink); font-weight: 500; }
+    .award-row {
+      display: flex; align-items: baseline; gap: 14px;
+      padding: 12px 18px; background: var(--white);
+      border: 1px solid var(--border); border-radius: 6px;
+      border-left: 3px solid var(--accent);
+    }
+    [data-theme="dark"] .award-row { background: var(--bg-alt); }
+    .award-yr { font-size: 12px; color: var(--muted); flex-shrink: 0; width: 38px; font-weight: 600; }
+    .award-text { font-size: 14px; color: var(--muted); }
+    .award-text strong { color: var(--text); font-weight: 600; }
 
-    /* CONTATO */
-    .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .ccard { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1.2rem 1.5rem; text-decoration: none; display: flex; align-items: center; gap: 12px; transition: box-shadow .2s; }
-    [data-theme="dark"] .ccard { background: var(--bg-s); }
-    .ccard:hover { box-shadow: 0 2px 12px rgba(0,0,0,.08); }
-    .ccard-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--blue-lt); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .ccard-icon svg { width: 16px; height: 16px; fill: none; stroke: var(--blue); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .ccard-label { font-size: 11px; color: var(--ink-lt); letter-spacing: .05em; text-transform: uppercase; }
-    .ccard-value { font-size: 13.5px; font-weight: 500; color: var(--ink); }
-    .langs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
-    .lang-pill { font-size: 13px; color: var(--ink-mid); padding: 5px 14px; border: 1px solid var(--border); border-radius: 99px; display: flex; align-items: center; gap: 7px; }
-    .ldot { width: 7px; height: 7px; border-radius: 50%; }
-    .lf { background: #2962ff; } .la { background: #1565c0; } .li { background: #aaa; } .ln { background: #444; }
+    /* ── CONTATO ── */
+    .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .ccard {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.4rem 1.75rem;
+      text-decoration: none; display: flex; align-items: center; gap: 14px;
+      transition: box-shadow .2s, border-color .2s;
+    }
+    [data-theme="dark"] .ccard { background: var(--bg-alt); }
+    .ccard:hover { box-shadow: 0 6px 24px rgba(28,58,46,.08); border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+    .ccard-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--bg-alt); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .ccard-icon svg { width: 17px; height: 17px; fill: none; stroke: var(--primary); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .ccard-label { font-size: 10.5px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; font-weight: 600; margin-bottom: 3px; }
+    .ccard-value { font-size: 14px; font-weight: 600; color: var(--text); }
+    .langs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.75rem; }
+    .lang-pill {
+      font-size: 13px; color: var(--muted); padding: 7px 18px;
+      border: 1px solid var(--border); border-radius: 99px;
+      display: flex; align-items: center; gap: 8px;
+      background: var(--white); font-weight: 500;
+    }
+    [data-theme="dark"] .lang-pill { background: var(--bg-alt); }
+    .ldot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .lf { background: var(--primary); } .la { background: #4a6fa5; } .li { background: #aaa; } .ln { background: #333; }
 
-    /* FOOTER */
-    footer { background: var(--bg-s); border-top: 1px solid var(--border); padding: 1.25rem 1.5rem; text-align: center; }
-    footer p { font-size: 12.5px; color: var(--ink-lt); }
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary); padding: 2.5rem var(--pad-x);
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: rgba(255,255,255,.55); }
 
-    /* LANG */
+    /* ── LANG ── */
     [data-lang] { display: none; }
     .lang-pt [data-lang="pt"] { display: revert; }
     .lang-en [data-lang="en"] { display: revert; }
@@ -179,12 +384,13 @@
     .lang-pt li[data-lang="pt"] { display: flex; }
     .lang-en li[data-lang="en"] { display: flex; }
 
-    /* RESPONSIVE */
-    @media (max-width: 640px) {
-      .hero-inner { flex-direction: column; align-items: center; text-align: center; }
-      .hero-right { width: 100%; }
-      .hero-cols { grid-template-columns: 1fr; }
-      .tl-row, .exp-row { grid-template-columns: 1fr; gap: .2rem; }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-right { display: flex; flex-direction: column; align-items: center; }
+      .hero-divider { margin: 0 auto 1.25rem; }
+      .hero-btns { justify-content: center; }
+      .tl-row, .exp-row { grid-template-columns: 1fr; gap: .3rem; }
       .contact-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
     }
@@ -192,12 +398,13 @@
 </head>
 <body class="lang-pt">
 
+<!-- NAV -->
 <nav>
   <a href="#sobre" class="nav-logo">Lucas Calabró Berti</a>
   <div class="nav-links">
-    <a href="#sobre"><span data-lang="pt">Sobre mim</span><span data-lang="en">About me</span></a>
-    <a href="#atuacao"><span data-lang="pt">Atuação</span><span data-lang="en">Research</span></a>
+    <a href="#sobre"><span data-lang="pt">Sobre</span><span data-lang="en">About</span></a>
     <a href="#formacao"><span data-lang="pt">Formação</span><span data-lang="en">Education</span></a>
+    <a href="#atuacao"><span data-lang="pt">Atuação</span><span data-lang="en">Research</span></a>
     <a href="#producoes"><span data-lang="pt">Produções</span><span data-lang="en">Publications</span></a>
     <a href="#projetos"><span data-lang="pt">Projetos</span><span data-lang="en">Projects</span></a>
     <a href="#experiencia"><span data-lang="pt">Experiência</span><span data-lang="en">Experience</span></a>
@@ -219,25 +426,12 @@
 <div class="wrap">
   <div class="hero-inner">
 
+    <!-- ESQUERDA: texto -->
     <div class="hero-left">
-      <div class="hero-avatar">
-        <img src="imagem/foto-lucas.jpg" alt="Lucas Berti" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
-        <span class="hero-initials" style="display:none">LB</span>
-      </div>
-      <p class="hero-left-name">Lucas Calabró Berti</p>
-      <p class="hero-left-inst"><a href="https://iesp.uerj.br" target="_blank" style="color:inherit;text-decoration:none;">IESP-UERJ</a></p>
-      <div class="hero-socials">
-        <a href="mailto:lucasberti@iesp.uerj.br" class="social-btn">Email</a>
-        <a href="https://www.linkedin.com/in/lucascberti11" target="_blank" class="social-btn">LinkedIn</a>
-        <a href="https://github.com/lucascberti" target="_blank" class="social-btn">GitHub</a>
-        <a href="https://lattes.cnpq.br/3201012395712916" target="_blank" class="social-btn">Lattes</a>
-        <a href="https://orcid.org/0000-0002-8057-5482" target="_blank" class="social-btn">ORCID</a>
-        <a href="https://drive.google.com/file/d/1hdiDsreV6VCObOeBeAruRNkNQPz0x9je/view?usp=sharing" download class="social-btn">CV</a>
-      </div>
-    </div>
-
-    <div class="hero-right">
-      <h2 class="hero-about-title"><span data-lang="pt">Sobre</span><span data-lang="en">About</span></h2>
+      <p class="hero-eyebrow"><span data-lang="pt">Cientista Político · Pesquisador</span><span data-lang="en">Political Scientist · Researcher</span></p>
+      <h1 class="hero-name">Lucas<br>Calabró<br>Berti</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-subtitle"><span data-lang="pt">Mestrando em Ciência Política · IESP-UERJ</span><span data-lang="en">Master's Student in Political Science · IESP-UERJ</span></p>
 
       <p class="hero-bio" data-lang="pt">Olá, bem vindo(a)! Sou mestrando em Ciência Política no <a href="https://iesp.uerj.br" target="_blank">IESP/UERJ</a> e bacharel em Ciência Política pela UNIRIO. Pesquiso política brasileira e sul-americana, instituições e comportamento político, com ênfase em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo.</p>
       <p class="hero-bio" data-lang="en">Hey, welcome! I am a Master's student in Political Science at <a href="https://iesp.uerj.br" target="_blank">IESP/UERJ</a> and hold a BA in Political Science from UNIRIO. My research focuses on Brazilian and South American politics, institutions, and political behavior, with emphasis on presidentialism, legislative studies, executive-legislative relations, and government coalitions.</p>
@@ -245,9 +439,35 @@
       <p class="hero-bio" data-lang="pt" style="margin-top:.75rem;">Atualmente sou pesquisador no <a href="https://necon.iesp.uerj.br" target="_blank">Núcleo de Estudos sobre o Congresso (NECON/IESP)</a>, no <a href="https://iesp.uerj.br" target="_blank">Observatório dos Legislativos Estaduais (OLE/IESP)</a>, no <a href="https://opsa.com.br" target="_blank">Observatório Político Sul-Americano (OPSA/IESP)</a> e no <a href="https://www.instagram.com/grisul.unirio/" target="_blank">Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO)</a>. Sou também editor do periódico mensal <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">Conjuntura Latitude Sul</a> (ISSN 2526-5822).</p>
       <p class="hero-bio" data-lang="en" style="margin-top:.75rem;">I currently research at the <a href="https://necon.iesp.uerj.br" target="_blank">Center for Studies on Congress (NECON/IESP)</a>, the <a href="https://iesp.uerj.br" target="_blank">Observatory of State Legislatures (OLE/IESP)</a>, the <a href="https://opsa.com.br" target="_blank">South American Political Observatory (OPSA/IESP)</a>, and the <a href="https://www.instagram.com/grisul.unirio/" target="_blank">International Relations and Global South Group (GRISUL/UNIRIO)</a>. I also serve as editor of the monthly journal <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">Conjuntura Latitude Sul</a> (ISSN 2526-5822).</p>
 
-
+      <div class="hero-btns">
+        <a href="https://lattes.cnpq.br/3201012395712916" target="_blank" class="btn-primary">Currículo Lattes ↗</a>
+        <a href="#producoes" class="btn-outline"><span data-lang="pt">Ver Produções</span><span data-lang="en">Publications</span></a>
+      </div>
     </div>
 
+    <!-- DIREITA: foto + sociais -->
+    <div class="hero-right">
+      <div class="hero-avatar-wrap">
+        <div class="hero-avatar">
+          <img src="imagem/foto-lucas.jpg" alt="Lucas Berti" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+          <span class="hero-initials" style="display:none">LB</span>
+        </div>
+      </div>
+      <div class="hero-socials">
+        <a href="mailto:lucasberti@iesp.uerj.br" class="social-btn">Email</a>
+        <a href="https://www.linkedin.com/in/lucascberti11" target="_blank" class="social-btn">LinkedIn</a>
+        <a href="https://github.com/lucascberti" target="_blank" class="social-btn">GitHub</a>
+        <a href="https://lattes.cnpq.br/3201012395712916" target="_blank" class="social-btn">Lattes</a>
+        <a href="https://orcid.org/0000-0002-8057-5482" target="_blank" class="social-btn">ORCID</a>
+        <a href="https://drive.google.com/file/d/1hdiDsreV6VCObOeBeAruRNkNQPz0x9je/view?usp=sharing" target="_blank" class="social-btn">CV</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- seta -->
+  <div class="hero-arrow">
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
 </div>
 </section>
@@ -257,26 +477,22 @@
 <div class="wrap">
   <h2 class="sec-title"><span data-lang="pt">Formação Acadêmica</span><span data-lang="en">Education</span></h2>
   <div class="timeline">
-
     <div class="tl-row">
       <div class="tl-year"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></div>
       <div>
         <span class="tl-name" style="cursor:default"><span data-lang="pt">Mestrado em Ciência Política</span><span data-lang="en">Master's in Political Science</span></span>
         <p class="tl-role">IESP/UERJ — <span data-lang="pt">Instituto de Estudos Sociais e Políticos, Rio de Janeiro</span><span data-lang="en">Institute of Social and Political Studies, Rio de Janeiro</span></p>
         <p class="tl-desc">
-          <span data-lang="pt"><strong>Dissertação:</strong> "Do Tamanho à Disciplina: Uma Análise da Reconfiguração dos Vínculos Políticos e do Sucesso Presidencial no Brasil (2003–2025)"<br>
-          <strong>Linha de pesquisa:</strong> Instituições e Comportamento · <strong>Bolsista FAPERJ</strong></span>
-          <span data-lang="en"><strong>Thesis:</strong> "From Size to Discipline: An Analysis of the Reconfiguration of Political Ties and Presidential Success in Brazil (2003–2025)"<br>
-          <strong>Research line:</strong> Institutions and Behavior · <strong>FAPERJ scholarship</strong></span>
+          <span data-lang="pt"><strong>Dissertação:</strong> "Do Tamanho à Disciplina: Uma Análise da Reconfiguração dos Vínculos Políticos e do Sucesso Presidencial no Brasil (2003–2025)"<br><strong>Linha de pesquisa:</strong> Instituições e Comportamento · <strong>Bolsista FAPERJ</strong></span>
+          <span data-lang="en"><strong>Thesis:</strong> "From Size to Discipline: An Analysis of the Reconfiguration of Political Ties and Presidential Success in Brazil (2003–2025)"<br><strong>Research line:</strong> Institutions and Behavior · <strong>FAPERJ scholarship</strong></span>
         </p>
         <p class="tl-desc" style="margin-top:.6rem">
           <span data-lang="pt"><strong>Orientador:</strong> <a href="https://lattes.cnpq.br/3534868879163140" target="_blank">Prof. Dr. Fabiano Santos</a></span>
           <span data-lang="en"><strong>Advisor:</strong> <a href="https://lattes.cnpq.br/3534868879163140" target="_blank">Prof. Dr. Fabiano Santos</a></span>
         </p>
-        <p class="tl-desc" style="margin-top:.75rem; font-size:13px; color:var(--ink-lt)"><span data-lang="pt"><strong>Disciplinas cursadas:</strong> Teoria Política I e II · Métodos Quantitativos I, II e III (em curso) · Política Brasileira · Estudos Legislativos · Espaço, População e Política (em curso)</span><span data-lang="en"><strong>Courses:</strong> Political Theory I & II · Quantitative Methods I, II & III (in progress) · Brazilian Politics · Legislative Studies · Space, Population and Politics (in progress)</span></p>
+        <p class="tl-desc" style="margin-top:.75rem; font-size:13px;"><span data-lang="pt"><strong>Disciplinas cursadas:</strong> Teoria Política I e II · Métodos Quantitativos I, II e III (em curso) · Política Brasileira · Estudos Legislativos · Espaço, População e Política (em curso)</span><span data-lang="en"><strong>Courses:</strong> Political Theory I & II · Quantitative Methods I, II & III (in progress) · Brazilian Politics · Legislative Studies · Space, Population and Politics (in progress)</span></p>
       </div>
     </div>
-
     <div class="tl-row">
       <div class="tl-year">2020 – 2024</div>
       <div>
@@ -296,17 +512,15 @@
         </p>
       </div>
     </div>
-
   </div>
 </div>
 </section>
 
 <!-- ATUAÇÃO -->
-<section id="atuacao" class="sec-alt">
+<section id="atuacao">
 <div class="wrap">
   <h2 class="sec-title"><span data-lang="pt">Atuação Acadêmica</span><span data-lang="en">Academic Experience</span></h2>
   <div class="timeline">
-
     <div class="tl-row">
       <div class="tl-year"><span data-lang="pt">2026 – presente</span><span data-lang="en">2026 – present</span></div>
       <div>
@@ -315,7 +529,6 @@
         <p class="tl-desc"><span data-lang="pt">Disciplina obrigatória de graduação em Ciência Política.</span><span data-lang="en">Mandatory undergraduate course in Political Science.</span></p>
       </div>
     </div>
-
     <div class="tl-row">
       <div class="tl-year"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></div>
       <div>
@@ -324,7 +537,6 @@
         <p class="tl-desc"><span data-lang="pt">Pesquisas sobre o Congresso Nacional brasileiro, com ênfase em coalizões de governo e comportamento parlamentar.</span><span data-lang="en">Research on the Brazilian National Congress, with emphasis on government coalitions and parliamentary behavior.</span></p>
       </div>
     </div>
-
     <div class="tl-row">
       <div class="tl-year"><span data-lang="pt">2026 – presente</span><span data-lang="en">2026 – present</span></div>
       <div>
@@ -333,7 +545,6 @@
         <p class="tl-desc"><span data-lang="pt">Pesquisa e monitoramento dos legislativos estaduais brasileiros, com foco em comportamento parlamentar e produção legislativa nos estados.</span><span data-lang="en">Research and monitoring of Brazilian state legislatures, focusing on parliamentary behavior and legislative output at the state level.</span></p>
       </div>
     </div>
-
     <div class="tl-row">
       <div class="tl-year"><span data-lang="pt">2025 – presente</span><span data-lang="en">2025 – present</span></div>
       <div>
@@ -342,7 +553,6 @@
         <p class="tl-desc"><span data-lang="pt">Produção de análises sobre política peruana, com foco em crises presidenciais e relações Executivo-Legislativo. Editor do periódico mensal <em>Conjuntura Latitude Sul</em> (ISSN 2526-5822).</span><span data-lang="en">Production of analyses on Peruvian politics, focusing on presidential crises and Executive-Legislative relations. Editor of the monthly journal <em>Conjuntura Latitude Sul</em> (ISSN 2526-5822).</span></p>
       </div>
     </div>
-
     <div class="tl-row">
       <div class="tl-year"><span data-lang="pt">2021 – presente</span><span data-lang="en">2021 – present</span></div>
       <div>
@@ -351,7 +561,6 @@
         <p class="tl-desc"><span data-lang="pt">Estudos sobre o Sul Global, com ênfase em América do Sul e relações Executivo-Legislativo comparadas.</span><span data-lang="en">Studies on the Global South, with emphasis on South America and comparative Executive-Legislative relations.</span></p>
       </div>
     </div>
-
     <div class="tl-row">
       <div class="tl-year">2025</div>
       <div>
@@ -360,7 +569,6 @@
         <p class="tl-desc"><span data-lang="pt">Codificação de votos, discursos e emendas parlamentares para ranking (−10 a 10) sobre igualdade racial.</span><span data-lang="en">Coding of votes, speeches, and parliamentary amendments to produce a ranking (−10 to 10) on racial equality.</span></p>
       </div>
     </div>
-
     <div class="tl-row">
       <div class="tl-year">2023 – 2024</div>
       <div>
@@ -369,7 +577,6 @@
         <p class="tl-desc"><span data-lang="pt">"Diferenças e semelhanças no presidencialismo latino-americano: o caso do Uruguai".</span><span data-lang="en">"Differences and similarities in Latin American presidentialism: the case of Uruguay".</span></p>
       </div>
     </div>
-
     <div class="tl-row">
       <div class="tl-year">2022 – 2023</div>
       <div>
@@ -377,13 +584,12 @@
         <p class="tl-role">UNIRIO · Prof. Dr. André Luiz Coelho</p>
       </div>
     </div>
-
   </div>
 </div>
 </section>
 
 <!-- PRODUÇÕES -->
-<section id="producoes">
+<section id="producoes" class="sec-alt">
 <div class="wrap">
   <h2 class="sec-title"><span data-lang="pt">Produções e Publicações</span><span data-lang="en">Publications & Output</span></h2>
 
@@ -396,8 +602,8 @@
     </a>
     <p class="pub-meta"><span data-lang="pt">Trabalho de Conclusão de Curso · UNIRIO · Orient.: Prof. Dr. André Luiz Coelho</span><span data-lang="en">Undergraduate Thesis · UNIRIO · Advisor: Prof. Dr. André Luiz Coelho</span></p>
     <p class="pub-abstract"><span data-lang="pt">Analisa as possíveis causas da estabilidade presidencial no Uruguai, investigando o papel das instituições políticas, do sistema de partidos e das coalizões de governo.</span><span data-lang="en">Analyzes the possible causes of presidential stability in Uruguay, investigating the role of political institutions, party systems, and government coalitions.</span></p>
-    <div style="margin-top:.5rem"><span class="award-badge">🏆 <span data-lang="pt">Melhor TCC – V Jornada Discente PPGCP/UNIRIO (2024)</span><span data-lang="en">Best Undergraduate Thesis – PPGCP/UNIRIO (2024)</span></span></div>
-    <div class="pub-tags" style="margin-top:.5rem"><span class="pub-tag"><span data-lang="pt">Presidencialismo</span><span data-lang="en">Presidentialism</span></span><span class="pub-tag">Uruguai</span><span class="pub-tag"><span data-lang="pt">América Latina</span><span data-lang="en">Latin America</span></span></div>
+    <div><span class="award-badge">🏆 <span data-lang="pt">Melhor TCC – V Jornada Discente PPGCP/UNIRIO (2024)</span><span data-lang="en">Best Undergraduate Thesis – PPGCP/UNIRIO (2024)</span></span></div>
+    <div class="pub-tags"><span class="pub-tag"><span data-lang="pt">Presidencialismo</span><span data-lang="en">Presidentialism</span></span><span class="pub-tag">Uruguai</span><span class="pub-tag"><span data-lang="pt">América Latina</span><span data-lang="en">Latin America</span></span></div>
   </div>
 
   <p class="pub-group"><span data-lang="pt">Relatório de Pesquisa</span><span data-lang="en">Research Report</span></p>
@@ -423,28 +629,16 @@
 
   <p class="pub-group"><span data-lang="pt">Comentários na Mídia</span><span data-lang="en">Media Appearances</span></p>
   <div class="media-cards">
-    <div class="media-card">
-      <div class="media-ep">#581</div>
-      <div><p class="media-yr">2025</p><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank" class="media-t"><span data-lang="pt">Podcast Mundioka — "Mesmo em crise, Peru pode superar Brasil e México?"</span><span data-lang="en">Podcast Mundioka — "Even in crisis, can Peru surpass Brazil and Mexico?"</span></a><p class="media-d"><span data-lang="pt">Análise sobre a crise política peruana e seu impacto econômico.</span><span data-lang="en">Analysis of the Peruvian political crisis and its economic impact.</span></p></div>
-    </div>
-    <div class="media-card">
-      <div class="media-ep">#644</div>
-      <div><p class="media-yr">2025</p><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank" class="media-t"><span data-lang="pt">Podcast Mundioka — "México: Justiça nas urnas"</span><span data-lang="en">Podcast Mundioka — "Mexico: Justice at the ballot box"</span></a><p class="media-d"><span data-lang="pt">Debate sobre as eleições judiciais no México e a reforma do judiciário.</span><span data-lang="en">Debate on judicial elections in Mexico and judiciary reform.</span></p></div>
-    </div>
-    <div class="media-card">
-      <div class="media-ep">#731</div>
-      <div><p class="media-yr">2025</p><a href="https://open.spotify.com/episode/2JJ5X8zQeNXPjpYFGApNRy" target="_blank" class="media-t"><span data-lang="pt">Podcast Mundioka — "Déjà vu no Peru: mais uma vez o país fica sem presidente"</span><span data-lang="en">Podcast Mundioka — "Déjà vu in Peru: once again the country is without a president"</span></a><p class="media-d"><span data-lang="pt">Análise da nova crise presidencial no Peru.</span><span data-lang="en">Analysis of the new presidential crisis in Peru.</span></p></div>
-    </div>
-    <div class="media-card">
-      <div class="media-ep">#791</div>
-      <div><p class="media-yr">2026</p><a href="https://open.spotify.com/episode/3S4dV5bvOQTRHRQkNw2xnw" target="_blank" class="media-t"><span data-lang="pt">Podcast Mundioka — "Países latino-americanos unidos, pero no mucho"</span><span data-lang="en">Podcast Mundioka — "Latin American countries united, but not so much"</span></a><p class="media-d"><span data-lang="pt">Análise da invasão estadunidense na Venezuela.</span><span data-lang="en">Analysis of the US invasion in Venezuela.</span></p></div>
-    </div>
+    <div class="media-card"><div class="media-ep">#581</div><div><p class="media-yr">2025</p><a href="https://open.spotify.com/episode/5cYvvuv5OOAv65b1LBHy0l" target="_blank" class="media-t"><span data-lang="pt">Podcast Mundioka — "Mesmo em crise, Peru pode superar Brasil e México?"</span><span data-lang="en">Podcast Mundioka — "Even in crisis, can Peru surpass Brazil and Mexico?"</span></a><p class="media-d"><span data-lang="pt">Análise sobre a crise política peruana e seu impacto econômico.</span><span data-lang="en">Analysis of the Peruvian political crisis and its economic impact.</span></p></div></div>
+    <div class="media-card"><div class="media-ep">#644</div><div><p class="media-yr">2025</p><a href="https://open.spotify.com/episode/7dgeQSNK5b54ojB6kBHWJY" target="_blank" class="media-t"><span data-lang="pt">Podcast Mundioka — "México: Justiça nas urnas"</span><span data-lang="en">Podcast Mundioka — "Mexico: Justice at the ballot box"</span></a><p class="media-d"><span data-lang="pt">Debate sobre as eleições judiciais no México e a reforma do judiciário.</span><span data-lang="en">Debate on judicial elections in Mexico and judiciary reform.</span></p></div></div>
+    <div class="media-card"><div class="media-ep">#731</div><div><p class="media-yr">2025</p><a href="https://open.spotify.com/episode/2JJ5X8zQeNXPjpYFGApNRy" target="_blank" class="media-t"><span data-lang="pt">Podcast Mundioka — "Déjà vu no Peru: mais uma vez o país fica sem presidente"</span><span data-lang="en">Podcast Mundioka — "Déjà vu in Peru: once again the country is without a president"</span></a><p class="media-d"><span data-lang="pt">Análise da nova crise presidencial no Peru.</span><span data-lang="en">Analysis of the new presidential crisis in Peru.</span></p></div></div>
+    <div class="media-card"><div class="media-ep">#791</div><div><p class="media-yr">2026</p><a href="https://open.spotify.com/episode/3S4dV5bvOQTRHRQkNw2xnw" target="_blank" class="media-t"><span data-lang="pt">Podcast Mundioka — "Países latino-americanos unidos, pero no mucho"</span><span data-lang="en">Podcast Mundioka — "Latin American countries united, but not so much"</span></a><p class="media-d"><span data-lang="pt">Análise da invasão estadunidense na Venezuela.</span><span data-lang="en">Analysis of the US invasion in Venezuela.</span></p></div></div>
   </div>
 </div>
 </section>
 
 <!-- PROJETOS -->
-<section id="projetos" class="sec-alt">
+<section id="projetos">
 <div class="wrap">
   <h2 class="sec-title"><span data-lang="pt">Projetos de Pesquisa</span><span data-lang="en">Research Projects</span></h2>
   <div class="proj-cards">
@@ -476,8 +670,8 @@
 </div>
 </section>
 
-<!-- EXPERIÊNCIA PROFISSIONAL -->
-<section id="experiencia">
+<!-- EXPERIÊNCIA -->
+<section id="experiencia" class="sec-alt">
 <div class="wrap">
   <h2 class="sec-title"><span data-lang="pt">Experiência Profissional</span><span data-lang="en">Professional Experience</span></h2>
   <div>
@@ -505,7 +699,7 @@
     </div>
   </div>
 
-  <h2 class="sec-title" style="margin-top:3rem"><span data-lang="pt">Prêmios e Distinções</span><span data-lang="en">Awards & Honors</span></h2>
+  <h2 class="sec-title" style="margin-top:3.5rem"><span data-lang="pt">Prêmios e Distinções</span><span data-lang="en">Awards & Honors</span></h2>
   <div class="awards-list">
     <div class="award-row"><span class="award-yr">2024</span><p class="award-text"><strong><span data-lang="pt">Melhor TCC</span><span data-lang="en">Best Undergraduate Thesis</span></strong> – <span data-lang="pt">V Jornada Discente PPGCP/UNIRIO</span><span data-lang="en">PPGCP/UNIRIO Discente Conference</span></p></div>
     <div class="award-row"><span class="award-yr">2020</span><p class="award-text"><strong><span data-lang="pt">Prêmio Educação RS</span><span data-lang="en">Educação RS Award</span></strong> – SINPRO/RS</p></div>
@@ -515,7 +709,7 @@
 </section>
 
 <!-- CONTATO -->
-<section id="contato" class="sec-alt">
+<section id="contato">
 <div class="wrap">
   <h2 class="sec-title"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span></h2>
   <div class="contact-grid">
@@ -539,13 +733,13 @@
       <div class="ccard-icon"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
       <div><p class="ccard-label">GitHub</p><p class="ccard-value">@lucascberti</p></div>
     </a>
-    <a href="https://drive.google.com/file/d/1hdiDsreV6VCObOeBeAruRNkNQPz0x9je/view?usp=sharing" download class="ccard">
+    <a href="https://drive.google.com/file/d/1hdiDsreV6VCObOeBeAruRNkNQPz0x9je/view?usp=sharing" target="_blank" class="ccard">
       <div class="ccard-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
       <div><p class="ccard-label">Curriculum Vitae</p><p class="ccard-value"><span data-lang="pt">Download CV (PDF)</span><span data-lang="en">Download CV (PDF)</span></p></div>
     </a>
   </div>
-  <div style="margin-top:1.5rem">
-    <p style="font-size:13px;color:var(--ink-lt);margin-bottom:.75rem"><span data-lang="pt">Idiomas</span><span data-lang="en">Languages</span></p>
+  <div style="margin-top:1.75rem">
+    <p style="font-size:12px;color:var(--muted);margin-bottom:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase"><span data-lang="pt">Idiomas</span><span data-lang="en">Languages</span></p>
     <div class="langs">
       <span class="lang-pill"><span class="ldot ln"></span><span data-lang="pt">Português — nativo</span><span data-lang="en">Portuguese — native</span></span>
       <span class="lang-pill"><span class="ldot lf"></span><span data-lang="pt">Inglês — fluente</span><span data-lang="en">English — fluent</span></span>
