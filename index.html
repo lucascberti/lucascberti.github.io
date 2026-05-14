@@ -396,13 +396,42 @@
     }
     .nav-links a.nav-active { color: var(--accent) !important; }
     @media (max-width: 720px) {
-      .hero-inner { grid-template-columns: 1fr; text-align: center; }
-      .hero-right { display: flex; flex-direction: column; align-items: center; }
-      .hero-divider { margin: 0 auto 1.25rem; }
-      .hero-btns { justify-content: center; }
-      .tl-row, .exp-row { grid-template-columns: 1fr; gap: .3rem; }
-      .contact-grid { grid-template-columns: 1fr; }
+      :root { --pad-x: 1.25rem; --nav-h: 58px; }
+
+      /* NAV */
       .nav-links { display: none; }
+      .nav-logo { font-size: 14px; }
+
+      /* HERO */
+      #sobre { padding: 2.5rem 0 3rem; min-height: calc(100vh - var(--nav-h)); }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+      /* foto vem primeiro no mobile */
+      .hero-right { order: -1; display: flex; flex-direction: column; align-items: center; }
+      .hero-left { order: 1; }
+
+      .hero-avatar-wrap { width: 200px; height: 200px; }
+      .hero-avatar { width: 200px; height: 200px; }
+      .hero-avatar-wrap::before { inset: -8px; }
+
+      .hero-name { font-size: clamp(36px, 11vw, 52px); margin-bottom: .2rem; }
+      .hero-eyebrow { font-size: 10px; }
+      .hero-divider { margin: 0 auto 1rem; }
+      .hero-subtitle { font-size: 13.5px; }
+      .hero-bio { font-size: 14px; }
+      .hero-btns { justify-content: center; flex-wrap: wrap; }
+      .hero-arrow { margin-top: 2rem; }
+
+      /* SEÇÕES */
+      section { padding: 3.5rem 0; }
+      .sec-title { font-size: 24px; }
+      .tl-row, .exp-row { grid-template-columns: 1fr; gap: .25rem; }
+      .tl-year, .exp-year { margin-bottom: .25rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .proj-cards { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -443,11 +472,11 @@
       <div class="hero-divider"></div>
       <p class="hero-subtitle"><span data-lang="pt">Mestrando em Ciência Política · IESP-UERJ</span><span data-lang="en">Master's Student in Political Science · IESP-UERJ</span></p>
 
-      <p class="hero-bio" data-lang="pt">Sou mestrando em Ciência Política no <a href="https://iesp.uerj.br" target="_blank">IESP/UERJ</a> e bacharel em Ciência Política pela UNIRIO. Pesquiso política brasileira e sul-americana, instituições e comportamento político, com ênfase em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo.</p>
-      <p class="hero-bio" data-lang="en"> I am a Master's student in Political Science at <a href="https://iesp.uerj.br" target="_blank">IESP/UERJ</a> and hold a BA in Political Science from UNIRIO. My research focuses on Brazilian and South American politics, institutions, and political behavior, with emphasis on presidentialism, legislative studies, executive-legislative relations, and government coalitions.</p>
+      <p class="hero-bio" data-lang="pt">Olá, bem vindo(a)! Sou mestrando em Ciência Política no <a href="https://iesp.uerj.br" target="_blank">IESP/UERJ</a> e bacharel em Ciência Política pela UNIRIO. Pesquiso política brasileira e sul-americana, instituições e comportamento político, com ênfase em presidencialismo, estudos legislativos, relações Executivo-Legislativo e coalizões de governo.</p>
+      <p class="hero-bio" data-lang="en">Hey, welcome! I am a Master's student in Political Science at <a href="https://iesp.uerj.br" target="_blank">IESP/UERJ</a> and hold a BA in Political Science from UNIRIO. My research focuses on Brazilian and South American politics, institutions, and political behavior, with emphasis on presidentialism, legislative studies, executive-legislative relations, and government coalitions.</p>
 
-      <p class="hero-bio" data-lang="pt" style="margin-top:.75rem;">Atualmente sou Coordenador-executivo do <a href="grisul.github.io" target="_blank"> Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO), </a>pesquisador no <a href="https://necon.iesp.uerj.br" target="_blank">Núcleo de Estudos sobre o Congresso (NECON/IESP)</a>, no <a href="https://iesp.uerj.br" target="_blank">Observatório dos Legislativos Estaduais (OLE/IESP)</a> e no <a href="https://opsa.com.br" target="_blank">Observatório Político Sul-Americano (OPSA/IESP)</a>. Sou também editor do periódico mensal <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">Conjuntura Latitude Sul</a> (ISSN 2526-5822).</p>
-      <p class="hero-bio" data-lang="en" style="margin-top:.75rem;">I am currently the Executive Coordinator of and the <a href="grisul.github.io" target="_blank">International Relations and Global South Group (GRISUL/UNIRIO)</a> and I also research at the <a href="https://necon.iesp.uerj.br" target="_blank">Center for Studies on Congress (NECON/IESP)</a>, the <a href="https://iesp.uerj.br" target="_blank">Observatory of State Legislatures (OLE/IESP)</a> and the <a href="https://opsa.com.br" target="_blank">South American Political Observatory (OPSA/IESP)</a>. I also serve as editor of the monthly journal <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">Conjuntura Latitude Sul</a> (ISSN 2526-5822).</p>
+      <p class="hero-bio" data-lang="pt" style="margin-top:.75rem;">Atualmente sou pesquisador no <a href="https://necon.iesp.uerj.br" target="_blank">Núcleo de Estudos sobre o Congresso (NECON/IESP)</a>, no <a href="https://iesp.uerj.br" target="_blank">Observatório dos Legislativos Estaduais (OLE/IESP)</a>, no <a href="https://opsa.com.br" target="_blank">Observatório Político Sul-Americano (OPSA/IESP)</a> e Coordenador-Executivo do <a href="https://www.instagram.com/grisul.unirio/" target="_blank">Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO)</a>. Sou também editor do periódico mensal <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">Conjuntura Latitude Sul</a> (ISSN 2526-5822).</p>
+      <p class="hero-bio" data-lang="en" style="margin-top:.75rem;">I currently research at the <a href="https://necon.iesp.uerj.br" target="_blank">Center for Studies on Congress (NECON/IESP)</a>, the <a href="https://iesp.uerj.br" target="_blank">Observatory of State Legislatures (OLE/IESP)</a>, the <a href="https://opsa.com.br" target="_blank">South American Political Observatory (OPSA/IESP)</a>, and serve as Executive Coordinator of the <a href="https://www.instagram.com/grisul.unirio/" target="_blank">International Relations and Global South Group (GRISUL/UNIRIO)</a>. I also serve as editor of the monthly journal <a href="https://opsa.com.br/conjuntura-latitude-sul/" target="_blank">Conjuntura Latitude Sul</a> (ISSN 2526-5822).</p>
 
       <div class="hero-btns">
         <a href="https://lattes.cnpq.br/3201012395712916" target="_blank" class="btn-primary">Currículo Lattes ↗</a>
@@ -532,14 +561,6 @@
   <h2 class="sec-title"><span data-lang="pt">Atuação Acadêmica</span><span data-lang="en">Academic Experience</span></h2>
   <div class="timeline">
     <div class="tl-row">
-         <div class="tl-row">
-      <div class="tl-year"><span data-lang="pt">2021 – presente</span><span data-lang="en">2021 – present</span></div>
-      <div>
-        <a href="grisul.github.io" target="_blank" class="tl-name">Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO)</a>
-        <p class="tl-role"><span data-lang="pt">Coordenador-executivo · UNIRIO</span><span data-lang="en">Executive-coordinator · UNIRIO</span></p>
-        <p class="tl-desc"><span data-lang="pt">Estudos sobre o Sul Global, com ênfase em América do Sul e relações Executivo-Legislativo comparadas.</span><span data-lang="en">Studies on the Global South, with emphasis on South America and comparative Executive-Legislative relations.</span></p>
-      </div>
-    </div>
       <div class="tl-year"><span data-lang="pt">2026 – presente</span><span data-lang="en">2026 – present</span></div>
       <div>
         <span class="tl-name" style="cursor:default"><span data-lang="pt">Estágio Docente – Instituições Políticas</span><span data-lang="en">Teaching Assistant – Political Institutions</span></span>
@@ -569,6 +590,14 @@
         <a href="https://opsa.com.br" target="_blank" class="tl-name">Observatório Político Sul-Americano (OPSA/IESP)</a>
         <p class="tl-role"><span data-lang="pt">Pesquisador · IESP/UERJ</span><span data-lang="en">Researcher · IESP/UERJ</span></p>
         <p class="tl-desc"><span data-lang="pt">Produção de análises sobre política peruana, com foco em crises presidenciais e relações Executivo-Legislativo. Editor do periódico mensal <em>Conjuntura Latitude Sul</em> (ISSN 2526-5822).</span><span data-lang="en">Production of analyses on Peruvian politics, focusing on presidential crises and Executive-Legislative relations. Editor of the monthly journal <em>Conjuntura Latitude Sul</em> (ISSN 2526-5822).</span></p>
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year"><span data-lang="pt">2021 – presente</span><span data-lang="en">2021 – present</span></div>
+      <div>
+        <a href="https://www.instagram.com/grisul.unirio/" target="_blank" class="tl-name">Grupo de Relações Internacionais e Sul Global (GRISUL/UNIRIO)</a>
+        <p class="tl-role"><span data-lang="pt">Coordenador-Executivo · UNIRIO</span><span data-lang="en">Executive Coordinator · UNIRIO</span></p>
+        <p class="tl-desc"><span data-lang="pt">Estudos sobre o Sul Global, com ênfase em América do Sul e relações Executivo-Legislativo comparadas.</span><span data-lang="en">Studies on the Global South, with emphasis on South America and comparative Executive-Legislative relations.</span></p>
       </div>
     </div>
     <div class="tl-row">
