@@ -384,10 +384,16 @@
     .lang-pt li[data-lang="pt"] { display: flex; }
     .lang-en li[data-lang="en"] { display: flex; }
 
-    /* ── TABS / HASH ROUTING ── */
-    main > section { display: none; }
-    main > section.active { display: block; }
-    #sobre.active { display: flex; }
+    /* ── SCROLL + FADE-IN ── */
+    main > section {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    main > section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .nav-links a.nav-active { color: var(--accent) !important; }
     @media (max-width: 720px) {
       .hero-inner { grid-template-columns: 1fr; text-align: center; }
@@ -762,40 +768,62 @@
 </footer>
 
 <script>
-  // ── HASH ROUTING ──
+  // ── SMOOTH SCROLL + FADE-IN ──
+
+  // Fade-in on scroll using IntersectionObserver
   const sections = document.querySelectorAll('main > section');
   const navLinks = document.querySelectorAll('.nav-links a');
 
-  function showSection(hash) {
-    const id = hash.replace('#', '') || 'sobre';
-    sections.forEach(s => s.classList.remove('active'));
-    navLinks.forEach(a => a.classList.remove('nav-active'));
-    const target = document.getElementById(id) || document.getElementById('sobre');
-    if (target) target.classList.add('active');
-    navLinks.forEach(a => {
-      if (a.getAttribute('href') === '#' + (target ? target.id : 'sobre')) {
-        a.classList.add('nav-active');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+
+        // Highlight active nav link
+        const id = entry.target.id;
+        navLinks.forEach(a => {
+          a.classList.toggle('nav-active', a.getAttribute('href') === '#' + id);
+        });
       }
     });
-    window.scrollTo(0, 0);
-  }
+  }, { threshold: 0.12 });
 
-  // Initial load
-  showSection(window.location.hash || '#sobre');
+  sections.forEach(s => observer.observe(s));
 
-  // On hash change (nav clicks)
-  window.addEventListener('hashchange', () => showSection(window.location.hash));
-
-  // Intercept all internal anchor clicks to use hash routing
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
+  // Smooth scroll on nav click
+  navLinks.forEach(a => {
     a.addEventListener('click', e => {
       const href = a.getAttribute('href');
-      if (href.length > 1) {
+      if (href && href.startsWith('#')) {
         e.preventDefault();
-        history.pushState(null, '', href);
-        showSection(href);
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, '', href);
+        }
       }
     });
+  });
+
+  // Also handle hero buttons that link to sections
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    if (!a.classList.contains('nav-active') && !navLinks.length) return;
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if (href && href.length > 1 && document.querySelector(href)) {
+        e.preventDefault();
+        document.querySelector(href).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', href);
+      }
+    });
+  });
+
+  // On load, scroll to hash if present
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+    }
   });
 
   // ── LANG TOGGLE ──
