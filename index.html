@@ -402,12 +402,47 @@
       transform: translateY(0);
     }
     .nav-links a.nav-active { color: var(--accent) !important; }
+    /* ── MOBILE MENU ── */
+    .hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; cursor: pointer; background: none; border: none;
+      padding: 4px; margin-left: .5rem;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: #fff; border-radius: 2px;
+      transition: all .3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
+      background: var(--primary); z-index: 99;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 2rem; opacity: 0; transition: opacity .3s ease;
+    }
+    .mobile-menu.open { opacity: 1; }
+    .mobile-menu a {
+      font-family: var(--serif); font-size: 26px; font-weight: 600;
+      color: rgba(255,255,255,.85); text-decoration: none;
+      letter-spacing: -0.01em; transition: color .2s;
+    }
+    .mobile-menu a:hover, .mobile-menu a.nav-active { color: var(--accent); }
+    .mobile-menu-actions {
+      display: flex; gap: 12px; align-items: center; margin-top: 1rem;
+    }
+
     @media (max-width: 720px) {
       :root { --pad-x: 1.25rem; --nav-h: 58px; }
 
       /* NAV */
       .nav-links { display: none; }
       .nav-logo { font-size: 14px; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; pointer-events: none; }
+      .mobile-menu.open { pointer-events: all; }
 
       /* HERO */
       #sobre { padding: 2.5rem 0 3rem; min-height: calc(100vh - var(--nav-h)); }
@@ -462,8 +497,22 @@
       <svg id="iMoon" viewBox="0 0 24 24" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
     <button class="lang-btn" id="langBtn">EN</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#sobre" class="mobile-nav-link"><span data-lang="pt">Sobre</span><span data-lang="en">About</span><span data-lang="es">Sobre</span></a>
+  <a href="#formacao" class="mobile-nav-link"><span data-lang="pt">Formação</span><span data-lang="en">Education</span><span data-lang="es">Formación</span></a>
+  <a href="#atuacao" class="mobile-nav-link"><span data-lang="pt">Atuação</span><span data-lang="en">Research</span><span data-lang="es">Investigación</span></a>
+  <a href="#producoes" class="mobile-nav-link"><span data-lang="pt">Produções</span><span data-lang="en">Publications</span><span data-lang="es">Publicaciones</span></a>
+  <a href="#projetos" class="mobile-nav-link"><span data-lang="pt">Projetos</span><span data-lang="en">Projects</span><span data-lang="es">Proyectos</span></a>
+  <a href="#experiencia" class="mobile-nav-link"><span data-lang="pt">Experiência</span><span data-lang="en">Experience</span><span data-lang="es">Experiencia</span></a>
+  <a href="#contato" class="mobile-nav-link"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></a>
+</div>
 
 <main>
 
@@ -938,9 +987,19 @@
         });
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.01, rootMargin: '0px 0px -30px 0px' });
 
   sections.forEach(s => observer.observe(s));
+
+  // Garante que seções já visíveis no carregamento apareçam
+  setTimeout(() => {
+    sections.forEach(s => {
+      const rect = s.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        s.classList.add('visible');
+      }
+    });
+  }, 100);
 
   // Smooth scroll on nav click
   navLinks.forEach(a => {
@@ -978,7 +1037,37 @@
     }
   });
 
-  // ── LANG TOGGLE (PT → EN → ES) ──
+  // ── MOBILE MENU ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        closeMenu();
+        setTimeout(() => {
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, '', href);
+        }, 300);
+      }
+    });
+  });
   const langBtn = document.getElementById('langBtn');
   const langs = ['pt', 'en', 'es'];
   const langLabels = { pt: 'EN', en: 'ES', es: 'PT' };
