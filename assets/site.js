@@ -21,6 +21,10 @@
     document.querySelectorAll('.lang-switch button').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.dataset.set === lang));
     });
+    // Links do CV apontam para o PDF no idioma escolhido (gerado por scripts/build_cv.py).
+    document.querySelectorAll('a[data-cv]').forEach(function (a) {
+      a.href = 'arquivos/cv-lucas-calabro-berti-' + lang + '.pdf';
+    });
     var title = document.querySelector('title[data-' + lang + ']');
     if (title) document.title = title.getAttribute('data-' + lang);
     document.dispatchEvent(new CustomEvent('langchange', { detail: lang }));
