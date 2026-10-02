@@ -167,7 +167,7 @@ main { flex: 1; padding: clamp(2.5rem, 6vw, 4.5rem) 0 6rem; }
 /* ── início: apresentação ── */
 .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
 .hero h1 {
-  font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.2rem); font-weight: 700;
+  font-family: var(--serif); font-size: clamp(2.5rem, 4.6vw, 3.5rem); font-weight: 700;
   line-height: 1; letter-spacing: -.02em; color: var(--primary); margin: 1rem 0 1.3rem;
 }
 .hero .hero-divider { margin-bottom: 1.4rem; }
@@ -189,14 +189,26 @@ main { flex: 1; padding: clamp(2.5rem, 6vw, 4.5rem) 0 6rem; }
 .linkrow a { color: var(--faint); text-decoration: none; border-bottom: 1px solid transparent; }
 .linkrow a:hover { color: var(--primary); border-color: var(--primary); }
 
-.fig { margin: 0; }
-.fig-frame { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 8px; padding: 10px; box-shadow: var(--shadow); }
-.fig img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 4px; }
-.fig figcaption { margin-top: .85rem; font-size: 12px; color: var(--faint); }
-.fig figcaption b { color: var(--primary); font-family: var(--serif); font-weight: 600; }
+/* foto redonda com anel dourado, links logo abaixo */
+.hero-right { display: flex; flex-direction: column; align-items: center; }
+.avatar {
+  position: relative; width: min(100%, 320px); aspect-ratio: 1;
+  border-radius: 50%; border: 3px solid var(--accent); background: var(--bg-alt);
+}
+.avatar::before {
+  content: ""; position: absolute; inset: -13px;
+  border-radius: 50%; border: 2px solid var(--accent); opacity: .45;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.hero-right .linkrow { justify-content: center; gap: .4rem 1rem; margin-top: 2rem; font-size: 11px; }
+@media (min-width: 861px) {
+  .hero h1 { white-space: nowrap; }
+}
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; }
-  .hero .fig { max-width: 320px; order: -1; }
+  .hero-right { order: -1; }
+  .avatar { width: 210px; }
+  .hero-right .linkrow { margin-top: 1.5rem; }
 }
 
 /* ── cartões ── */
