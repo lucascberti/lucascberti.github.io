@@ -242,43 +242,6 @@ main { flex: 1; padding: clamp(1.5rem, 4vw, 2.5rem) 0 6rem; }
 .contact span { font-size: 14.5px; font-weight: 500; color: var(--primary); }
 .contact a:hover span { text-decoration: underline; }
 
-/* ── cadernos (markdown renderizado) ── */
-.back { font-size: 13px; color: var(--faint); text-decoration: none; }
-.back:hover { color: var(--primary); }
-.eyebrow { margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
-.eyebrow .dot { display: none; }
-.notes { display: grid; grid-template-columns: minmax(0, 46rem) 12rem; gap: 4rem; justify-content: center; align-items: start; margin-top: 2rem; }
-.notes:has(> .toc[hidden]) { grid-template-columns: minmax(0, 46rem); }
-.notes .toc { order: 2; position: sticky; top: 1.5rem; max-height: calc(100vh - 3rem); overflow: auto; font-size: 12.5px; line-height: 1.4; }
-.toc .eyebrow { margin-bottom: .5rem; font-size: 12.5px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--text); }
-.toc a { display: block; padding: .28rem 0 .28rem .75rem; border-left: 1px solid var(--line); color: var(--faint); text-decoration: none; }
-.toc a.sub { padding-left: 1.4rem; }
-.toc a:hover { color: var(--primary); border-left-color: var(--accent); }
-main > .back, main > .page-head { display: block; max-width: calc(46rem + 16rem); margin-left: auto; margin-right: auto; }
-.md { font-size: 16px; line-height: 1.8; color: var(--text); overflow-wrap: anywhere; }
-.md > :first-child { margin-top: 0; }
-.md h1, .md h2, .md h3, .md h4 { font-family: var(--serif); color: var(--primary); line-height: 1.3; }
-.md h1 { font-size: 1.6rem; margin: 2.5rem 0 1rem; padding-bottom: .4rem; border-bottom: 1px solid var(--line); }
-.md h2 { font-size: 1.3rem; margin: 2.2rem 0 .8rem; }
-.md h3, .md h4 { font-size: 1.08rem; margin: 1.8rem 0 .6rem; }
-.md p { margin: 0 0 1rem; }
-.md ul, .md ol { padding-left: 1.3rem; margin: 0 0 1rem; }
-.md li { margin: .3rem 0; }
-.md li::marker { color: var(--accent); }
-.md blockquote { margin: 1.25rem 0; padding: .1rem 0 .1rem 1.1rem; border-left: 3px solid var(--accent); font-family: var(--serif); font-style: italic; font-size: 17px; }
-.md code { font: 13.5px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 4px; padding: .1rem .35rem; }
-.md pre { overflow-x: auto; padding: 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
-.md pre code { border: 0; background: none; padding: 0; }
-.md img { border: 1px solid var(--line); border-radius: 8px; margin: 1rem 0; }
-.md table { display: block; overflow-x: auto; border-collapse: collapse; margin: 0 0 1rem; font-size: 14.5px; }
-.md th, .md td { padding: .45rem .75rem; border: 1px solid var(--line); text-align: left; }
-.md hr { border: 0; border-top: 1px solid var(--line); margin: 2.5rem 0; }
-.md-status { padding: 2rem 0; font-size: 13px; color: var(--faint); }
-@media (max-width: 1000px) {
-  .notes, .notes:has(> .toc[hidden]) { grid-template-columns: minmax(0, 1fr); }
-  .notes .toc { display: none; }
-}
-
 /* ── rodapé (faixa verde, como no site anterior) ── */
 .site-footer { background: var(--primary); padding: 1.75rem 0; font-size: 12.5px; color: rgba(255,255,255,.62); }
 [data-theme="dark"] .site-footer { background: var(--bg-alt); border-top: 1px solid var(--line); color: var(--faint); }

@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title data-en="Teaching · Lucas Calabró Berti" data-es="Docencia · Lucas Calabró Berti" data-pt="Ensino · Lucas Calabró Berti">Ensino · Lucas Calabró Berti</title>
-<meta content="Docência, cadernos de disciplinas e arquivos de Lucas Calabró Berti (IESP-UERJ)." name="description"/>
+<meta content="Docência e materiais de Lucas Calabró Berti (IESP-UERJ)." name="description"/>
 <meta content="Ensino · Lucas Calabró Berti" property="og:title"/>
 <meta content="https://lucasberti.com/imagem/foto-lucas.jpg" property="og:image"/>
 <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231C3A2E'/%3E%3Ctext x='16' y='21' font-family='Georgia,serif' font-size='14' font-weight='700' fill='%23D4A853' text-anchor='middle'%3ELB%3C/text%3E%3C/svg%3E" rel="icon"/>
@@ -42,9 +42,9 @@
 
 <h1><span data-l="pt">Ensino</span><span data-l="en">Teaching</span><span data-l="es">Docencia</span></h1>
 <p class="subtitle">
-<span data-l="pt">Minhas anotações de leituras e aulas ficam abertas no GitHub e são atualizadas ao longo do semestre. Qualquer pessoa pode ler.</span>
-<span data-l="en">My reading and lecture notes are kept openly on GitHub and updated throughout the semester. Anyone can read them (they are in Portuguese).</span>
-<span data-l="es">Mis apuntes de lecturas y clases están abiertos en GitHub y se actualizan a lo largo del semestre. Cualquiera puede leerlos (están en portugués).</span>
+<span data-l="pt">Docência e materiais.</span>
+<span data-l="en">Teaching and materials.</span>
+<span data-l="es">Docencia y materiales.</span>
 </p>
 </header>
 <!-- 01 DOCÊNCIA -->
@@ -62,13 +62,6 @@
 <h3><span data-l="pt">Política e Sociedade na América Latina</span><span data-l="en">Politics and Society in Latin America</span><span data-l="es">Política y Sociedad en América Latina</span></h3>
 <p class="by">Prof. Dr. André Luiz Coelho</p>
 </article>
-</div>
-</section>
-<!-- 02 CADERNOS -->
-<section aria-labelledby="h-cad" class="section" id="cadernos">
-<h2 class="h2" id="h-cad"><span data-l="pt">Cadernos de disciplinas</span><span data-l="en">Course notes</span><span data-l="es">Cuadernos de asignaturas</span></h2>
-<div class="items" id="cadernos-list">
-<noscript><p><a class="a" href="https://github.com/lucascberti?tab=repositories">github.com/lucascberti</a></p></noscript>
 </div>
 </section>
 <!-- 03 ARQUIVOS -->
@@ -100,54 +93,6 @@
 </span>
 </div>
 </footer>
-<script src="assets/cadernos.js"></script>
-<script>
-  // Monta os cartões dos cadernos a partir de assets/cadernos.js.
-  (function () {
-    var list = document.getElementById('cadernos-list');
-    function el(tag, cls, text) {
-      var e = document.createElement(tag);
-      if (cls) e.className = cls;
-      if (text != null) e.textContent = text;
-      return e;
-    }
-    // Um <span data-l="xx"> por idioma; idiomas sem tradução usam o português.
-    function tri(texts) {
-      var frag = document.createDocumentFragment();
-      ['pt', 'en', 'es'].forEach(function (l) {
-        var s = el('span', null, texts[l] || texts.pt);
-        s.setAttribute('data-l', l);
-        frag.appendChild(s);
-      });
-      return frag;
-    }
-    window.CADERNOS.forEach(function (c) {
-      var href = 'notas.html?c=' + encodeURIComponent(c.repo);
-      var item = el('article', 'item');
-      item.appendChild(el('p', 'it-meta', c.onde));
-      var h3 = el('h3'), a = el('a');
-      a.href = href;
-      a.appendChild(tri(c.titulo));
-      h3.appendChild(a);
-      item.appendChild(h3);
-      var p = el('p', 'desc');
-      p.appendChild(tri(c.palestras
-        ? { pt: 'Anotações das palestras do ciclo.', en: 'Notes from the lecture series.', es: 'Apuntes de las conferencias del ciclo.' }
-        : { pt: 'Anotações de leituras e aulas.', en: 'Reading and lecture notes.', es: 'Apuntes de lecturas y clases.' }));
-      if (c.prof) p.appendChild(document.createTextNode(' ' + c.prof + '.'));
-      item.appendChild(p);
-      var tags = el('div', 'tags');
-      var read = el('a', 'tag'); read.href = href;
-      read.appendChild(tri({ pt: 'Ler', en: 'Read', es: 'Leer' }));
-      var gh = el('a', 'tag', 'GitHub');
-      gh.href = 'https://github.com/lucascberti/' + c.repo;
-      gh.target = '_blank'; gh.rel = 'noopener';
-      tags.appendChild(read); tags.appendChild(gh);
-      item.appendChild(tags);
-      list.appendChild(item);
-    });
-  })();
-</script>
 <script src="assets/site.js"></script>
 </body>
 </html>
