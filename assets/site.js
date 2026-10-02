@@ -34,6 +34,35 @@
   });
   setLang(currentLang());
 
+  // Botão "Resumo": abre e fecha o resumo logo abaixo do item.
+  document.querySelectorAll('[data-abstract]').forEach(function (btn) {
+    var abstract = btn.closest('.item').querySelector('.abstract');
+    if (!abstract) return;
+    btn.addEventListener('click', function () {
+      abstract.hidden = !abstract.hidden;
+      btn.setAttribute('aria-expanded', String(!abstract.hidden));
+    });
+  });
+
+  // Índice "Nesta página", montado a partir dos títulos das seções.
+  var toc = document.querySelector('.page-toc');
+  if (toc) {
+    var heads = document.querySelectorAll('.page-main section[id] > h2');
+    if (heads.length < 2) {
+      toc.hidden = true;
+    } else {
+      var label = document.createElement('p');
+      label.innerHTML = '<span data-l="pt">Nesta página</span><span data-l="en">On this page</span><span data-l="es">En esta página</span>';
+      toc.appendChild(label);
+      heads.forEach(function (h) {
+        var a = document.createElement('a');
+        a.href = '#' + h.parentElement.id;
+        a.innerHTML = h.innerHTML;
+        toc.appendChild(a);
+      });
+    }
+  }
+
   var themeBtn = document.getElementById('themeBtn');
   if (themeBtn) {
     themeBtn.addEventListener('click', function () {
