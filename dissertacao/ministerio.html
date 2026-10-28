@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ministério e apoio ao governo</title>
+<meta name="description" content="Deputados de partidos com ministério votam mais com o governo, mas seguem o próprio partido tanto quanto os outros (2003-2025).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<nav class="topnav" aria-label="Páginas"><div class="wrap"><a class="brand" href="index.html">Da Emenda ao <em>Ministério?</em></a><div class="navlinks"><a href="esplanada.html"><span class="n">01</span>A Esplanada</a><a href="ministerio.html" aria-current="page"><span class="n">02</span>Ministério e apoio</a><a href="disciplina.html"><span class="n">03</span>A disciplina</a><a href="deputado.html"><span class="n">04</span>Seu deputado</a><a href="plenario.html"><span class="n">05</span>O plenário</a></div></div></nav>
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">02 · Ministério e apoio ao governo · 2003-2025</p>
+    <h1>O ministério muda o <em>apoio</em>, não a disciplina</h1>
+    <p class="lede">Cada ponto é um deputado. Os de partidos com ministério votam muito mais com o governo, mas seguem o próprio partido tanto quanto os outros. Escolha um governo para comparar.</p>
+    <p class="erro" id="erro" hidden>Não foi possível carregar os dados desta página. Os arquivos da pasta “dados” precisam estar junto das páginas, num servidor; aberta direto do computador, com duplo clique, a página não consegue lê-los.</p>
+    <div class="swarm" style="border-top:0;margin-top:26px;padding-top:0">
+      <div class="band" id="band" aria-label="Escolha o governo"></div>
+      <div id="chart"></div>
+      <div class="legend">
+        <span><svg width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="4.5" style="fill:var(--gold)"/></svg>partido com ministério</span>
+        <span><svg width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="4" style="fill:none;stroke:var(--cream);stroke-width:1.5"/></svg>partido sem ministério</span>
+        <span><svg width="14" height="14" aria-hidden="true"><line x1="7" y1="0" x2="7" y2="14" style="stroke:var(--hero-ink);stroke-width:2"/></svg>média</span>
+        <span>Passe o mouse num ponto para ver o nome; clique para abrir o deputado.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<main class="wrap">
+  <section class="sec">
+    <p class="kicker">Três histórias</p>
+    <h2>Quando o partido muda de lado</h2>
+    <p class="intro">O mesmo deputado, em governos diferentes: o apoio acompanha o lugar do partido no gabinete, enquanto a fidelidade ao partido quase não se mexe.</p>
+    <div class="stories" id="stories"></div>
+  </section>
+
+  <section class="sec">
+    <p class="kicker">O padrão geral</p>
+    <h2>Com e sem ministério, governo a governo</h2>
+    <p class="intro">Médias dos votos de deputados de partidos com e sem ministério. À direita, a diferença entre os dois grupos, em pontos percentuais (p.p.).</p>
+    <div class="panel">
+      <div class="dumb">
+        <div><h3>Apoio ao governo</h3><p class="sub">% dos votos iguais à orientação do líder do governo</p><div id="d1"></div></div>
+        <div><h3>Disciplina partidária</h3><p class="sub">% dos votos iguais à orientação do próprio partido</p><div id="d2"></div></div>
+      </div>
+      <div class="dkey">
+        <span><i class="sw" style="width:13px;height:13px;border-radius:50%;background:var(--accent);display:inline-block"></i>partidos com ministério</span>
+        <span><i style="width:13px;height:13px;border-radius:50%;border:2.5px solid var(--primary);display:inline-block;box-sizing:border-box"></i>partidos sem ministério</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec notes">
+    <p class="kicker">Fontes e critérios</p>
+    <p>Votações nominais em plenário da Câmara dos Deputados, de proposições do Poder Executivo, de 2003 a 2025: base de dados não publicada de Acir Almeida (sistematizada a partir do Banco de Dados Legislativos do CEBRAP e cedida pelo autor) até 2012 e API de Dados Abertos da Câmara a partir de 2013. <b>Apoio ao governo</b>: proporção dos votos “sim” ou “não” iguais à orientação do líder do governo, nas votações em que ele orientou. <b>Disciplina partidária</b>: proporção dos votos iguais à orientação do próprio partido (ou do bloco), nas votações em que houve orientação. Abstenções, obstruções e ausências não entram no cálculo.</p>
+    <p><b>Partido com ministério</b>: partido que tinha ao menos um ministro filiado na data da votação (Atlas do Estado Brasileiro/IPEA e levantamento próprio para Lula III). Em cada governo, o deputado aparece com o partido e a condição (com ou sem ministério) da maior parte dos seus votos.</p>
+    <p>No gráfico de pontos entram apenas deputados com pelo menos 20 votos no governo; as médias são calculadas sobre todos os votos de cada grupo.</p>
+    <p class="cite">BERTI, Lucas Calabró. <i>Da Emenda ao Ministério? Uma análise da reconfiguração dos vínculos políticos, da patronagem e do sucesso presidencial no Brasil (2003-2025)</i>. Dissertação (Mestrado em Ciência Política) – IESP-UERJ, Rio de Janeiro, 2026.</p>
+  </section>
+</main>
+<nav class="pagenav wrap" aria-label="Anterior e próxima"><a class="prev" href="esplanada.html"><small>← Anterior</small><span>01 · A Esplanada</span></a><a class="next" href="disciplina.html"><small>Próxima →</small><span>03 · A disciplina partidária</span></a></nav>
+<footer class="foot"><div class="wrap"><span><b>Da Emenda ao Ministério?</b> · Lucas Calabró Berti · Mestrado em Ciência Política, IESP-UERJ, 2026</span><span>Dados: Câmara dos Deputados, base de dados não publicada de Acir Almeida e Atlas do Estado Brasileiro · <a href="index.html">Sobre a pesquisa</a></span></div></footer>
+<div id="tip" role="tooltip"></div>
+<script src="deputados.js"></script>
+</body>
+</html>

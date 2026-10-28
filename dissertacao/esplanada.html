@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quem ocupa a Esplanada?</title>
+<meta name="description" content="Os partidos que comandaram os ministérios brasileiros, mês a mês, de Lula I a Lula III (2003-2025).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="estilo.css">
+<style>
+/* Layout: faixa verde de abertura com a Esplanada ilustrada e os controles; abaixo, sobre o creme, os momentos, a série completa e as fontes. */
+:root {
+  --bg: #F8F6F0; --bg-alt: #F0EDE4; --surface: #FFFFFF; --line: #E5E0D5; --line-2: #D8D1C1; --grid: #ECE7DC;
+  --text: #1A1A1A; --muted: #5F6570; --faint: #6B7280; --primary: #1C3A2E; --accent: #D4A853; --accent-text: #8C6A1F;
+  --hero-bg: #1C3A2E; --hero-bg-2: #2A5240; --hero-ink: #F8F6F0; --hero-muted: rgba(248,246,240,.72); --hero-line: rgba(248,246,240,.2);
+  --lawn: #3F7254; --lawn-2: #38684C; --ground: #22453A; --walk: #557F68; --gold: #D4A853;
+  --p-red: #D9483B; --p-yellow: #E5A532; --p-aqua: #2FA58A; --p-green: #7BB866; --p-blue: #3E7DD1;
+  --p-violet: #7563CF; --p-magenta: #D86A9C; --p-stone: #DCD4C2; --stripe: rgba(255,255,255,.5);
+  --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #161a15; --bg-alt: #1b1f1a; --surface: #1e221d; --line: #2e332d; --line-2: #3a4139; --grid: #2a2f29;
+    --text: #e8e4dc; --muted: #a9b3aa; --faint: #8a9a8e; --primary: #7db885; --accent: #D4A853; --accent-text: #D4A853;
+    --hero-bg: #10221a; --hero-bg-2: #1b3a2c; --hero-ink: #F3EFE6; --hero-muted: rgba(243,239,230,.7); --hero-line: rgba(243,239,230,.18);
+    --lawn: #2E5A43; --lawn-2: #29523D; --ground: #16302a; --walk: #3d6550;
+    --p-stone: #CFC7B4; --stripe: rgba(255,255,255,.45);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #161a15; --bg-alt: #1b1f1a; --surface: #1e221d; --line: #2e332d; --line-2: #3a4139; --grid: #2a2f29;
+  --text: #e8e4dc; --muted: #a9b3aa; --faint: #8a9a8e; --primary: #7db885; --accent: #D4A853; --accent-text: #D4A853;
+  --hero-bg: #10221a; --hero-bg-2: #1b3a2c; --hero-ink: #F3EFE6; --hero-muted: rgba(243,239,230,.7); --hero-line: rgba(243,239,230,.18);
+  --lawn: #2E5A43; --lawn-2: #29523D; --ground: #16302a; --walk: #3d6550;
+  --p-stone: #CFC7B4; --stripe: rgba(255,255,255,.45);
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px); }
+h1, h2, h3 { text-wrap: balance; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+/* ── abertura ── */
+.hero { background: radial-gradient(120% 70% at 50% 38%, var(--hero-bg-2), var(--hero-bg) 70%); color: var(--hero-ink); padding-block: clamp(32px, 6vw, 64px) 40px; overflow: hidden; }
+.eyebrow { font: 600 12px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin: 0 0 14px; }
+.hero h1 { font: 700 clamp(38px, 7vw, 76px)/1.02 var(--serif); margin: 0 0 16px; letter-spacing: -.01em; }
+.hero h1 em { font-style: italic; font-weight: 500; color: var(--gold); }
+.lede { font-size: clamp(16px, 2vw, 18.5px); color: var(--hero-muted); max-width: 640px; margin: 0; }
+.lede b { color: var(--hero-ink); font-weight: 600; }
+
+.readout { display: flex; align-items: end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: clamp(28px, 4vw, 44px); }
+.gov { font: 700 clamp(40px, 7vw, 68px)/1 var(--serif); color: var(--gold); }
+.when { font: 500 15px/1.3 var(--sans); color: var(--hero-muted); letter-spacing: .04em; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.play { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: #1A1A1A; border: 0; border-radius: 999px;
+  padding: 11px 20px 11px 16px; font-weight: 600; font-size: 14.5px; cursor: pointer; transition: transform .15s, filter .15s; }
+.play:hover { filter: brightness(1.06); transform: translateY(-1px); }
+.play svg { width: 16px; height: 16px; fill: currentColor; }
+
+.stage { position: relative; margin-top: 18px; }
+#scene svg { display: block; width: 100%; height: auto; overflow: hidden; border-radius: 6px; }
+.bld { cursor: pointer; }
+.bld .face { transition: fill .45s ease; }
+.bld:hover .face, .bld.hl .face { filter: brightness(1.14); }
+.bld.empty { cursor: default; }
+.bld.empty .face { fill: transparent !important; stroke: var(--hero-line); stroke-dasharray: 3 3; stroke-width: 1; filter: none; }
+.bld.empty .shade, .bld.empty .win, .bld.empty .glow { display: none; }
+.scene-cap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 12.5px; color: var(--hero-muted); margin-top: 8px; }
+
+.strip { display: flex; height: 14px; border-radius: 3px; overflow: hidden; gap: 2px; margin-top: 22px; }
+.strip i { display: block; min-width: 3px; transition: flex-grow .45s ease; }
+.partylist { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; font-size: 13.5px; color: var(--hero-muted); }
+.partylist span { display: inline-flex; align-items: center; gap: 7px; }
+.partylist b { color: var(--hero-ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.sw { width: 13px; height: 13px; flex: none; display: inline-block; border-radius: 3px; }
+
+.time { margin-top: 28px; }
+.time input[type=range] { width: 100%; margin: 0; accent-color: var(--gold); cursor: pointer; }
+.band { display: flex; gap: 3px; margin-top: 6px; }
+.band button { flex: 0 0 auto; min-width: 0; background: none; border: 0; border-top: 3px solid var(--hero-line); color: var(--hero-muted);
+  padding: 6px 2px 0; font-size: 12.5px; text-align: left; cursor: pointer; overflow: hidden; white-space: nowrap; text-overflow: clip; }
+.band button:hover { color: var(--hero-ink); }
+.band button[aria-pressed="true"] { border-top-color: var(--gold); color: var(--gold); font-weight: 600; }
+.band .sh { display: none; }
+@media (max-width: 640px) { .band .lg { display: none; } .band .sh { display: inline; } }
+
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 34px; border-top: 1px solid var(--hero-line); }
+.kpi { padding: 18px 18px 4px 0; }
+.kpi + .kpi { padding-left: 18px; border-left: 1px solid var(--hero-line); }
+.kpi .v { font: 700 clamp(30px, 4.4vw, 46px)/1.05 var(--serif); color: var(--hero-ink); font-variant-numeric: lining-nums tabular-nums; }
+.kpi .v small { font: 500 15px var(--sans); color: var(--hero-muted); margin-left: 4px; }
+.kpi .k { font-size: 13px; color: var(--hero-muted); margin-top: 6px; line-height: 1.4; }
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi:nth-child(3) { padding-left: 0; border-left: 0; }
+  .kpi:nth-child(n+3) { border-top: 1px solid var(--hero-line); }
+}
+
+/* ── corpo ── */
+main { padding-block: 56px 72px; }
+.sec { margin-top: 64px; }
+.sec:first-child { margin-top: 0; }
+.kicker { font: 600 12px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-text); margin: 0 0 8px; }
+.sec h2 { font: 700 clamp(28px, 4vw, 40px)/1.12 var(--serif); margin: 0 0 10px; color: var(--text); }
+.sec .intro { color: var(--muted); max-width: 680px; margin: 0 0 24px; }
+
+.moments { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1000px) { .moments { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .moments { grid-template-columns: minmax(0, 1fr); } }
+.moment { text-align: left; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 4px;
+  padding: 18px 18px 20px; cursor: pointer; color: var(--text); transition: transform .15s, box-shadow .15s, border-color .15s; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.moment:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(28,58,46,.12); }
+.moment .d { font: 600 12px var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-text); }
+.moment h3 { font: 700 20px/1.2 var(--serif); margin: 0; }
+.moment p { font-size: 14.5px; color: var(--muted); margin: 0; line-height: 1.55; }
+.moment .go { font-size: 13px; font-weight: 600; color: var(--primary); margin-top: auto; padding-top: 8px; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: clamp(16px, 2.5vw, 26px); min-width: 0; }
+.panel + .panel { margin-top: 18px; }
+.panel h3 { font: 700 20px/1.25 var(--serif); margin: 0 0 4px; }
+.panel .sub { font-size: 14px; color: var(--muted); margin: 0 0 14px; }
+#area, #coal { min-width: 0; }
+.chart svg { display: block; overflow: visible; }
+.chart text { fill: var(--muted); font: 11.5px var(--sans); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 12px; font-size: 13px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.legend svg { width: 24px; flex: none; }
+
+details { margin-top: 18px; }
+details summary { cursor: pointer; font-weight: 600; color: var(--primary); padding: 6px 0; }
+.tbl-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; white-space: nowrap; font-size: 13px; }
+td.num { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.notes { font-size: 14px; color: var(--muted); max-width: 820px; }
+.notes p { margin: 0 0 10px; }
+.cite { border-left: 3px solid var(--accent); padding: 4px 0 4px 16px; margin-top: 18px; }
+
+#tip { position: fixed; z-index: 20; pointer-events: none; opacity: 0; background: var(--surface); color: var(--text); border: 1px solid var(--line);
+  border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,.22); padding: 10px 13px; font-size: 13.5px; max-width: 290px; transition: opacity .1s; }
+#tip .t { font: 700 15px/1.25 var(--serif); margin-bottom: 4px; }
+#tip .r { color: var(--muted); display: flex; align-items: center; gap: 7px; font-variant-numeric: tabular-nums; line-height: 1.5; }
+@media (prefers-reduced-motion: reduce) { .bld .face, .strip i, .moment, .play { transition: none; } }
+</style>
+</head>
+<body>
+<nav class="topnav" aria-label="Páginas"><div class="wrap"><a class="brand" href="index.html">Da Emenda ao <em>Ministério?</em></a><div class="navlinks"><a href="esplanada.html" aria-current="page"><span class="n">01</span>A Esplanada</a><a href="ministerio.html"><span class="n">02</span>Ministério e apoio</a><a href="disciplina.html"><span class="n">03</span>A disciplina</a><a href="deputado.html"><span class="n">04</span>Seu deputado</a><a href="plenario.html"><span class="n">05</span>O plenário</a></div></div></nav>
+
+
+<section class="hero" id="topo">
+  <div class="wrap">
+    <p class="eyebrow">01 · Esplanada dos Ministérios · 2003-2025</p>
+    <h1>Quem ocupa a <em>Esplanada?</em></h1>
+    <p class="lede">Mês a mês, os partidos que comandaram os ministérios, de Lula I a Lula III. <b>Cada prédio é um ministério</b> e a cor é o partido do ministro. Os prédios cor de pedra têm ministros sem filiação partidária.</p>
+    <p class="erro" id="erro" hidden>Não foi possível carregar os dados desta página. Os arquivos da pasta “dados” precisam estar junto das páginas, num servidor; aberta direto do computador, com duplo clique, a página não consegue lê-los.</p>
+
+    <div class="readout">
+      <div><div class="gov" id="gov">Lula I</div><div class="when" id="when"></div></div>
+      <button class="play" id="play" type="button" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path id="playIcon" d="M4 2.5v11l9-5.5z"/></svg><span id="playTxt">Ver 23 anos em 30 segundos</span></button>
+    </div>
+
+    <div class="stage">
+      <div id="scene"></div>
+      <div class="scene-cap"><span>Passe o mouse ou toque num prédio para ver o ministério e o ministro.</span><span>Ilustração: a ordem dos prédios agrupa os partidos, não reproduz a Esplanada real.</span></div>
+    </div>
+
+    <div class="strip" id="strip" aria-hidden="true"></div>
+    <div class="partylist" id="plist"></div>
+
+    <div class="time">
+      <input id="mes" type="range" min="0" max="275" step="1" value="0" aria-label="Mês">
+      <div class="band" id="band" aria-label="Ir para um governo"></div>
+    </div>
+
+    <div class="kpis" aria-live="polite">
+      <div class="kpi"><div class="v" id="k1"></div><div class="k">ministérios com ministro filiado a partido</div></div>
+      <div class="kpi"><div class="v" id="k2"></div><div class="k">partidos no gabinete</div></div>
+      <div class="kpi"><div class="v" id="k3"></div><div class="k">das cadeiras da Câmara com os partidos do gabinete</div></div>
+      <div class="kpi"><div class="v" id="k4"></div><div class="k">de coalescência: proporção entre pastas e bancadas</div></div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="sec">
+    <p class="kicker">Para começar</p>
+    <h2>Oito momentos da Esplanada</h2>
+    <p class="intro">Clique num momento para ver como estava o gabinete naquele mês.</p>
+    <div class="moments" id="moments"></div>
+  </section>
+
+  <section class="sec">
+    <p class="kicker">A série completa</p>
+    <h2>23 anos de gabinetes</h2>
+    <p class="intro">Passe o mouse para ver a composição de cada mês; clique para levar a Esplanada até ele.</p>
+    <div class="panel">
+      <h3>Ministérios por partido, mês a mês</h3>
+      <p class="sub">Número de pastas com ministros de cada partido. Em cor de pedra, ministros sem filiação.</p>
+      <div class="chart" id="area"></div>
+      <div class="legend" id="leg"></div>
+    </div>
+    <div class="panel">
+      <h3>Coalescência e base no gabinete</h3>
+      <p class="sub">A coalescência mede quão proporcional ao tamanho das bancadas é a divisão das pastas (100% = perfeitamente proporcional).</p>
+      <div class="chart" id="coal"></div>
+      <div class="legend">
+        <span><svg width="24" height="10" aria-hidden="true"><line x1="0" y1="5" x2="24" y2="5" style="stroke:var(--primary);stroke-width:2.5"></line></svg>Coalescência</span>
+        <span><svg width="24" height="10" aria-hidden="true"><line x1="0" y1="5" x2="24" y2="5" style="stroke:var(--accent);stroke-width:2.5;stroke-dasharray:4 3"></line></svg>% das cadeiras da Câmara com os partidos do gabinete</span>
+      </div>
+      <details>
+        <summary id="tblTitle">Todos os ministros do mês</summary>
+        <div class="tbl-wrap"><table><thead><tr><th>Ministério</th><th>Ministro(a)</th><th>Partido</th><th>No cargo desde</th></tr></thead><tbody id="tbody"></tbody></table></div>
+      </details>
+    </div>
+  </section>
+
+  <section class="sec notes">
+    <p class="kicker">Fontes e critérios</p>
+    <p>Composição dos gabinetes: Atlas do Estado Brasileiro (IPEA), de 2003 ao governo Bolsonaro, e levantamento próprio para o governo Lula III, até dezembro de 2025, com o mesmo recorte de pastas. A posição de cada mês é a do dia 15. O partido é o de filiação do ministro, critério usado na dissertação: quem foi indicado por um partido sem ser filiado a ele conta como “sem filiação”.</p>
+    <p>Coalescência: cálculo próprio com a fórmula do índice Prop_v1 do IPEA, que compara a distribuição das cadeiras com a dos ministérios entre os partidos do gabinete; os ministros sem filiação entram como um grupo sem cadeiras. Cadeiras: bancadas no dia 1º de cada mês (Dados Abertos da Câmara), sobre 513.</p>
+    <p class="cite">BERTI, Lucas Calabró. <i>Da Emenda ao Ministério? Uma análise da reconfiguração dos vínculos políticos, da patronagem e do sucesso presidencial no Brasil (2003-2025)</i>. Dissertação (Mestrado em Ciência Política) – IESP-UERJ, Rio de Janeiro, 2026.</p>
+  </section>
+</main>
+<nav class="pagenav wrap" aria-label="Anterior e próxima"><a class="prev" href="index.html"><small>← Anterior</small><span>Capa</span></a><a class="next" href="ministerio.html"><small>Próxima →</small><span>02 · Ministério e apoio ao governo</span></a></nav>
+<footer class="foot"><div class="wrap"><span><b>Da Emenda ao Ministério?</b> · Lucas Calabró Berti · Mestrado em Ciência Política, IESP-UERJ, 2026</span><span>Dados: Câmara dos Deputados, base de dados não publicada de Acir Almeida e Atlas do Estado Brasileiro · <a href="index.html">Sobre a pesquisa</a></span></div></footer>
+<div id="tip" role="tooltip"></div>
+
+
+<script>(async function () {
+  let D;
+  try { D = await fetch('dados/gabinetes.json').then(r => { if (!r.ok) throw 0; return r.json(); }); } catch (e) { const er = document.getElementById('erro'); if (er) er.hidden = false; return; }
+  const PARTY = {
+    PT: ['PT', 'red', 'solid'], PCdoB: ['PCdoB', 'red', 'stripes'],
+    PSB: ['PSB', 'yellow', 'solid'], PSOL: ['PSOL', 'yellow', 'stripes'], CIDADANIA: ['Cidadania (PPS)', 'yellow', 'dots'],
+    PTB: ['PTB', 'aqua', 'solid'], PDT: ['PDT', 'aqua', 'stripes'], NOVO: ['Novo', 'aqua', 'dots'],
+    PMDB: ['MDB (PMDB)', 'green', 'solid'], REDE: ['Rede', 'green', 'stripes'], PV: ['PV', 'green', 'dots'],
+    PSD: ['PSD', 'blue', 'solid'], PSDB: ['PSDB', 'blue', 'stripes'], PP: ['PP', 'blue', 'dots'],
+    PL: ['PL (PR)', 'violet', 'solid'], UNIAO: ['União Brasil', 'violet', 'stripes'], DEM: ['DEM (PFL)', 'violet', 'dots'], PSL: ['PSL', 'violet', 'cross'],
+    REPUBLICANOS: ['Republicanos (PRB)', 'magenta', 'solid'], PODE: ['Podemos', 'magenta', 'stripes'], PROS: ['PROS', 'magenta', 'dots'],
+    SFP: ['Sem filiação', 'stone', 'solid']
+  };
+  const info = k => PARTY[k] || [k, 'stone', 'dots'];
+  const cssBg = k => {
+    const [, c, t] = info(k), v = `var(--p-${c})`, s = 'var(--stripe)';
+    if (t === 'stripes') return `repeating-linear-gradient(45deg, ${v} 0 5px, ${s} 5px 8px), ${v}`;
+    if (t === 'dots') return `radial-gradient(${s} 1.6px, transparent 1.8px) 0 0 / 6px 6px, ${v}`;
+    if (t === 'cross') return `repeating-linear-gradient(45deg, ${s} 0 1.5px, transparent 1.5px 6px), repeating-linear-gradient(-45deg, ${s} 0 1.5px, transparent 1.5px 6px), ${v}`;
+    return v;
+  };
+  const GOVS = [['Lula I', 'L1', '2003-01-01'], ['Lula II', 'L2', '2007-01-01'], ['Dilma I', 'D1', '2011-01-01'], ['Dilma II', 'D2', '2015-01-01'],
+                ['Temer', 'Te', '2016-05-12'], ['Bolsonaro', 'Bo', '2019-01-01'], ['Lula III', 'L3', '2023-01-01']];
+  const MES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+  const MESC = ['jan.', 'fev.', 'mar.', 'abr.', 'maio', 'jun.', 'jul.', 'ago.', 'set.', 'out.', 'nov.', 'dez.'];
+  const months = D.serie.map(s => s.m), N = months.length;
+  const mDate = i => months[i] + '-15';
+  const longLabel = i => { const [y, m] = months[i].split('-'); return `${MES[+m - 1]} de ${y}`; };
+  const label = i => { const [y, m] = months[i].split('-'); return `${MESC[+m - 1]} ${y}`; };
+  const govIdx = d => { let g = 0; GOVS.forEach((G, j) => { if (d >= G[2]) g = j; }); return g; };
+  const gStart = gi => Math.max(0, months.findIndex(m => m + '-15' >= GOVS[gi][2]));
+  const gEnd = gi => gi < GOVS.length - 1 ? gStart(gi + 1) - 1 : N - 1;
+  const fmtDate = s => { const [y, m, d] = s.split('-'); return `${d}/${m}/${y}`; };
+  const pct = x => (x == null ? '–' : x.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%');
+  const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+  const lists = Array.from({ length: N }, (_, i) => { const d = mDate(i); return D.spells.filter(s => s.i <= d && s.f > d); });
+  const counts = lists.map(l => { const c = {}; for (const s of l) c[s.pt] = (c[s.pt] || 0) + 1; return c; });
+  const tot = {}; counts.forEach(c => Object.entries(c).forEach(([k, v]) => tot[k] = (tot[k] || 0) + v));
+  const order = Object.keys(tot).filter(k => k !== 'SFP').sort((a, b) => tot[b] - tot[a]).concat(['SFP']);
+  const sortedList = i => {
+    const c = counts[i];
+    return lists[i].slice().sort((a, b) => (a.pt === 'SFP') - (b.pt === 'SFP') || c[b.pt] - c[a.pt] || order.indexOf(a.pt) - order.indexOf(b.pt) || a.p.localeCompare(b.p, 'pt'));
+  };
+
+  const NS = 'http://www.w3.org/2000/svg';
+  const el = (n, a = {}, p) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+  function patterns(svg, pre) {
+    const df = el('defs', {}, svg);
+    for (const k of order) {
+      const [, c, t] = info(k);
+      if (t === 'solid') continue;
+      const p = el('pattern', { id: pre + k, patternUnits: 'userSpaceOnUse', width: 6, height: 6, patternTransform: t === 'dots' ? '' : 'rotate(45)' }, df);
+      el('rect', { width: 6, height: 6, style: `fill:var(--p-${c})` }, p);
+      if (t === 'stripes') el('rect', { width: 2.2, height: 6, style: 'fill:var(--stripe)' }, p);
+      if (t === 'cross') { el('rect', { width: 1.4, height: 6, style: 'fill:var(--stripe)' }, p); el('rect', { width: 6, height: 1.4, style: 'fill:var(--stripe)' }, p); }
+      if (t === 'dots') el('circle', { cx: 3, cy: 3, r: 1.3, style: 'fill:var(--stripe)' }, p);
+    }
+    return df;
+  }
+  const fillOf = (k, pre) => info(k)[2] === 'solid' ? `var(--p-${info(k)[1]})` : `url(#${pre}${k})`;
+
+  // ── dica ──
+  const tip = document.getElementById('tip');
+  const showTip = (html, ev) => {
+    tip.innerHTML = html; tip.style.opacity = 1;
+    const r = tip.getBoundingClientRect(), pad = 14;
+    let left = ev.clientX + pad, top = ev.clientY + pad;
+    if (left + r.width > innerWidth - 8) left = ev.clientX - r.width - pad;
+    if (top + r.height > innerHeight - 8) top = ev.clientY - r.height - pad;
+    tip.style.left = Math.max(8, left) + 'px'; tip.style.top = Math.max(8, top) + 'px';
+  };
+  const hideTip = () => { tip.style.opacity = 0; };
+
+  // ── a Esplanada em perspectiva ──
+  const VW = 1200, VH = 470, HY = 84, F = 620, YC = 3.2;
+  const P = (X, Y, Z) => [600 + F * X / Z, HY + F * (YC - Y) / Z];
+  const pts = a => a.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ');
+  const NS_SLOTS = 18, Z0 = 5.3, STEP = 0.72, XI = 1.6, LB = 3.2, WD = 0.34, HB = 1.15, LW = 1.22;
+  const sc = el('svg', { viewBox: `0 0 ${VW} ${VH}`, role: 'img', 'aria-label': 'Ilustração da Esplanada dos Ministérios: cada prédio é um ministério, colorido pelo partido do ministro' }, document.getElementById('scene'));
+  const sdefs = patterns(sc, 's-');
+  const grad = (id, stops, vertical = true) => {
+    const g = el('linearGradient', { id, x1: 0, y1: 0, x2: vertical ? 0 : 1, y2: vertical ? 1 : 0 }, sdefs);
+    stops.forEach(([o, c, op]) => el('stop', { offset: o, style: `stop-color:${c};stop-opacity:${op == null ? 1 : op}` }, g));
+  };
+  grad('sky', [[0, 'var(--hero-bg)'], [0.75, 'var(--hero-bg-2)'], [1, 'var(--gold)', 0.55]]);
+  grad('fshade', [[0, '#000', 0], [1, '#000', 0.18]]);
+  grad('haze', [[0, 'var(--hero-bg-2)', 0.85], [1, 'var(--hero-bg-2)', 0]]);
+  el('rect', { width: VW, height: HY + 1, fill: 'url(#sky)' }, sc);
+  el('rect', { y: HY, width: VW, height: VH - HY, style: 'fill:var(--ground)' }, sc);
+  // gramado central com faixas de corte e calçadas
+  const ZF = 400, zs = [4.4]; while (zs[zs.length - 1] < 60) zs.push(zs[zs.length - 1] * 1.16);
+  for (let j = 0; j < zs.length - 1; j++) el('polygon', { points: pts([P(-LW, 0, zs[j]), P(LW, 0, zs[j]), P(LW, 0, zs[j + 1]), P(-LW, 0, zs[j + 1])]), style: `fill:var(${j % 2 ? '--lawn-2' : '--lawn'})` }, sc);
+  el('polygon', { points: pts([P(-LW, 0, 60), P(LW, 0, 60), P(LW, 0, ZF), P(-LW, 0, ZF)]), style: 'fill:var(--lawn)' }, sc);
+  for (const s of [-1, 1]) {
+    el('polygon', { points: pts([P(s * LW, 0, 4.4), P(s * (XI - 0.1), 0, 4.4), P(s * (XI - 0.1), 0, ZF), P(s * LW, 0, ZF)]), style: 'fill:var(--walk)' }, sc);
+    const a0 = P(s * LW, 0, 4.4); el('line', { x1: a0[0], y1: a0[1], x2: 600, y2: HY, style: 'stroke:var(--gold);stroke-opacity:.4;stroke-width:1' }, sc);
+  }
+  // o Congresso no ponto de fuga: as duas torres ligadas
+  const cg = el('g', { style: 'fill:var(--gold)' }, sc);
+  el('rect', { x: 560, y: HY - 2, width: 80, height: 3, rx: 1 }, cg);
+  el('rect', { x: 592.5, y: HY - 40, width: 6, height: 39 }, cg);
+  el('rect', { x: 601.5, y: HY - 40, width: 6, height: 39 }, cg);
+  el('rect', { x: 592.5, y: HY - 24, width: 15, height: 2.5 }, cg);
+  el('rect', { x: 0, y: HY - 22, width: VW, height: 22, fill: 'url(#haze)', style: 'opacity:.0' }, sc);
+  // prédios: do fundo para a frente
+  const slots = new Array(NS_SLOTS * 2);
+  for (let k = NS_SLOTS - 1; k >= 0; k--) {
+    const Z = Z0 + k * STEP;
+    for (const s of [-1, 1]) {
+      const g = el('g', { class: 'bld empty' }, sc);
+      const front = [P(s * XI, 0, Z), P(s * (XI + LB), 0, Z), P(s * (XI + LB), HB, Z), P(s * XI, HB, Z)];
+      const inner = [P(s * XI, 0, Z), P(s * XI, 0, Z + WD), P(s * XI, HB, Z + WD), P(s * XI, HB, Z)];
+      const roof = [P(s * XI, HB, Z), P(s * (XI + LB), HB, Z), P(s * (XI + LB), HB, Z + WD), P(s * XI, HB, Z + WD)];
+      const fi = el('polygon', { points: pts(inner), class: 'face' }, g);
+      el('polygon', { points: pts(inner), class: 'shade', style: 'fill:#000;fill-opacity:.32' }, g);
+      const ff = el('polygon', { points: pts(front), class: 'face' }, g);
+      el('polygon', { points: pts(front), class: 'shade', fill: 'url(#fshade)' }, g);
+      const fr = el('polygon', { points: pts(roof), class: 'face' }, g);
+      el('polygon', { points: pts(roof), class: 'shade', style: 'fill:#fff;fill-opacity:.28' }, g);
+      const w = el('g', { class: 'win', style: 'stroke:#000;stroke-opacity:.16;stroke-width:.8' }, g);
+      for (let j = 1; j < 10; j++) {
+        const Y = j * HB / 10, a = P(s * XI, Y, Z), b = P(s * (XI + LB), Y, Z), c = P(s * XI, Y, Z + WD);
+        el('line', { x1: a[0], y1: a[1], x2: b[0], y2: b[1] }, w); el('line', { x1: a[0], y1: a[1], x2: c[0], y2: c[1] }, w);
+      }
+      const slot = { g, faces: [fi, ff, fr], data: null };
+      slots[k * 2 + (s < 0 ? 0 : 1)] = slot;
+      const tipFor = ev => { if (!slot.data) return; const r = slot.data;
+        showTip(`<div class="t">${esc(r.p)}</div><div class="r">${esc(r.n)}</div><div class="r"><i class="sw" style="background:${cssBg(r.pt)}"></i>${info(r.pt)[0]}</div><div class="r">No cargo desde ${fmtDate(r.i)}</div>`, ev); };
+      g.addEventListener('pointermove', tipFor);
+      g.addEventListener('pointerdown', tipFor);
+      g.addEventListener('pointerleave', hideTip);
+    }
+  }
+  function paintScene(i) {
+    const list = sortedList(i);
+    slots.forEach((s, k) => {
+      const r = list[k];
+      s.data = r || null;
+      s.g.classList.toggle('empty', !r);
+      if (r) s.faces.forEach(f => f.style.fill = fillOf(r.pt, 's-'));
+    });
+  }
+
+  // ── faixa e lista de partidos do mês ──
+  const strip = document.getElementById('strip'), plist = document.getElementById('plist');
+  const stripEls = {};
+  for (const k of order) { const e = document.createElement('i'); e.style.background = cssBg(k); e.style.flexGrow = 0; e.hidden = true; strip.appendChild(e); stripEls[k] = e; }
+  function paintStrip(i) {
+    const c = counts[i];
+    const ks = Object.keys(c).sort((a, b) => (a === 'SFP') - (b === 'SFP') || c[b] - c[a] || order.indexOf(a) - order.indexOf(b));
+    for (const k of order) { const e = stripEls[k]; e.hidden = !c[k]; e.style.flexGrow = c[k] || 0; e.style.order = ks.indexOf(k); }
+    plist.innerHTML = ks.map(k => `<span><i class="sw" style="background:${cssBg(k)}"></i>${info(k)[0]} <b>${c[k]}</b></span>`).join('');
+  }
+
+  // ── linha do tempo ──
+  const range = document.getElementById('mes'), band = document.getElementById('band');
+  const bandBtns = GOVS.map(([n, sh], gi) => {
+    const b = document.createElement('button'); b.type = 'button';
+    b.innerHTML = `<span class="lg">${n}</span><span class="sh">${sh}</span>`; b.setAttribute('aria-label', n);
+    b.style.width = `calc(${(gEnd(gi) - gStart(gi) + 1) / N * 100}% - 3px)`;
+    b.addEventListener('click', () => { stop(); set(gStart(gi) + (gi === 4 ? 1 : 3)); });
+    band.appendChild(b); return b;
+  });
+  range.addEventListener('input', () => { stop(); set(+range.value); });
+
+  // ── gráficos da série ──
+  const maxY = Math.max(...counts.map(c => Object.values(c).reduce((a, b) => a + b, 0)));
+  const yMax = Math.ceil(maxY / 5) * 5;
+  let W, x, x2, y2, svgA, curA, hovA, curC, dotC, dotS;
+  const L = 30, R = 8, T = 26, B = 24;
+  const leg = document.getElementById('leg');
+  for (const k of order) { const s = document.createElement('span'); s.innerHTML = `<i class="sw" style="background:${cssBg(k)}"></i>${info(k)[0]}`; leg.appendChild(s); }
+  function idxFromEvent(ev) {
+    const pt = svgA.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY;
+    const p = pt.matrixTransform(svgA.getScreenCTM().inverse());
+    return Math.max(0, Math.min(N - 1, Math.round((p.x - L) / (W - L - R) * (N - 1))));
+  }
+  function draw() {
+    const boxA = document.getElementById('area'), boxC = document.getElementById('coal');
+    W = Math.max(300, Math.round(boxA.clientWidth));
+    const narrow = W < 620, step = narrow ? 6 : 3, H = narrow ? 250 : 320;
+    x = i => L + (W - L - R) * i / (N - 1);
+    const y = v => T + (H - T - B) * (1 - v / yMax);
+    boxA.innerHTML = ''; boxC.innerHTML = '';
+    svgA = el('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': 'Ministérios por partido, mês a mês, de 2003 a 2025' }, boxA);
+    patterns(svgA, 'a-');
+    for (let v = 0; v <= yMax; v += 5) {
+      el('line', { x1: L, x2: W - R, y1: y(v), y2: y(v), style: 'stroke:var(--grid)' }, svgA);
+      el('text', { x: L - 6, y: y(v) + 4, 'text-anchor': 'end' }, svgA).textContent = v;
+    }
+    const base = new Array(N).fill(0);
+    for (const k of order) {
+      const top = base.map((b, i) => b + (counts[i][k] || 0));
+      if (top.every((t, i) => t === base[i])) continue;
+      let d = '';
+      for (let i = 0; i < N; i++) d += (i ? 'L' : 'M') + x(i).toFixed(1) + ',' + y(top[i]).toFixed(1);
+      for (let i = N - 1; i >= 0; i--) d += 'L' + x(i).toFixed(1) + ',' + y(base[i]).toFixed(1);
+      el('path', { d: d + 'Z', style: `fill:${fillOf(k, 'a-')};stroke:var(--surface);stroke-width:.7` }, svgA);
+      for (let i = 0; i < N; i++) base[i] = top[i];
+    }
+    GOVS.forEach(([n, sh], gi) => {
+      const i = gStart(gi), nx = gi < GOVS.length - 1 ? gStart(gi + 1) : N - 1;
+      if (gi) el('line', { x1: x(i), x2: x(i), y1: T - 8, y2: H - B, style: 'stroke:var(--faint);stroke-dasharray:3 3;opacity:.7' }, svgA);
+      el('text', { x: (x(i) + x(nx)) / 2, y: T - 12, 'text-anchor': 'middle' }, svgA).textContent = narrow ? sh : n;
+    });
+    for (let yr = 2004; yr <= 2025; yr += step) el('text', { x: x(months.indexOf(yr + '-01')), y: H - 6, 'text-anchor': 'middle' }, svgA).textContent = yr;
+    curA = el('line', { y1: T - 8, y2: H - B, style: 'stroke:var(--text);stroke-width:2' }, svgA);
+    hovA = el('line', { y1: T - 8, y2: H - B, style: 'stroke:var(--text);stroke-width:1;opacity:0' }, svgA);
+    const hit = el('rect', { x: L, y: T - 8, width: W - L - R, height: H - B - T + 8, style: 'fill:transparent;cursor:pointer' }, svgA);
+    hit.addEventListener('pointermove', ev => {
+      const i = idxFromEvent(ev), c = counts[i];
+      hovA.setAttribute('x1', x(i)); hovA.setAttribute('x2', x(i)); hovA.style.opacity = .45;
+      const rows = Object.keys(c).sort((a, b) => (a === 'SFP') - (b === 'SFP') || c[b] - c[a])
+        .map(k => `<div class="r"><i class="sw" style="background:${cssBg(k)}"></i>${info(k)[0]}: ${c[k]}</div>`).join('');
+      showTip(`<div class="t">${label(i)} · ${GOVS[govIdx(mDate(i))][0]}</div>${rows}`, ev);
+    });
+    hit.addEventListener('pointerleave', () => { hovA.style.opacity = 0; hideTip(); });
+    hit.addEventListener('click', ev => { stop(); set(idxFromEvent(ev)); document.getElementById('topo').scrollIntoView({ behavior: 'smooth' }); });
+
+    const H2 = narrow ? 210 : 240, L2 = 38, T2 = 12;
+    x2 = i => L2 + (W - L2 - R) * i / (N - 1); y2 = v => T2 + (H2 - T2 - B) * (1 - v / 100);
+    const svgC = el('svg', { viewBox: `0 0 ${W} ${H2}`, width: W, height: H2, role: 'img', 'aria-label': 'Coalescência do gabinete e porcentagem das cadeiras com os partidos do gabinete, 2003 a 2025' }, boxC);
+    for (let v = 0; v <= 100; v += 25) {
+      el('line', { x1: L2, x2: W - R, y1: y2(v), y2: y2(v), style: 'stroke:var(--grid)' }, svgC);
+      el('text', { x: L2 - 6, y: y2(v) + 4, 'text-anchor': 'end' }, svgC).textContent = v + '%';
+    }
+    for (let yr = 2004; yr <= 2025; yr += step) el('text', { x: x2(months.indexOf(yr + '-01')), y: H2 - 6, 'text-anchor': 'middle' }, svgC).textContent = yr;
+    GOVS.forEach((g, gi) => { if (gi) el('line', { x1: x2(gStart(gi)), x2: x2(gStart(gi)), y1: T2, y2: H2 - B, style: 'stroke:var(--faint);stroke-dasharray:3 3;opacity:.5' }, svgC); });
+    const line = (key, style) => {
+      let d = '', pen = false;
+      D.serie.forEach((s, i) => { const v = s[key]; if (v == null) { pen = false; return; } d += (pen ? 'L' : 'M') + x2(i).toFixed(1) + ',' + y2(v).toFixed(1); pen = true; });
+      el('path', { d, style: 'fill:none;stroke-width:2.5;stroke-linejoin:round;' + style }, svgC);
+    };
+    line('cadeiras', 'stroke:var(--accent);stroke-dasharray:4 3');
+    line('coal', 'stroke:var(--primary)');
+    curC = el('line', { y1: T2, y2: H2 - B, style: 'stroke:var(--faint);stroke-width:1' }, svgC);
+    dotC = el('circle', { r: 5, style: 'fill:var(--primary);stroke:var(--surface);stroke-width:2' }, svgC);
+    dotS = el('circle', { r: 5, style: 'fill:var(--accent);stroke:var(--surface);stroke-width:2' }, svgC);
+  }
+
+  // ── momentos ──
+  const MOMENTS = [
+    ['2003-01', 'O PT no comando', 'Lula I começa com 17 das 29 pastas nas mãos do PT e mais sete partidos aliados no gabinete. Juntos, os oito somavam só 48% das cadeiras da Câmara.'],
+    ['2007-04', 'O PMDB chega', 'No segundo mandato, o PMDB fica com cinco ministérios, 29 das 30 pastas têm ministro filiado e a base no gabinete passa de 69% da Câmara.'],
+    ['2015-10', 'A reforma de Dilma', 'Na reforma ministerial de outubro de 2015, a Esplanada encolhe para 27 pastas e o PMDB, com sete, quase empata com o PT, que fica com oito.'],
+    ['2016-05', 'O gabinete mais partidário', 'Temer assume com 21 ministérios, todos com ministros filiados, de 11 partidos. A coalescência, de 89%, é a maior de toda a série.'],
+    ['2019-06', 'A “nova política”', 'Bolsonaro deixa 10 das 18 pastas com ministros sem partido. Os partidos do gabinete somam 32% da Câmara, e a coalescência cai para 32%.'],
+    ['2021-08', 'O Centrão na Casa Civil', 'Ciro Nogueira (PP) assume a Casa Civil, mas a base no gabinete não cresce: os partidos com ministério seguem com 51% das cadeiras, e a coalescência continua baixa, em 28%.'],
+    ['2022-04', 'Uma Esplanada quase sem partidos', 'Com a saída dos ministros que disputariam a eleição, só 4 das 20 pastas ficam com filiados. A coalescência chega a 15%, o mínimo da série.'],
+    ['2023-09', 'A frente ampla', 'Com a entrada de PP e Republicanos, Lula III chega a 11 partidos no gabinete e a 70% das cadeiras da Câmara, em 34 ministérios.']
+  ];
+  const mBox = document.getElementById('moments');
+  for (const [m, h, p] of MOMENTS) {
+    const i = months.indexOf(m), b = document.createElement('button'); b.type = 'button'; b.className = 'moment';
+    b.innerHTML = `<span class="d">${longLabel(i)} · ${GOVS[govIdx(mDate(i))][0]}</span><h3>${h}</h3><p>${p}</p><span class="go">Ver na Esplanada ↑</span>`;
+    b.addEventListener('click', () => { stop(); set(i); document.getElementById('topo').scrollIntoView({ behavior: 'smooth' }); });
+    mBox.appendChild(b);
+  }
+
+  // ── atualização ──
+  const tbody = document.getElementById('tbody');
+  let cur = 0;
+  function set(i) {
+    cur = i; range.value = i;
+    const d = mDate(i), gi = govIdx(d), s = D.serie[i];
+    document.getElementById('gov').textContent = GOVS[gi][0];
+    document.getElementById('when').textContent = longLabel(i);
+    bandBtns.forEach((b, j) => b.setAttribute('aria-pressed', j === gi ? 'true' : 'false'));
+    document.getElementById('k1').innerHTML = `${s.partidarias}<small>de ${s.pastas}</small>`;
+    document.getElementById('k2').textContent = s.partidos;
+    document.getElementById('k3').textContent = pct(s.cadeiras);
+    document.getElementById('k4').textContent = pct(s.coal);
+    paintScene(i); paintStrip(i);
+    curA.setAttribute('x1', x(i)); curA.setAttribute('x2', x(i));
+    curC.setAttribute('x1', x2(i)); curC.setAttribute('x2', x2(i));
+    if (s.coal != null) { dotC.setAttribute('cx', x2(i)); dotC.setAttribute('cy', y2(s.coal)); dotC.style.opacity = 1; } else dotC.style.opacity = 0;
+    dotS.setAttribute('cx', x2(i)); dotS.setAttribute('cy', y2(s.cadeiras));
+    const list = sortedList(i);
+    document.getElementById('tblTitle').textContent = `Todos os ministros em ${longLabel(i)} (${list.length})`;
+    tbody.innerHTML = '';
+    for (const r of list) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${esc(r.p)}</td><td>${esc(r.n)}</td><td><i class="sw" style="background:${cssBg(r.pt)};vertical-align:-2px;margin-right:7px"></i>${info(r.pt)[0]}</td><td class="num">${fmtDate(r.i)}</td>`;
+      tbody.appendChild(tr);
+    }
+  }
+
+  // ── animação ──
+  const play = document.getElementById('play'), playTxt = document.getElementById('playTxt'), playIcon = document.getElementById('playIcon');
+  let timer = null, played = false;
+  function stop() {
+    if (!timer) return;
+    clearInterval(timer); timer = null;
+    playTxt.textContent = cur >= N - 1 ? 'Ver de novo' : 'Continuar'; playIcon.setAttribute('d', 'M4 2.5v11l9-5.5z'); play.setAttribute('aria-pressed', 'false');
+  }
+  function start() {
+    played = true;
+    if (cur >= N - 1) set(0);
+    playTxt.textContent = 'Pausar'; playIcon.setAttribute('d', 'M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z'); play.setAttribute('aria-pressed', 'true');
+    timer = setInterval(() => { if (cur >= N - 1) return stop(); set(cur + 1); }, 110);
+  }
+  play.addEventListener('click', () => timer ? stop() : start());
+
+  draw(); set(0);
+  let rz; new ResizeObserver(() => { clearTimeout(rz); rz = setTimeout(() => { const w = Math.round(document.getElementById('area').clientWidth); if (w !== W) { draw(); set(cur); } }, 120); }).observe(document.getElementById('area'));
+  // começa sozinho, uma vez, quando a Esplanada aparece na tela
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => { if (es[0].isIntersecting && !played) { io.disconnect(); setTimeout(() => { if (!played) start(); }, 700); } }, { threshold: 0.5 });
+    io.observe(document.getElementById('scene'));
+  }
+})();
+</script>
+</body>
+</html>

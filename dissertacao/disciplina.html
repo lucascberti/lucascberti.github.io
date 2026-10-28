@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A disciplina partidária</title>
+<meta name="description" content="Quanto os deputados seguem a orientação do próprio partido, partido a partido, ano a ano e deputado a deputado, dentro e fora do gabinete (2003-2025).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<nav class="topnav" aria-label="Páginas"><div class="wrap"><a class="brand" href="index.html">Da Emenda ao <em>Ministério?</em></a><div class="navlinks"><a href="esplanada.html"><span class="n">01</span>A Esplanada</a><a href="ministerio.html"><span class="n">02</span>Ministério e apoio</a><a href="disciplina.html" aria-current="page"><span class="n">03</span>A disciplina</a><a href="deputado.html"><span class="n">04</span>Seu deputado</a><a href="plenario.html"><span class="n">05</span>O plenário</a></div></div></nav>
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">03 · A disciplina partidária · 2003-2025</p>
+    <h1>Com ou sem ministério, o deputado segue o <em>partido</em></h1>
+    <p class="lede">A disciplina partidária mede quanto os deputados votam como o líder do seu partido orientou. Ela é alta em quase todos os partidos e muda pouco quando o partido entra ou sai do gabinete. Escolha um governo para ver cada partido.</p>
+    <p class="erro" id="erro" hidden>Não foi possível carregar os dados desta página. Os arquivos da pasta “dados” precisam estar junto das páginas, num servidor; aberta direto do computador, com duplo clique, a página não consegue lê-los.</p>
+    <div class="swarm" style="border-top:0;margin-top:26px;padding-top:0">
+      <div class="band" id="band" aria-label="Escolha o governo"></div>
+      <p class="pnote" id="pnote"></p>
+      <div id="pchart"></div>
+      <div class="legend">
+        <span><svg width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="5" style="fill:var(--gold)"/></svg>enquanto tinha ministério</span>
+        <span><svg width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="4.2" style="fill:none;stroke:var(--cream);stroke-width:1.8"/></svg>enquanto não tinha ministério</span>
+        <span>À direita, a diferença entre dentro e fora do gabinete, em pontos percentuais (p.p.). O eixo começa em 30%.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<main class="wrap">
+  <section class="sec">
+    <p class="kicker">Duas medidas, ano a ano</p>
+    <h2>O ministério separa o apoio, não a disciplina</h2>
+    <p class="intro">Médias dos votos de deputados de partidos com e sem ministério em cada ano. No apoio ao governo, as duas linhas ficam longe uma da outra; na disciplina partidária, quase se sobrepõem. As duas partes usam a mesma escala.</p>
+    <div class="panel">
+      <div class="dumb">
+        <div><h3>Disciplina partidária</h3><p class="sub">% dos votos iguais à orientação do próprio partido</p><div class="lchart" id="yd"></div></div>
+        <div><h3>Apoio ao governo</h3><p class="sub">% dos votos iguais à orientação do líder do governo</p><div class="lchart" id="ya"></div></div>
+      </div>
+      <div class="dkey">
+        <span><i style="width:18px;height:3px;border-radius:2px;background:var(--accent);display:inline-block"></i>partidos com ministério</span>
+        <span><i style="width:18px;height:3px;border-radius:2px;background:var(--primary);display:inline-block"></i>partidos sem ministério</span>
+        <span><svg width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="4" style="fill:var(--surface);stroke:var(--muted);stroke-width:1.5"/></svg>2025: orientação dos partidos registrada em só 40% dos votos</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="kicker">Partido a partido</p>
+    <h2>A disciplina de cada partido ao longo do tempo</h2>
+    <p class="intro">Escolha até seis partidos para comparar. Cada ponto é um ano; a linha some nos anos em que o partido teve menos de 10 votações com orientação. O eixo se ajusta aos partidos escolhidos.</p>
+    <div class="dpanel">
+      <div class="pchips" id="chips" role="group" aria-label="Partidos no gráfico"></div>
+      <div class="lchart" id="pano"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="kicker">A coalizão no plenário</p>
+    <h2>Disciplina da coalizão e derrotas do governo, mês a mês</h2>
+    <p class="intro">Em cima, a disciplina média dos partidos com ministério em cada mês, com a média de cada governo em destaque. Embaixo, quantas votações o governo perdeu no mesmo mês. Meses sem votação ficam em branco.</p>
+    <div class="panel">
+      <div class="lchart" id="mes"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="kicker">Deputado a deputado</p>
+    <h2>Quem mais vota contra o próprio partido?</h2>
+    <p class="intro">Todos os deputados com pelo menos 20 votos com orientação do partido no governo escolhido, do menos ao mais fiel ao partido (ou ao contrário). Busque um nome para ver a posição do deputado; clique nele para abrir os seus votos.</p>
+    <div class="panel">
+      <div class="band lband" id="band2" aria-label="Escolha o governo"></div>
+      <div class="rtools">
+        <div class="rfil"><label>Partido <select id="rp"></select></label><label class="rname">Nome <input id="rq" type="search" autocomplete="off" spellcheck="false" placeholder="Buscar deputado"></label></div>
+        <div class="seg lseg" role="group" aria-label="Ordem"><button type="button" data-o="1" aria-pressed="true">Menos fiéis primeiro</button><button type="button" data-o="-1" aria-pressed="false">Mais fiéis primeiro</button></div>
+      </div>
+      <p class="rsum" id="rsum"></p>
+      <ol class="rank" id="rank"></ol>
+      <button type="button" class="rmore" id="rmore" hidden>Mostrar mais</button>
+    </div>
+  </section>
+
+  <section class="sec notes">
+    <p class="kicker">Fontes e critérios</p>
+    <p>Votações nominais em plenário da Câmara dos Deputados, de proposições do Poder Executivo, de 2003 a 2025: base de dados não publicada de Acir Almeida (sistematizada a partir do Banco de Dados Legislativos do CEBRAP e cedida pelo autor) até 2012 e API de Dados Abertos da Câmara a partir de 2013. <b>Disciplina partidária</b>: proporção dos votos iguais à orientação do próprio partido (ou do bloco), nas votações em que houve orientação. <b>Apoio ao governo</b>: proporção dos votos “sim” ou “não” iguais à orientação do líder do governo, nas votações em que ele orientou. Abstenções, obstruções e ausências não entram no cálculo.</p>
+    <p><b>Partido com ministério</b>: partido que tinha ao menos um ministro filiado na data da votação (Atlas do Estado Brasileiro/IPEA e levantamento próprio para Lula III). Um mesmo partido pode aparecer dentro e fora do gabinete no mesmo governo, se entrou ou saiu dele no meio do mandato.</p>
+    <p>No gráfico dos partidos, a disciplina soma os votos de todos os deputados do partido (votos que seguiram a orientação ÷ votos com orientação), como no Gráfico 6 da dissertação; em “Todos os governos” entram os partidos com pelo menos 300 votações e, em cada governo, os que tiveram pelo menos 10. O gráfico ano a ano usa a mesma amostra do Gráfico 5 (votações em que o governo orientou). A disciplina da coalizão mensal é a média dos partidos com ministério no mês. Derrota do governo: votação cujo resultado contrariou a orientação do líder do governo.</p>
+    <p>Em 2025, a fonte registra a orientação dos partidos em só 40% dos votos (contra mais de 88% nos anos anteriores), e a disciplina desse ano se apoia em menos votações. Na lista de deputados, cada um aparece com o partido e a condição (com ou sem ministério) da maior parte dos seus votos no governo, como na página “Seu deputado”. As médias simples comparam grupos e não isolam o efeito do ministério; os modelos estão no Capítulo 3 da dissertação.</p>
+    <p class="cite">BERTI, Lucas Calabró. <i>Da Emenda ao Ministério? Uma análise da reconfiguração dos vínculos políticos, da patronagem e do sucesso presidencial no Brasil (2003-2025)</i>. Dissertação (Mestrado em Ciência Política) – IESP-UERJ, Rio de Janeiro, 2026.</p>
+  </section>
+</main>
+<nav class="pagenav wrap" aria-label="Anterior e próxima"><a class="prev" href="ministerio.html"><small>← Anterior</small><span>02 · Ministério e apoio ao governo</span></a><a class="next" href="deputado.html"><small>Próxima →</small><span>04 · Seu deputado</span></a></nav>
+<footer class="foot"><div class="wrap"><span><b>Da Emenda ao Ministério?</b> · Lucas Calabró Berti · Mestrado em Ciência Política, IESP-UERJ, 2026</span><span>Dados: Câmara dos Deputados, base de dados não publicada de Acir Almeida e Atlas do Estado Brasileiro · <a href="index.html">Sobre a pesquisa</a></span></div></footer>
+<div id="tip" role="tooltip"></div>
+<script src="disciplina.js"></script>
+</body>
+</html>
