@@ -76,8 +76,9 @@ html:not(.l-es) [data-l="es"] { display: none !important; }
 }
 .a:hover, .prose a:hover, .item .by a:hover, .md a:hover, .kv a:hover { border-color: var(--primary); }
 
-/* ── cabeçalho ── */
-.site-header { background: var(--bg); }
+/* ── cabeçalho (faixa verde, como o rodapé) ── */
+.site-header { background: var(--primary); }
+[data-theme="dark"] .site-header { background: var(--bg-alt); border-bottom: 1px solid var(--line); }
 .nav { display: flex; align-items: center; gap: 1.75rem; height: 64px; }
 .brand {
   margin-right: auto; white-space: nowrap; text-decoration: none;
@@ -103,6 +104,18 @@ html:not(.l-es) [data-l="es"] { display: none !important; }
 .icon-btn svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .lang-switch button:not([aria-pressed="true"]):hover, .icon-btn:hover { color: var(--primary); }
 [data-theme="dark"] .i-moon, :root:not([data-theme="dark"]) .i-sun { display: none; }
+/* no tema claro, o cabeçalho é verde: texto claro e destaques em dourado */
+:root:not([data-theme="dark"]) .site-header .brand { color: #FFFFFF; }
+:root:not([data-theme="dark"]) .site-header .nav-links a { color: rgba(255,255,255,.74); }
+:root:not([data-theme="dark"]) .site-header .nav-links a:hover,
+:root:not([data-theme="dark"]) .site-header .nav-links a[aria-current="page"] { color: var(--accent); }
+:root:not([data-theme="dark"]) .site-header .lang-switch,
+:root:not([data-theme="dark"]) .site-header .lang-switch button + button { border-color: rgba(255,255,255,.28); }
+:root:not([data-theme="dark"]) .site-header .lang-switch button,
+:root:not([data-theme="dark"]) .site-header .icon-btn { color: rgba(255,255,255,.74); }
+:root:not([data-theme="dark"]) .site-header .lang-switch button[aria-pressed="true"] { background: var(--accent); color: #1A1A1A; }
+:root:not([data-theme="dark"]) .site-header .lang-switch button:not([aria-pressed="true"]):hover,
+:root:not([data-theme="dark"]) .site-header .icon-btn:hover { color: var(--accent); }
 
 @media (max-width: 820px) {
   .nav { flex-wrap: wrap; height: auto; padding-top: .8rem; gap: .4rem 1rem; }
