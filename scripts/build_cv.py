@@ -39,15 +39,15 @@ SECTIONS = [
 ]
 
 TEXT = {
-    'pt': {'subtitle': 'Mestrando em Ciência Política · IESP-UERJ', 'media': 'Na mídia',
+    'pt': {'subtitle': 'Mestre em Ciência Política · IESP-UERJ', 'media': 'Na mídia',
            'updated': 'Atualizado em', 'site': 'Versão completa em',
            'months': ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho',
                       'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']},
-    'en': {'subtitle': 'M.A. student in Political Science · IESP-UERJ', 'media': 'Media',
+    'en': {'subtitle': 'M.A. in Political Science · IESP-UERJ', 'media': 'Media',
            'updated': 'Updated', 'site': 'Full version at',
            'months': ['January', 'February', 'March', 'April', 'May', 'June', 'July',
                       'August', 'September', 'October', 'November', 'December']},
-    'es': {'subtitle': 'Maestrando en Ciencia Política · IESP-UERJ', 'media': 'En los medios',
+    'es': {'subtitle': 'Magíster en Ciencia Política · IESP-UERJ', 'media': 'En los medios',
            'updated': 'Actualizado en', 'site': 'Versión completa en',
            'months': ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio',
                       'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']},
